@@ -14,5 +14,5 @@
 {%- elsif body_font != "Noto Sans KR" -%}
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ body_font | replace: ' ', '+' }}:wght@400;700&display=swap">
 {%- endif %}
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <style>:root{--body:"{% if body_font == 'Pretendard' %}Pretendard Variable{% else %}{{ body_font }}{% endif %}","Noto Sans KR",sans-serif}</style>

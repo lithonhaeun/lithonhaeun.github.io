@@ -6,6 +6,6 @@
 <body>
 {% include nav.html %}
 {{ content }}
-<script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>
