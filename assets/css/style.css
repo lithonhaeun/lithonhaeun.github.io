@@ -66,15 +66,15 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .board__big{margin:0;font-family:var(--pixel);font-size:34px;letter-spacing:-1px}
 .board__small{margin:0;font-size:11px}
 .grid{display:grid;background:var(--bg)}
-.grid--4{grid-template-columns:repeat(4,minmax(0,1fr));margin:0 -1px -1px 0}
+.grid--4{grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));margin:0 -1px -1px 0}
 .grid--4>.card{border-right:1px solid var(--red);border-bottom:1px solid var(--red)}
-.grid--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:684px;padding:0 1px 1px 0}
+.grid--2{grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));padding:0 1px 1px 0}
 .grid__item{display:flex;background:var(--bg);border:1px solid var(--red);margin:0 -1px -1px 0}
 .grid__item[hidden]{display:none}
-.card{flex:1;background:var(--bg);display:flex;flex-direction:column;align-items:center;gap:20px;padding:34px 32px 26px;transition:background .15s}
+.card{flex:1;min-width:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2vw,20px);padding:clamp(22px,3vw,34px) clamp(18px,2.6vw,32px) clamp(18px,2vw,26px);transition:background .15s}
 .card:hover{background:#faf6e6}
 .card__folios{width:100%;display:flex;justify-content:space-between;gap:8px;font-family:var(--sans);font-size:14px}
-.card__img{width:100%;aspect-ratio:2/1;background:#fff;border:1px solid var(--red);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card__img{width:100%;aspect-ratio:16/9;background:#fff;border:1px solid var(--red);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .card__img img{height:80%;width:auto;object-fit:contain}
 .card__title{font-size:15px;line-height:1.35;text-align:center;min-height:2.7em;word-break:keep-all}
 .card__arrow{align-self:flex-end;width:23px;height:23px;fill:none;stroke:var(--red);stroke-width:1}
@@ -111,12 +111,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pagehead--list{height:190px}
 .pagehead__big{margin:0;font-family:var(--pixel);font-weight:400;font-size:64px}
 .pagehead__bear{position:absolute;right:0;bottom:-24px;width:140px;height:auto}
-.tabs{display:flex;flex-wrap:wrap;gap:14px;padding:24px 16px}
-.tab{min-width:150px;padding:13px 22px;border:1px solid var(--red);font-family:var(--sans);font-size:15px;color:#000;transition:background .15s}
+.tabs{display:flex;flex-wrap:wrap;gap:clamp(8px,1.4vw,14px);padding:24px clamp(16px,3vw,40px)}
+.tab{min-width:clamp(96px,14vw,150px);padding:clamp(9px,1.2vw,13px) clamp(14px,2vw,22px);border:1px solid var(--red);font-family:var(--sans);font-size:15px;color:#000;transition:background .15s}
 .tab small{font-size:11px;opacity:.6;margin-left:4px}
 .tab:hover{background:rgba(202,30,8,.06)}
 .tab.is-on{background:var(--red);color:var(--bg)}
-.listwrap{padding:8px 16px 40px}
+.listwrap{padding:8px clamp(16px,3vw,40px) 40px}
 .empty{padding:60px 0;text-align:center;opacity:.7}
 
 /* post */
@@ -215,7 +215,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 
 /* ───── responsive ───── */
 @media (max-width:1000px){
-  .grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .with-sidebar{flex-direction:column}
   .sidebar{width:auto;border-right:1px solid var(--red);border-bottom:1px solid var(--red);padding:24px 16px;flex-direction:row;flex-wrap:wrap;align-items:flex-start;justify-content:center}
   .profile{width:auto;padding:0}
@@ -231,7 +230,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   .niche{width:31vw}
   .receipt{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(320px,90vw);min-height:0;z-index:50;animation:none}
   .board{margin:0 12px}
-  .grid--4,.grid--2{grid-template-columns:1fr}
   .section{padding:48px 20px 24px}
   .prose{padding:48px 20px}
   .postnav{grid-template-columns:1fr}
