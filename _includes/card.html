@@ -16,7 +16,9 @@
   {%- else -%}
   <span class="card__img card__img--text"><span class="card__excerpt">{{ include.post.content | strip_html | normalize_whitespace | truncate: 160 }}</span></span>
   {%- endif -%}
-  <span class="card__title">{{ include.post.title }}</span>
-  <time class="card__date" datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y. %m. %d." }}</time>
+  <span class="card__meta">
+    <span class="card__title">{{ include.post.title }}</span>
+    <time class="card__date" datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%Y. %m. %d." }}</time>
+  </span>
   <svg class="card__arrow" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>
 </a>

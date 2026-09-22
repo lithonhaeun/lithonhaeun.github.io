@@ -77,13 +77,14 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .card{flex:1;min-width:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;gap:clamp(12px,1.7vw,18px);padding:clamp(18px,2.4vw,28px) clamp(14px,2vw,24px) clamp(16px,1.8vw,22px);transition:background .15s}
 .card:hover{background:#faf6e6}
 .card__folios{width:100%;display:flex;justify-content:space-between;gap:8px;font-family:var(--sans);font-size:14px}
-.card__img{width:100%;aspect-ratio:4/3;background:#fff;border:1px solid var(--red);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card__img{width:100%;aspect-ratio:16/9;background:#fff;border:1px solid var(--red);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .card__img--photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .card:hover .card__img--photo img{transform:scale(1.04)}
 .card__img--text{align-items:flex-start;justify-content:flex-start;padding:clamp(12px,1.6vw,18px)}
-.card__excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden;font-family:var(--body,var(--sans));font-size:13px;line-height:1.65;color:rgba(17,17,17,.42);text-align:left;word-break:keep-all;overflow-wrap:anywhere}
-.card__title{font-size:15px;line-height:1.35;text-align:center;min-height:2.7em;word-break:keep-all}
-.card__date{font-family:'Space Mono',monospace;font-size:11px;opacity:.55;margin-top:-10px}
+.card__excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;font-family:var(--body,var(--sans));font-size:13px;line-height:1.65;color:rgba(17,17,17,.42);text-align:left;word-break:keep-all;overflow-wrap:anywhere}
+.card__title{font-size:15px;line-height:1.35;text-align:center;word-break:keep-all}
+.card__meta{display:flex;flex-direction:column;align-items:center;gap:6px}
+.card__date{font-family:'Space Mono',monospace;font-size:11px;opacity:.55}
 .card__arrow{align-self:flex-end;width:23px;height:23px;fill:none;stroke:var(--red);stroke-width:1}
 
 /* footer */
