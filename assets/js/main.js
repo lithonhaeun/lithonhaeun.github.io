@@ -40,7 +40,15 @@
       t.classList.toggle('is-on', on);
     });
     if (!found) { sub = ''; tabs.querySelector('.tab').classList.add('is-on'); }
-    items.forEach(function (it) { it.hidden = !!sub && it.getAttribute('data-sub') !== sub; });
+    var shown = 0;
+    items.forEach(function (it) {
+      var hide = !!sub && it.getAttribute('data-sub') !== sub;
+      it.classList.remove('is-swap');
+      it.hidden = hide;
+      if (!hide) { it.style.setProperty('--d', (shown % 8) * 0.05 + 's'); shown++; }
+    });
+    void tabs.offsetWidth; // 애니메이션 다시 재생
+    items.forEach(function (it) { if (!it.hidden) it.classList.add('is-swap'); });
   }
   function fromHash() {
     var h = '';
