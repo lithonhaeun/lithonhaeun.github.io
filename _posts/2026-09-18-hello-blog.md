@@ -4,7 +4,6 @@ categories: [personal, profile]
 description: 깃허브 블로그를 시작하면서 앞으로 어떤 글을 쓸지 정리했어요.
 ---
 
-> 예시 글이에요. 자유롭게 고치거나 지워도 돼요.
 
 ## 왜 블로그를 시작했나
 
