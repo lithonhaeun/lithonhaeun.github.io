@@ -11,11 +11,10 @@ timezone: Asia/Seoul
 
 # 프로필 (사이드바, About Me, 하단 링크)
 author:
-  name: Olive Oil
+  name: 이빨 곰돌이
   handle: lithon
   image: /assets/img/profile.jpg
-  intro: "[한두 줄 자기소개를 적어주세요]"
-  email: "[이메일 주소]"
+  intro: "안녕하세요. 저를 기록하기위해 만든 페이지입니다."
   github: https://github.com/lithonhaeun
   naver: https://blog.naver.com/s103174
 

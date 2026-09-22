@@ -178,9 +178,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .acc__head::-webkit-details-marker{display:none}
 .acc__head>a{font-size:17px;font-weight:700}
 .acc__head>a:hover{text-decoration:underline}
-.acc__chev{margin-left:auto;width:9px;height:9px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);transition:transform .2s}
+.acc__chev{margin-left:auto;width:9px;height:9px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .acc__item[open] .acc__chev{transform:rotate(-135deg)}
 .acc__bear{position:absolute;right:90px;bottom:0;width:100px;height:auto;pointer-events:none}
+.acc__panel{overflow:hidden}
 .acc__list{list-style:none;margin:0;padding:6px 0 18px;border-top:1px solid var(--red)}
 .acc__list a{display:flex;align-items:center;gap:10px;padding:13px 46px;font-size:15px}
 .acc__list a:hover{background:rgba(202,30,8,.04)}

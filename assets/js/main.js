@@ -83,3 +83,32 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (e) { io.observe(e); });
 })();
+
+// Categories: 카테고리를 접고 펼 때 부드럽게
+(function () {
+  var items = document.querySelectorAll('.acc__item');
+  if (!items.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  items.forEach(function (d) {
+    var sum = d.querySelector('summary');
+    var panel = d.querySelector('.acc__panel');
+    if (!sum || !panel || reduce || !panel.animate) return;
+    var busy = false;
+    sum.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;      // 카테고리 이름은 링크 그대로
+      e.preventDefault();
+      if (busy) return;
+      busy = true;
+      var open = d.open;
+      if (!open) d.open = true;
+      var h = panel.scrollHeight;
+      var from = open ? h : 0;
+      var to = open ? 0 : h;
+      var an = panel.animate(
+        [{ height: from + 'px', opacity: open ? 1 : 0 }, { height: to + 'px', opacity: open ? 0 : 1 }],
+        { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }
+      );
+      an.onfinish = function () { if (open) d.open = false; busy = false; };
+    });
+  });
+})();
