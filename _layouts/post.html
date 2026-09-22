@@ -1,0 +1,66 @@
+---
+layout: default
+---
+{%- assign main_cat = page.categories[0] -%}
+{%- assign sub_cat = page.categories[1] -%}
+{%- assign cat = site.data.categories | where: "id", main_cat | first -%}
+{%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == main_cat" -%}
+{%- assign sub_posts = cat_posts | where_exp: "p", "p.categories[1] == sub_cat" -%}
+{%- assign newer = nil -%}{%- assign older = nil -%}
+{%- for p in cat_posts -%}
+  {%- if p.url == page.url -%}
+    {%- assign i_newer = forloop.index0 | minus: 1 -%}
+    {%- if forloop.index0 > 0 -%}{%- assign newer = cat_posts[i_newer] -%}{%- endif -%}
+    {%- assign older = cat_posts[forloop.index] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- capture list_url -%}{{ '/category/' | append: main_cat | append: '/' | relative_url }}#{{ sub_cat | slugify }}{%- endcapture -%}
+
+<header class="posthead">
+  <p class="posthead__meta"><a href="{{ '/category/' | append: main_cat | append: '/' | relative_url }}">{{ main_cat }}</a> # <a href="{{ list_url }}">{{ sub_cat }}</a></p>
+  <h1 class="posthead__title">{{ page.title }}</h1>
+  <p class="posthead__date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+  {% if cat %}<img class="pagehead__bear" src="{{ cat.small | relative_url }}" alt="">{% endif %}
+</header>
+
+<div class="with-sidebar">
+  {% include sidebar.html %}
+  <main class="main">
+    <article class="prose">
+      {{ content }}
+    </article>
+
+    <nav class="postnav" aria-label="이전 글, 다음 글">
+      <div class="postnav__cell{% unless older %} is-empty{% endunless %}">
+        <div class="postnav__top"><a href="{{ list_url }}">목록</a><span>{% if older %}{{ older.categories[1] }}<br>{{ older.title }}{% else %}처음 글이에요{% endif %}</span></div>
+        <div class="postnav__bottom">
+          {% if older %}<a class="postnav__go" href="{{ older.url | relative_url }}" aria-label="이전 글: {{ older.title }}"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M79 40H3M40 2L2 40L40 78"/></svg></a>{% else %}<span></span>{% endif %}
+          <img src="{{ '/assets/img/pumpkin.png' | relative_url }}" alt="">
+        </div>
+      </div>
+      <div class="postnav__cell{% unless newer %} is-empty{% endunless %}">
+        <div class="postnav__top"><span>{% if newer %}{{ newer.categories[1] }}<br>{{ newer.title }}{% else %}마지막 글이에요{% endif %}</span><a href="{{ list_url }}">목록</a></div>
+        <div class="postnav__bottom">
+          <img src="{{ '/assets/img/tomato.png' | relative_url }}" alt="">
+          {% if newer %}<a class="postnav__go" href="{{ newer.url | relative_url }}" aria-label="다음 글: {{ newer.title }}"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M1 40H77M40 2L78 40L40 78"/></svg></a>{% else %}<span></span>{% endif %}
+        </div>
+      </div>
+      <div class="postnav__others">
+        <p>{{ sub_cat }}의 다른글</p>
+        <ul>
+          {%- for p in sub_posts limit: 7 -%}
+          <li><a href="{{ p.url | relative_url }}"{% if p.url == page.url %} class="is-on" aria-current="page"{% endif %}>{{ p.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </nav>
+
+    {% if site.utterances.repo %}
+    <section class="comments">
+      <script src="https://utteranc.es/client.js" repo="{{ site.utterances.repo }}" issue-term="pathname" label="comment" theme="{{ site.utterances.theme }}" crossorigin="anonymous" async></script>
+    </section>
+    {% endif %}
+
+    {% include footer.html %}
+  </main>
+</div>

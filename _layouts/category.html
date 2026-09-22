@@ -1,0 +1,24 @@
+---
+layout: sidebar
+---
+{%- assign cat = site.data.categories | where: "id", page.cat | first -%}
+{%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == page.cat" -%}
+{%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+<header class="pagehead pagehead--list">
+  <h1 class="pagehead__big">{{ page.cat }}</h1>
+  <img class="pagehead__bear" src="{{ cat.small | relative_url }}" alt="">
+</header>
+<div class="tabs" role="tablist" data-tabs>
+  <button type="button" class="tab is-on" data-sub="">전체 <small>{{ cat_posts.size }}</small></button>
+  {%- for sub in subs -%}
+  <button type="button" class="tab" data-sub="{{ sub.name | slugify }}">{{ sub.name }} <small>{{ sub.size }}</small></button>
+  {%- endfor -%}
+</div>
+<div class="listwrap">
+  {%- if cat_posts.size == 0 -%}<p class="empty">아직 작성된 글이 없어요</p>{%- endif -%}
+  <div class="grid grid--2" data-cards>
+    {%- for post in cat_posts -%}
+    <div class="grid__item" data-sub="{{ post.categories[1] | slugify }}">{% include card.html post=post %}</div>
+    {%- endfor -%}
+  </div>
+</div>

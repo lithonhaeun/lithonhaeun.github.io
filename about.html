@@ -1,0 +1,42 @@
+---
+layout: default
+title: About Me
+permalink: /about/
+description: lithon(Olive Oil) 소개
+---
+<header class="posthead">
+  <p class="posthead__meta">About Me</p>
+  <h1 class="posthead__title pixel">{{ site.author.name }}</h1>
+  <p class="posthead__date">@{{ site.author.handle }}</p>
+  <img class="pagehead__bear" src="{{ '/assets/img/bear-personal-small.png' | relative_url }}" alt="">
+</header>
+<div class="with-sidebar">
+  {% include sidebar.html %}
+  <main class="main">
+    <div class="about">
+      <section>
+        <img class="about__photo" src="{{ site.author.image | relative_url }}" alt="{{ site.author.name }} 프로필 사진" width="180" height="180">
+        <h2 class="h-pixel">HELLO</h2>
+        <p>{{ site.author.intro }}</p>
+      </section>
+      <section>
+        <h2 class="h-pixel">WHAT I WRITE</h2>
+        <ul class="pills pills--center">
+          {%- for cat in site.data.categories -%}
+          {%- assign n = site.posts | where_exp: "p", "p.categories[0] == cat.id" | size -%}
+          <li><a class="pill" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">{{ cat.id }} <small>{{ n }}</small></a></li>
+          {%- endfor -%}
+        </ul>
+      </section>
+      <section>
+        <h2 class="h-pixel">CONTACT</h2>
+        <ul class="about__contact">
+          <li><a href="{{ site.author.github }}" target="_blank" rel="noopener">Github · {{ site.author.github | remove: 'https://' }}</a></li>
+          <li><a href="{{ site.author.naver }}" target="_blank" rel="noopener">Naver Blog · {{ site.author.naver | remove: 'https://' }}</a></li>
+          <li>Email · {{ site.author.email }}</li>
+        </ul>
+      </section>
+    </div>
+    {% include footer.html %}
+  </main>
+</div>

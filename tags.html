@@ -1,0 +1,28 @@
+---
+layout: sidebar
+title: Tags
+permalink: /tags/
+description: lithon 블로그의 부카테고리(태그) 모음
+---
+{%- assign items = "" | split: "" -%}
+{%- assign total = 0 -%}
+{%- for cat in site.data.categories -%}
+  {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
+  {%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+  {%- for sub in subs -%}
+    {%- capture it -%}{{ sub.name | downcase }}|{{ sub.name }}|{{ cat.id }}|{{ sub.size }}{%- endcapture -%}
+    {%- assign items = items | push: it -%}
+    {%- assign total = total | plus: sub.size -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign items = items | sort -%}
+<div class="section">
+  <h1 class="h-pixel">Tags</h1>
+  <p class="muted">{{ items.size }} tags · {{ total }} posts</p>
+  <ul class="pills">
+    {%- for it in items -%}
+    {%- assign f = it | split: "|" -%}
+    <li><a class="pill" href="{{ '/category/' | append: f[2] | append: '/' | relative_url }}#{{ f[1] | slugify }}">{{ f[1] }} <small>{{ f[3] }}</small></a></li>
+    {%- endfor -%}
+  </ul>
+</div>

@@ -1,0 +1,26 @@
+{%- assign cur_cat = page.cat | default: page.categories[0] -%}
+<aside class="sidebar">
+  <a class="profile" href="{{ '/about/' | relative_url }}">
+    <img src="{{ site.author.image | relative_url }}" alt="{{ site.author.name }} 프로필 사진" width="118" height="118">
+    <span>{{ site.author.name }}</span>
+  </a>
+  <nav class="sidebar__nav" aria-label="블로그 메뉴">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <div class="tree">
+      <a class="tree__root" href="{{ '/categories/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>Categories</a>
+      {%- for cat in site.data.categories -%}
+      {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
+      {%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+      <div class="tree__cat">
+        <a class="tree__label{% if cur_cat == cat.id %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>{{ cat.id }}</a>
+        {%- for sub in subs -%}
+        <a class="tree__sub{% if cur_cat == cat.id and page.categories[1] == sub.name %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub.name | slugify }}">{{ sub.name }}</a>
+        {%- endfor -%}
+      </div>
+      {%- endfor -%}
+    </div>
+    <a href="{{ '/tags/' | relative_url }}">Tags</a>
+    <a href="{{ '/archives/' | relative_url }}">Archives</a>
+    <a href="{{ '/about/' | relative_url }}">About Me</a>
+  </nav>
+</aside>

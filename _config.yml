@@ -1,0 +1,65 @@
+# ─────────────────────────────────────────────
+#  사이트 기본 정보 (여기만 바꾸면 사이트 전체에 반영돼요)
+# ─────────────────────────────────────────────
+title: lithon의 github 블로그
+tagline: 안녕하세요 lithon의 github 블로그 입니다
+description: 공부한 내용과 일상을 기록하는 lithon의 기술 블로그입니다. 알고리즘, 프로그래밍 언어, 토익 공부 기록을 정리합니다.
+lang: ko_KR
+url: https://lithonhaeun.github.io
+baseurl: ""
+timezone: Asia/Seoul
+
+# 프로필 (사이드바, About Me, 하단 링크)
+author:
+  name: Olive Oil
+  handle: lithon
+  image: /assets/img/profile.jpg
+  intro: "[한두 줄 자기소개를 적어주세요]"
+  email: "[이메일 주소]"
+  github: https://github.com/lithonhaeun
+  naver: https://blog.naver.com/s103174
+
+# 본문 글꼴 (README '글꼴 바꾸기' 참고)
+#  Pretendard, Noto Sans KR, IBM Plex Sans KR, Nanum Gothic, Gowun Dodum, Nanum Myeongjo 등
+fonts:
+  body: Pretendard
+
+# 댓글 (utterances) – README의 '댓글 켜기'를 먼저 해주세요
+utterances:
+  repo: lithonhaeun/lithonhaeun.github.io
+  theme: github-light
+
+# 검색 노출
+logo: /assets/img/profile.jpg
+social:
+  name: lithon
+  links:
+    - https://github.com/lithonhaeun
+    - https://blog.naver.com/s103174
+webmaster_verifications:
+  google: ""          # 구글 서치 콘솔 인증 코드
+naver_site_verification: ""   # 네이버 서치어드바이저 인증 코드
+
+# 빌드 설정 (건드리지 않아도 돼요)
+permalink: /posts/:year/:month/:day/:title/
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

@@ -1,0 +1,18 @@
+# 홈 화면의 곰돌이 선반 (왼쪽부터 순서대로)
+# id는 글 머리의 categories 첫 번째 값과 같아야 해요.
+# tag_left: 상표가 아치 왼쪽에서 얼마나 떨어져 걸리는지(%), bear_width: 아치 안 곰돌이 크기(%)
+- id: personal
+  bear: /assets/img/bear-personal.png
+  small: /assets/img/bear-personal-small.png
+  bear_width: 64
+  tag_left: 7.8
+- id: study
+  bear: /assets/img/bear-study.png
+  small: /assets/img/bear-study-small.png
+  bear_width: 65
+  tag_left: 19.3
+- id: major
+  bear: /assets/img/bear-major.png
+  small: /assets/img/bear-major-small.png
+  bear_width: 76
+  tag_left: 9.5
