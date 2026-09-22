@@ -36,13 +36,13 @@ layout: default
         <div class="postnav__top"><a href="{{ list_url }}">목록</a><span>{% if older %}{{ older.categories[1] }}<br>{{ older.title }}{% else %}처음 글이에요{% endif %}</span></div>
         <div class="postnav__bottom">
           {% if older %}<a class="postnav__go" href="{{ older.url | relative_url }}" aria-label="이전 글: {{ older.title }}"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M79 40H3M40 2L2 40L40 78"/></svg></a>{% else %}<span></span>{% endif %}
-          <img src="{{ '/assets/img/pumpkin.png' | relative_url }}" alt="">
+          {%- if older -%}{% include thumb.html post=older %}<img class="postnav__thumb" src="{% if thumb_url contains '://' %}{{ thumb_url }}{% else %}{{ thumb_url | relative_url }}{% endif %}" alt="">{%- endif -%}
         </div>
       </div>
       <div class="postnav__cell{% unless newer %} is-empty{% endunless %}">
         <div class="postnav__top"><span>{% if newer %}{{ newer.categories[1] }}<br>{{ newer.title }}{% else %}마지막 글이에요{% endif %}</span><a href="{{ list_url }}">목록</a></div>
         <div class="postnav__bottom">
-          <img src="{{ '/assets/img/tomato.png' | relative_url }}" alt="">
+          {%- if newer -%}{% include thumb.html post=newer %}<img class="postnav__thumb" src="{% if thumb_url contains '://' %}{{ thumb_url }}{% else %}{{ thumb_url | relative_url }}{% endif %}" alt="">{%- endif -%}
           {% if newer %}<a class="postnav__go" href="{{ newer.url | relative_url }}" aria-label="다음 글: {{ newer.title }}"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M1 40H77M40 2L78 40L40 78"/></svg></a>{% else %}<span></span>{% endif %}
         </div>
       </div>

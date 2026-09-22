@@ -174,7 +174,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .postnav__cell:first-child .postnav__top span{text-align:right}
 .postnav__top a:hover{text-decoration:underline}
 .postnav__bottom{display:flex;justify-content:space-between;align-items:flex-end}
-.postnav__bottom img{width:100px;height:100px;object-fit:contain}
+.postnav__thumb{width:120px;height:80px;object-fit:cover;background:#fff;border:1px solid rgba(202,30,8,.35);display:block}
+img.postnav__thumb{transition:transform .3s}
+.postnav__cell:hover img.postnav__thumb{transform:scale(1.03)}
 .postnav__go svg{width:70px;height:70px;fill:none;stroke:var(--red);stroke-width:2;transition:transform .2s}
 .postnav__go:hover svg{transform:scale(1.08)}
 .postnav__cell.is-empty .postnav__top span{opacity:.5}

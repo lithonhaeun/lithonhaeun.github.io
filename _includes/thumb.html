@@ -1,0 +1,20 @@
+{%- comment -%} include.post 의 썸네일 주소를 thumb_url 에 담아요 (없으면 빈 값) {%- endcomment -%}
+{%- assign thumb_url = include.post.image -%}
+{%- unless thumb_url -%}
+  {%- assign _tp = include.post.content | split: '<img' -%}
+  {%- if _tp.size > 1 -%}
+    {%- assign _ts = _tp[1] | split: 'src="' -%}
+    {%- if _ts.size > 1 -%}{%- assign thumb_url = _ts[1] | split: '"' | first -%}{%- endif -%}
+  {%- endif -%}
+{%- endunless -%}
+{%- unless thumb_url -%}
+  {%- assign _tm = include.post.content | split: '](' -%}
+  {%- if _tm.size > 1 -%}
+    {%- assign _tu = _tm[1] | split: ')' | first | split: ' ' | first -%}
+    {%- if _tu contains '.png' or _tu contains '.jpg' or _tu contains '.jpeg' or _tu contains '.webp' or _tu contains '.gif' -%}{%- assign thumb_url = _tu -%}{%- endif -%}
+  {%- endif -%}
+{%- endunless -%}
+{%- unless thumb_url -%}
+  {%- assign _tc = site.data.categories | where: "id", include.post.categories[0] | first -%}
+  {%- if _tc -%}{%- assign thumb_url = _tc.small -%}{%- endif -%}
+{%- endunless -%}
