@@ -1,7 +1,21 @@
-{%- assign c = site.data.categories | where: "id", include.post.categories[0] | first -%}
+{%- comment -%}
+  썸네일 우선순위: 글 머리의 image → 본문의 첫 번째 사진 → (없으면) 본문 앞부분을 연하게
+{%- endcomment -%}
+{%- assign thumb = include.post.image -%}
+{%- unless thumb -%}
+  {%- assign _parts = include.post.content | split: '<img' -%}
+  {%- if _parts.size > 1 -%}
+    {%- assign _src = _parts[1] | split: 'src="' -%}
+    {%- if _src.size > 1 -%}{%- assign thumb = _src[1] | split: '"' | first -%}{%- endif -%}
+  {%- endif -%}
+{%- endunless -%}
 <a class="card" href="{{ include.post.url | relative_url }}"{% if include.reveal %} data-reveal{% endif %}>
   {%- if include.folios -%}<span class="card__folios"><span>{{ include.post.categories[0] }}</span><span>{{ include.post.categories[1] }}</span></span>{%- endif -%}
-  <span class="card__img"><img src="{{ include.post.image | default: c.small | default: '/assets/img/food.png' | relative_url }}" alt="" loading="lazy"></span>
+  {%- if thumb -%}
+  <span class="card__img card__img--photo"><img src="{% if thumb contains '://' %}{{ thumb }}{% else %}{{ thumb | relative_url }}{% endif %}" alt="" loading="lazy"></span>
+  {%- else -%}
+  <span class="card__img card__img--text"><span class="card__excerpt">{{ include.post.content | strip_html | normalize_whitespace | truncate: 160 }}</span></span>
+  {%- endif -%}
   <span class="card__title">{{ include.post.title }}</span>
   <svg class="card__arrow" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>
 </a>
