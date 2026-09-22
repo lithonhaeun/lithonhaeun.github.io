@@ -123,6 +123,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .tree__label.is-on{font-weight:700}
 .tree__sub{text-align:center;font-size:14px;color:#3f3f3f}
 .tree__sub.is-on{color:var(--ink);font-weight:700}
+.tree__n{font-size:11px;opacity:.55}
 .main{flex:1;min-width:0;display:flex;flex-direction:column;border-right:1px solid var(--red)}
 .section{padding:80px 60px 40px}
 

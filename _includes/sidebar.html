@@ -6,6 +6,9 @@
   </a>
   <nav class="sidebar__nav" aria-label="블로그 메뉴">
     <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/tags/' | relative_url }}">Tags</a>
+    <a href="{{ '/archives/' | relative_url }}">Archives</a>
+    <a href="{{ '/about/' | relative_url }}">About Me</a>
     <div class="tree">
       <a class="tree__root" href="{{ '/categories/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>Categories</a>
       {%- for cat in site.data.categories -%}
@@ -14,13 +17,10 @@
       <div class="tree__cat">
         <a class="tree__label{% if cur_cat == cat.id %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>{{ cat.id }}</a>
         {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
-        <a class="tree__sub{% if cur_cat == cat.id and page.categories[1] == sub_name %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}">{{ sub_name }}</a>
+        <a class="tree__sub{% if cur_cat == cat.id and page.categories[1] == sub_name %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}">{{ sub_name }} <span class="tree__n">({{ sub_size }})</span></a>
         {%- endfor -%}
       </div>
       {%- endfor -%}
     </div>
-    <a href="{{ '/tags/' | relative_url }}">Tags</a>
-    <a href="{{ '/archives/' | relative_url }}">Archives</a>
-    <a href="{{ '/about/' | relative_url }}">About Me</a>
   </nav>
 </aside>
