@@ -38,8 +38,8 @@ image: /assets/img/내이미지.png   # (선택) 카드 썸네일을 직접 정�
 여기에 내용을 마크다운으로 써요.
 ```
 
-- `categories` 의 **첫 번째 값**은 큰 카테고리(`personal`, `study`, `major` 중 하나), **두 번째 값**은 부카테고리예요.
-- 부카테고리는 아무 이름이나 새로 써도 돼요. 영수증, Categories, Tags 화면에 **자동으로** 생겨요.
+- `categories` 의 **첫 번째 값**은 큰 카테고리(`personal`, `study`, `major` 중 하나), **두 번째 값**은 태그예요.
+- 태그는 아무 이름이나 새로 써도 돼요. 영수증, Categories, Tags 화면에 **자동으로** 생겨요.
 - `## 제목` 은 도트 폰트의 큰 소제목, `### 제목` 은 작은 소제목이 돼요.
 - 코드 블록은 ```` ```python ```` 처럼 언어를 적으면 색이 입혀져요.
 - **썸네일**: 본문의 첫 번째 사진이 자동으로 썸네일이 돼요. 사진이 없으면 글 앞부분이 연하게 보여요.
@@ -96,15 +96,4 @@ http://localhost:4000 에서 확인할 수 있어요.
 
 ## 7. 글꼴 바꾸기
 
-`_config.yml` 의 `fonts: body:` 값만 바꾸면 본문 글꼴이 바뀌어요. (제목·메뉴의 도트 폰트는 그대로예요)
-
-| 값 | 느낌 |
-| --- | --- |
-| `Pretendard` (기본) | 요즘 블로그에서 가장 많이 쓰는 깔끔한 고딕 |
-| `Noto Sans KR` | 구글 기본 고딕, 무난함 |
-| `IBM Plex Sans KR` | 약간 개발자스러운 단단한 고딕 |
-| `Nanum Gothic` | 익숙한 네이버 고딕 |
-| `Gowun Dodum` | 둥글고 부드러운 느낌 |
-| `Nanum Myeongjo` | 명조(책 느낌) |
-
-구글 폰트(https://fonts.google.com)에 있는 한글 글꼴 이름이면 뭐든 넣을 수 있어요.
+본문과 한글 글꼴은 조선굴림(ChosunGu)을 쓰고 있어요. `assets/css/style.css` 맨 위의 `@font-face` 와 `:root` 의 `--sans`, `--body` 를 고치면 바뀌어요. 제목의 도트 글꼴(DotGothic16)과 영문 숫자용 Space Mono 는 `_includes/head.html` 에서 불러와요.

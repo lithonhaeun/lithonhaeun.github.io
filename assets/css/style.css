@@ -1,9 +1,16 @@
+@font-face{
+  font-family:'JoseonGulim';
+  src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+  font-weight:normal;
+  font-display:swap;
+}
 /* ───────── lithon blog ───────── */
 :root{
   --bg:#fdfdf2; --red:#ca1e08; --ink:#8e1606; --text:#111111; --panel:#f2f2e8;
   --pixel:'DotGothic16',monospace;
-  --mono:'Space Mono','Noto Sans KR',monospace;
-  --sans:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'Space Mono','JoseonGulim','Noto Sans KR',monospace;
+  --sans:'JoseonGulim','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  --body:'JoseonGulim','Noto Sans KR',-apple-system,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-padding-top:60px}
@@ -49,7 +56,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .receipt{position:absolute;left:0;top:-3.7%;width:100%;min-height:119%;z-index:5;display:flex;
   filter:drop-shadow(0 13px 9px rgba(0,0,0,.20));animation:pop .18s ease-out}
 .receipt__paper{flex:1;display:flex;flex-direction:column;align-items:center;background:#fffdf7;
-  padding:30px 16px 26px;color:#1a1a1a;font-family:'Space Mono','Noto Sans KR',monospace}
+  padding:30px 16px 26px;color:#1a1a1a;font-family:'Space Mono','JoseonGulim','Noto Sans KR',monospace}
 .receipt[hidden]{display:none}
 @keyframes pop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 .receipt__title{margin:10px 0 0;font-weight:700;font-size:20px;letter-spacing:.32em;text-indent:.32em}
@@ -61,16 +68,16 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .receipt__head{display:flex;justify-content:space-between;width:100%;margin:0 0 10px;font-size:9.5px;letter-spacing:.2em;opacity:.55}
 .receipt__list{list-style:none;margin:0;padding:0;width:100%;display:flex;flex-direction:column;gap:9px}
 .receipt__list a{display:flex;align-items:baseline;gap:6px;width:100%}
-.receipt__item{font-family:'Noto Sans KR',sans-serif;font-size:12.5px;white-space:nowrap}
+.receipt__item{font-family:var(--sans);font-size:12.5px;white-space:nowrap}
 .receipt__dots{flex:1;border-bottom:1px dotted rgba(0,0,0,.4);transform:translateY(-3px)}
 .receipt__n{font-size:12px;font-weight:700;white-space:nowrap}
 .receipt__list a:hover .receipt__item{text-decoration:underline}
-.receipt__empty{font-family:'Noto Sans KR',sans-serif;font-size:11px;opacity:.5;text-align:center}
+.receipt__empty{font-family:var(--sans);font-size:11px;opacity:.5;text-align:center}
 .receipt__total{display:flex;justify-content:space-between;width:100%;margin:0;font-size:13px;font-weight:700;letter-spacing:.14em}
 .receipt__barcode{width:74%;height:34px;margin-top:auto;
   background:repeating-linear-gradient(90deg,#1a1a1a 0 2px,transparent 2px 4px,#1a1a1a 4px 5px,transparent 5px 9px,#1a1a1a 9px 12px,transparent 12px 14px)}
 .receipt__code{margin:6px 0 0;font-size:9px;letter-spacing:.2em;opacity:.7}
-.receipt__note{margin:10px 0 0;font-family:'Noto Sans KR',sans-serif;font-size:9.5px;opacity:.45}
+.receipt__note{margin:10px 0 0;font-family:var(--sans);font-size:9.5px;opacity:.45}
 
 /* hello board + grid */
 .board{margin:0 40px;border:1px solid var(--red);overflow:hidden}
