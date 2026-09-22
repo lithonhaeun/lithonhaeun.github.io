@@ -14,7 +14,7 @@ description: lithon 블로그의 전체 카테고리 목록
       <summary class="acc__head">
         <svg class="ico" viewBox="0 0 18 16" aria-hidden="true"><path d="M1 2h5l2 2h9v11H1z"/></svg>
         <a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">{{ cat.id }}</a>
-        <span class="muted">{{ sub_names.size }} categories , {{ cat_posts.size }} posts</span>
+        <span class="muted">{{ sub_names.size }} tags , {{ cat_posts.size }} {% if cat_posts.size == 1 %}post{% else %}posts{% endif %}</span>
         <span class="acc__chev" aria-hidden="true"></span>
         <img class="acc__bear" src="{{ cat.small | relative_url }}" alt="">
       </summary>

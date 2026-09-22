@@ -2,7 +2,7 @@
 layout: sidebar
 title: Tags
 permalink: /tags/
-description: lithon 블로그의 부카테고리(태그) 모음
+description: lithon 블로그의 태그 모음
 ---
 {%- assign items = "" | split: "" -%}
 {%- assign total = 0 -%}
@@ -22,7 +22,7 @@ description: lithon 블로그의 부카테고리(태그) 모음
   <ul class="pills">
     {%- for it in items -%}
     {%- assign f = it | split: "|" -%}
-    <li><a class="pill" href="{{ '/category/' | append: f[2] | append: '/' | relative_url }}#{{ f[1] | slugify }}">{{ f[1] }} <small>{{ f[3] }}</small></a></li>
+    <li class="rise" style="--d:{{ forloop.index0 | times: 40 }}ms"><a class="pill" href="{{ '/category/' | append: f[2] | append: '/' | relative_url }}#{{ f[1] | slugify }}">{{ f[1] }} <small>{{ f[3] }}</small></a></li>
     {%- endfor -%}
   </ul>
 </div>
