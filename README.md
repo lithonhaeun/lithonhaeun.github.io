@@ -1,99 +1,102 @@
-# lithon의 github 블로그
+<div align="center">
 
-곰돌이 선반 디자인의 Jekyll 블로그예요. GitHub Pages가 자동으로 빌드해줘서, 글 파일을 올리기만 하면 사이트에 반영돼요.
+<img src="assets/img/profile.jpg" width="120" alt="이빨곰돌이" />
+
+# 이빨곰돌이의 기록장
+
+공부한 것과 일상을 곰돌이 선반에 정리해두는 개인 블로그입니다.
+
+**[블로그 보러가기 →](https://lithonhaeun.github.io)**
+
+</div>
 
 ---
 
-## 1. 처음 한 번만: 블로그 올리기
+## 곰돌이를 사면 글이 따라옵니다
 
-1. GitHub에서 **새 저장소**를 만들어요. 이름은 반드시 `lithonhaeun.github.io` 로 해주세요. (Public)
-2. 이 폴더 안의 파일을 **전부** 저장소에 올려요.
-   ```bash
-   cd 이_폴더
-   git init
-   git add .
-   git commit -m "블로그 시작"
-   git branch -M main
-   git remote add origin https://github.com/lithonhaeun/lithonhaeun.github.io.git
-   git push -u origin main
-   ```
-3. 저장소 **Settings → Pages** 에서 Source를 `Deploy from a branch`, Branch를 `main` / `/(root)` 로 저장해요.
-4. 1~3분 뒤 https://lithonhaeun.github.io 에 접속하면 끝이에요.
+이 블로그는 **인형 가게** 처럼 만들었습니다.
 
-## 2. 새 글 쓰기
+홈 화면에 들어가면 진열장 아치 안에 곰돌이 세 마리가 앉아 있습니다. 각자 목에 이름표를 걸고 있고, 이름표에는 그 곰돌이가 가진 글이 몇 개인지 적혀 있습니다.
 
-`_posts` 폴더에 `날짜-영어제목.md` 파일을 만들어요. (예: `2026-09-23-dijkstra.md`)
-파일 이름은 영어로 해야 주소가 깔끔해요. 제목은 한글로 써도 돼요.
+```
+      곰돌이를 고른다            영수증을 받는다             글을 펼친다
+   ┌──────────────┐        ┌──────────────┐        ┌──────────────┐
+   │   personal   │        │   RECEIPT    │        │  블로그 글    │
+   │    study     │  ───▶  │  TAG  POSTS  │  ───▶  │              │
+   │    major     │        │  토익 ···· 1  │        │  본문 · 댓글  │
+   └──────────────┘        └──────────────┘        └──────────────┘
+```
+
+곰돌이를 누르면 진열장 위로 **영수증**이 떠오릅니다. 영수증에는 그 곰돌이가 품고 있는 태그들이 품목처럼 줄지어 적히고, 옆에는 글 개수가, 아래에는 합계와 바코드가 찍혀 있습니다.
+
+영수증의 품목을 누르면 결제가 끝나고, 그 태그의 글 목록으로 넘어갑니다. 목에 걸린 이름표를 누르면 그 카테고리 전체를 둘러볼 수 있습니다.
+
+| 카테고리 | 곰돌이 | 담긴 이야기 |
+| --- | --- | --- |
+| **personal** | 선글라스를 쓴 곰돌이 | 공예, 일기, 여행 |
+| **study** | 공책에 필기하는 곰돌이 | 토익, 프로젝트 기록 |
+| **major** | 노트북을 든 곰돌이 | 전공 공부 |
+
+## 기능
+
+- **자동 집계** — 글 머리말에 카테고리와 태그만 적으면, 영수증의 품목과 개수, 이름표의 숫자, 태그 페이지가 알아서 채워집니다. 따로 관리할 목록이 없습니다.
+- **자동 썸네일** — 본문의 첫 번째 사진이 카드 썸네일이 됩니다. 사진이 없는 글은 앞부분을 연하게 보여줍니다.
+- **반응형** — 화면 너비에 맞춰 카드 칸 수가 늘었다 줄었다 합니다. 폰에서는 영수증이 화면 가운데 팝업으로 뜹니다.
+- **검색 노출** — 글마다 제목과 설명 메타 태그가 붙고, 사이트맵과 RSS가 자동으로 만들어집니다.
+- **잔잔한 움직임** — 스크롤하면 글 카드가 아래에서 떠오르고, 태그를 바꾸면 카드가 하나씩 나타납니다.
+- **댓글** — GitHub Issues에 쌓이는 utterances를 연결했습니다.
+
+## 만든 것들
+
+- Jekyll 4 / GitHub Pages
+- 순수 HTML·CSS·JavaScript (프레임워크 없음)
+- [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag), [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap), [jekyll-feed](https://github.com/jekyll/jekyll-feed)
+- [utterances](https://utteranc.es)
+- 글꼴: [조선굴림](https://noonnu.cc), DotGothic16, Space Mono
+
+## 폴더 구조
+
+```
+├── _data/categories.yml   # 카테고리와 태그 정의
+├── _includes/             # 사이드바, 카드, 썸네일 등 공통 조각
+├── _layouts/              # 글·카테고리·사이드바 레이아웃
+├── _posts/                # 글 (마크다운)
+├── assets/                # 이미지, CSS, JS
+├── category/              # 카테고리별 페이지
+└── about · tags · archives · categories.html
+```
+
+## 글은 이렇게 씁니다
+
+`_posts` 폴더에 `2026-09-23-제목.md` 파일을 만들고 머리말을 적습니다.
 
 ```markdown
 ---
 title: 다익스트라 알고리즘 정리
-categories: [major, 알고리즘]
-description: 검색 결과에 보일 한 줄 요약 (검색 노출에 중요해요!)
-image: /assets/img/내이미지.png   # (선택) 카드 썸네일을 직접 정할 때만
+categories: [major, Computer network]
+description: 검색 결과에 보일 한 줄 요약
 ---
 
 ## 개념
 
-여기에 내용을 마크다운으로 써요.
+본문은 마크다운으로 씁니다.
 ```
 
-- `categories` 의 **첫 번째 값**은 큰 카테고리(`personal`, `study`, `major` 중 하나), **두 번째 값**은 태그예요.
-- 태그는 아무 이름이나 새로 써도 돼요. 영수증, Categories, Tags 화면에 **자동으로** 생겨요.
-- `## 제목` 은 도트 폰트의 큰 소제목, `### 제목` 은 작은 소제목이 돼요.
-- 코드 블록은 ```` ```python ```` 처럼 언어를 적으면 색이 입혀져요.
-- **썸네일**: 본문의 첫 번째 사진이 자동으로 썸네일이 돼요. 사진이 없으면 글 앞부분이 연하게 보여요.
-- 사진은 `assets/img/` 폴더에 넣고 본문에 `![설명](/assets/img/사진이름.png)` 처럼 써요.
-- 저장하고 push하면 1~3분 뒤 반영돼요.
+자세한 운영 방법은 [GUIDE.md](GUIDE.md) 에 정리해두었습니다.
 
-예시 글 5개는 마음대로 고치거나 지워도 돼요.
-
-## 3. 댓글 켜기 (utterances)
-
-1. https://github.com/apps/utterances 에서 **Install** → `lithonhaeun.github.io` 저장소만 선택해요.
-2. 저장소 **Settings → General → Features** 에서 **Issues** 가 켜져 있는지 확인해요.
-
-이것만 하면 글 아래 댓글창이 동작해요. 댓글은 저장소 Issues에 저장돼요.
-
-## 4. 검색 노출 (구글 · 네이버)
-
-사이트맵(`/sitemap.xml`), 글마다 제목·설명 메타태그, RSS(`/feed.xml`)는 이미 자동으로 만들어져요. 검색엔진에 등록만 하면 돼요.
-
-**구글**
-1. https://search.google.com/search-console → 속성 추가 → **URL 접두어** 에 `https://lithonhaeun.github.io` 입력
-2. 확인 방법에서 **HTML 태그** 선택 → `content="..."` 안의 코드만 복사
-3. `_config.yml` 의 `webmaster_verifications: google:` 에 붙여넣고 push → 확인 버튼
-4. 왼쪽 메뉴 **Sitemaps** 에 `sitemap.xml` 제출
-
-**네이버**
-1. https://searchadvisor.naver.com → 웹마스터 도구 → 사이트 등록
-2. **HTML 태그** 방식 → `content` 코드만 복사해서 `_config.yml` 의 `naver_site_verification` 에 붙여넣고 push → 소유 확인
-3. 요청 → **사이트맵 제출** 에 `https://lithonhaeun.github.io/sitemap.xml`
-
-> 글마다 `description` 을 꼭 써주세요. 검색 결과에 보이는 문장이에요.
-
-## 5. 자주 바꾸는 것
-
-| 바꾸고 싶은 것 | 파일 |
-| --- | --- |
-| 블로그 이름, 자기소개, 이메일, 링크 | `_config.yml` |
-| 프로필 사진 | `assets/img/profile.jpg` 교체 |
-| 홈 곰돌이·상표 위치 | `_data/categories.yml` |
-| 색상·글꼴·크기 | `assets/css/style.css` 맨 위 `:root` |
-
-**큰 카테고리를 새로 추가하려면** `_data/categories.yml` 에 항목을 추가하고, `category/personal.html` 을 복사해서 이름과 `cat:` 값을 바꿔주세요.
-
-## 6. 내 컴퓨터에서 미리보기 (선택)
-
-Ruby가 설치되어 있다면:
+## 로컬에서 실행하기
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-http://localhost:4000 에서 확인할 수 있어요.
+http://localhost:4000 에서 확인할 수 있습니다.
 
-## 7. 글꼴 바꾸기
+---
 
-본문과 한글 글꼴은 조선굴림(ChosunGu)을 쓰고 있어요. `assets/css/style.css` 맨 위의 `@font-face` 와 `:root` 의 `--sans`, `--body` 를 고치면 바뀌어요. 제목의 도트 글꼴(DotGothic16)과 영문 숫자용 Space Mono 는 `_includes/head.html` 에서 불러와요.
+<div align="center">
+
+만든 사람 · [@lithonhaeun](https://github.com/lithonhaeun)
+
+</div>
