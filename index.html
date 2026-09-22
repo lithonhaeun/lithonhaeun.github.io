@@ -20,17 +20,29 @@ layout: default
       </a>
 
       <div class="receipt" id="receipt-{{ cat.id }}" hidden>
-        <p class="receipt__title">Receipt</p>
-        <a class="receipt__cat" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">category : {{ cat.id }}</a>
+        <div class="receipt__paper">
+        <p class="receipt__title">RECEIPT</p>
+        <p class="receipt__store">LITHON&rsquo;S BLOG</p>
+        <p class="receipt__meta">{{ site.time | date: "%Y-%m-%d  %H:%M" }}</p>
+        <div class="receipt__rule"></div>
+        <a class="receipt__cat" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">CATEGORY : {{ cat.id | upcase }}</a>
+        <div class="receipt__rule"></div>
+        <p class="receipt__head"><span>TAG</span><span>POSTS</span></p>
         <ul class="receipt__list">
-          {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
-          <li><a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}"><span class="receipt__box">{{ sub_name }}</span><span class="receipt__n">{{ sub_size }}posts</span></a></li>
+          {%- for sub_name in sub_names -%}
+          {%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
+          <li><a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}"><span class="receipt__item">{{ sub_name }}</span><span class="receipt__dots"></span><span class="receipt__n">{{ sub_size }}</span></a></li>
           {%- else -%}
           <li class="receipt__empty">아직 글이 없어요</li>
           {%- endfor -%}
         </ul>
-        <p class="receipt__total">total : {{ cat_posts.size }} posts</p>
+        <div class="receipt__rule"></div>
+        <p class="receipt__total"><span>TOTAL</span><span>{{ cat_posts.size }} {% if cat_posts.size == 1 %}post{% else %}posts{% endif %}</span></p>
+        <div class="receipt__rule receipt__rule--double"></div>
+        <div class="receipt__barcode" aria-hidden="true"></div>
+        <p class="receipt__code">{{ cat.id | upcase }}-{{ cat_posts.size }}-POSTS</p>
         <p class="receipt__note">영수증 지참시 7일내 환불 가능</p>
+        </div>
       </div>
     </div>
     {%- endfor -%}
