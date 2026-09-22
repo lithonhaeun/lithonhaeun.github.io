@@ -34,16 +34,17 @@ layout: default
       </div>
     </div>
     {%- endfor -%}
+    <a class="scroll-hint" href="#board" aria-label="아래로 스크롤">scroll<svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 2V26M4 16L14 26L24 16"/></svg></a>
   </section>
 
-  <section class="board">
-    <div class="board__hello">
+  <section class="board" id="board">
+    <div class="board__hello" data-reveal>
       <p class="board__big">Hello, World</p>
       <p class="board__small">Check out my daily life recipes.</p>
     </div>
     <div class="grid grid--4">
       {%- for post in site.posts limit: 12 -%}
-      {% include card.html post=post folios=true %}
+      {% include card.html post=post folios=true reveal=true %}
       {%- endfor -%}
     </div>
   </section>

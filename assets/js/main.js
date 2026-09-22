@@ -57,3 +57,21 @@
   window.addEventListener('hashchange', fromHash);
   fromHash();
 })();
+
+// 홈: 첫 화면은 곰돌이 선반만, 스크롤하면 아래 내용이 차례로 떠올라요
+(function () {
+  var els = document.querySelectorAll('[data-reveal]');
+  window.addEventListener('scroll', function () {
+    document.documentElement.classList.toggle('is-scrolled', window.scrollY > 40);
+  }, { passive: true });
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+  var cards = document.querySelectorAll('.card[data-reveal]');
+  cards.forEach(function (c, i) { c.style.setProperty('--d', (i % 4) * 0.08 + 's'); });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (e) { io.observe(e); });
+})();

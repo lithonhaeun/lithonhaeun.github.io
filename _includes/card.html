@@ -1,5 +1,5 @@
 {%- assign c = site.data.categories | where: "id", include.post.categories[0] | first -%}
-<a class="card" href="{{ include.post.url | relative_url }}">
+<a class="card" href="{{ include.post.url | relative_url }}"{% if include.reveal %} data-reveal{% endif %}>
   {%- if include.folios -%}<span class="card__folios"><span>{{ include.post.categories[0] }}</span><span>{{ include.post.categories[1] }}</span></span>{%- endif -%}
   <span class="card__img"><img src="{{ include.post.image | default: c.small | default: '/assets/img/food.png' | relative_url }}" alt="" loading="lazy"></span>
   <span class="card__title">{{ include.post.title }}</span>
