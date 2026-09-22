@@ -8,11 +8,11 @@ description: lithon 블로그의 부카테고리(태그) 모음
 {%- assign total = 0 -%}
 {%- for cat in site.data.categories -%}
   {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
-  {%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
-  {%- for sub in subs -%}
-    {%- capture it -%}{{ sub.name | downcase }}|{{ sub.name }}|{{ cat.id }}|{{ sub.size }}{%- endcapture -%}
+  {% include cat-subs.html cat=cat %}
+  {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
+    {%- capture it -%}{{ sub_name | downcase }}|{{ sub_name }}|{{ cat.id }}|{{ sub_size }}{%- endcapture -%}
     {%- assign items = items | push: it -%}
-    {%- assign total = total | plus: sub.size -%}
+    {%- assign total = total | plus: sub_size -%}
   {%- endfor -%}
 {%- endfor -%}
 {%- assign items = items | sort -%}

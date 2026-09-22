@@ -7,7 +7,7 @@ layout: default
   <section class="shelf" aria-label="카테고리">
     {%- for cat in site.data.categories -%}
     {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
-    {%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+    {% include cat-subs.html cat=cat %}
     <div class="niche" data-niche>
       <button type="button" class="niche__arch" aria-expanded="false" aria-controls="receipt-{{ cat.id }}" aria-label="{{ cat.id }} 영수증 보기">
         <img class="niche__bg" src="{{ '/assets/img/arch.png' | relative_url }}" alt="">
@@ -23,8 +23,8 @@ layout: default
         <p class="receipt__title">Receipt</p>
         <a class="receipt__cat" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">category : {{ cat.id }}</a>
         <ul class="receipt__list">
-          {%- for sub in subs -%}
-          <li><a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub.name | slugify }}"><span class="receipt__box">{{ sub.name }}</span><span class="receipt__n">{{ sub.size }}posts</span></a></li>
+          {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
+          <li><a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}"><span class="receipt__box">{{ sub_name }}</span><span class="receipt__n">{{ sub_size }}posts</span></a></li>
           {%- else -%}
           <li class="receipt__empty">아직 글이 없어요</li>
           {%- endfor -%}

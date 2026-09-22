@@ -10,11 +10,11 @@
       <a class="tree__root" href="{{ '/categories/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>Categories</a>
       {%- for cat in site.data.categories -%}
       {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
-      {%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+      {% include cat-subs.html cat=cat %}
       <div class="tree__cat">
         <a class="tree__label{% if cur_cat == cat.id %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>{{ cat.id }}</a>
-        {%- for sub in subs -%}
-        <a class="tree__sub{% if cur_cat == cat.id and page.categories[1] == sub.name %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub.name | slugify }}">{{ sub.name }}</a>
+        {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
+        <a class="tree__sub{% if cur_cat == cat.id and page.categories[1] == sub_name %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}">{{ sub_name }}</a>
         {%- endfor -%}
       </div>
       {%- endfor -%}

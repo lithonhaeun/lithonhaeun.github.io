@@ -9,18 +9,18 @@ description: lithon 블로그의 전체 카테고리 목록
   <div class="acc">
     {%- for cat in site.data.categories -%}
     {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
-    {%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+    {% include cat-subs.html cat=cat %}
     <details class="acc__item" open>
       <summary class="acc__head">
         <svg class="ico" viewBox="0 0 18 16" aria-hidden="true"><path d="M1 2h5l2 2h9v11H1z"/></svg>
         <a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">{{ cat.id }}</a>
-        <span class="muted">{{ subs.size }} categories , {{ cat_posts.size }} posts</span>
+        <span class="muted">{{ sub_names.size }} categories , {{ cat_posts.size }} posts</span>
         <span class="acc__chev" aria-hidden="true"></span>
         <img class="acc__bear" src="{{ cat.small | relative_url }}" alt="">
       </summary>
       <ul class="acc__list">
-        {%- for sub in subs -%}
-        <li><a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub.name | slugify }}"><svg class="ico ico--line" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 1.5h4.5l1.5 2h8v9H1z"/></svg>{{ sub.name }} <span class="muted">{{ sub.size }} {% if sub.size == 1 %}post{% else %}posts{% endif %}</span></a></li>
+        {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
+        <li><a href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}"><svg class="ico ico--line" viewBox="0 0 16 14" aria-hidden="true"><path d="M1 1.5h4.5l1.5 2h8v9H1z"/></svg>{{ sub_name }} <span class="muted">{{ sub_size }} {% if sub_size == 1 %}post{% else %}posts{% endif %}</span></a></li>
         {%- else -%}
         <li class="muted acc__none">아직 글이 없어요</li>
         {%- endfor -%}

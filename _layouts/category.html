@@ -3,15 +3,15 @@ layout: sidebar
 ---
 {%- assign cat = site.data.categories | where: "id", page.cat | first -%}
 {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == page.cat" -%}
-{%- assign subs = cat_posts | group_by_exp: "p", "p.categories[1]" -%}
+{% include cat-subs.html cat=cat %}
 <header class="pagehead pagehead--list">
   <h1 class="pagehead__big">{{ page.cat }}</h1>
   <img class="pagehead__bear" src="{{ cat.small | relative_url }}" alt="">
 </header>
 <div class="tabs" role="tablist" data-tabs>
   <button type="button" class="tab is-on" data-sub="">전체 <small>{{ cat_posts.size }}</small></button>
-  {%- for sub in subs -%}
-  <button type="button" class="tab" data-sub="{{ sub.name | slugify }}">{{ sub.name }} <small>{{ sub.size }}</small></button>
+  {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
+  <button type="button" class="tab" data-sub="{{ sub_name | slugify }}">{{ sub_name }} <small>{{ sub_size }}</small></button>
   {%- endfor -%}
 </div>
 <div class="listwrap">
