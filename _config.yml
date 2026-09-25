@@ -36,7 +36,7 @@ social:
     - https://github.com/lithonhaeun
     - https://blog.naver.com/s103174
 webmaster_verifications:
-  google: ""          # 구글 서치 콘솔 인증 코드
+  google: "C3YxYkm_5o51HDBv9ujiJNOUcS8CU5ODuob-6ygCzF8"          # 구글 서치 콘솔 인증 코드
 naver_site_verification: ""   # 네이버 서치어드바이저 인증 코드
 
 # 빌드 설정 (건드리지 않아도 돼요)
