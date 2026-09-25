@@ -112,3 +112,57 @@
     });
   });
 })();
+
+// 사이드바: 카테고리를 눌러서 접고 펴기 (상태는 기억돼요)
+(function () {
+  var cats = document.querySelectorAll('.tree__cat');
+  if (!cats.length) return;
+  var KEY = 'sidebar-closed';
+  var closed = {};
+  try { closed = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { closed = {}; }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(closed)); } catch (e) {} }
+
+  cats.forEach(function (cat) {
+    var id = cat.getAttribute('data-cat');
+    var btn = cat.querySelector('.tree__toggle');
+    var panel = cat.querySelector('.tree__subs');
+    if (!btn || !panel) return;
+
+    if (closed[id]) {
+      cat.classList.add('is-closed');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      var isClosed = cat.classList.contains('is-closed');
+
+      if (isClosed) {
+        cat.classList.remove('is-closed');
+        btn.setAttribute('aria-expanded', 'true');
+        delete closed[id];
+        if (!reduce && panel.animate) {
+          panel.animate(
+            [{ height: '0px', opacity: 0 }, { height: panel.scrollHeight + 'px', opacity: 1 }],
+            { duration: 260, easing: 'cubic-bezier(.2,.7,.2,1)' }
+          );
+        }
+      } else {
+        var h = panel.scrollHeight;
+        closed[id] = 1;
+        btn.setAttribute('aria-expanded', 'false');
+        if (!reduce && panel.animate) {
+          var an = panel.animate(
+            [{ height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+            { duration: 240, easing: 'cubic-bezier(.2,.7,.2,1)' }
+          );
+          an.onfinish = function () { cat.classList.add('is-closed'); };
+        } else {
+          cat.classList.add('is-closed');
+        }
+      }
+      save();
+    });
+  });
+})();
