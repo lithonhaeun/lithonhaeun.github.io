@@ -169,6 +169,19 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .prose strong{color:var(--text)}
 .prose blockquote{margin:1.5em 0;padding:4px 20px;border-left:3px solid var(--red);background:rgba(202,30,8,.04)}
 .prose img{margin:1.5em auto;border:1px solid rgba(202,30,8,.3)}
+/* 본문 사진 크기 — 글에서 {: .small } 처럼 붙여요 */
+.prose img.small{width:240px}
+.prose img.medium{width:55%;min-width:220px}
+.prose img.full{width:100%}
+/* 사진 옆에 글 쓰기 */
+.prose img.left{float:left;max-width:46%;margin:.35em 1.6em 1.1em 0}
+.prose img.right{float:right;max-width:46%;margin:.35em 0 1.1em 1.6em}
+.prose img.left.small,.prose img.right.small{max-width:none}
+.prose h2,.prose h3,.prose hr{clear:both}
+.prose .clear{clear:both}
+/* 사진 두 장 나란히 — {: .pair } 를 문단에 붙여요 */
+.prose p.pair{display:flex;gap:14px;align-items:flex-start}
+.prose p.pair img{flex:1;min-width:0;margin:1.5em 0}
 .prose hr{border:0;border-top:1px dashed var(--red);margin:3em 0}
 .prose table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;font-size:14px}
 .prose th,.prose td{border:1px solid rgba(202,30,8,.35);padding:8px 12px}
@@ -271,6 +284,9 @@ img.postnav__thumb{transition:transform .3s}
   .board{margin:0 12px}
   .section{padding:48px 20px 24px}
   .prose{padding:48px 20px}
+  .prose img.left,.prose img.right{float:none;max-width:100%;margin:1.5em auto}
+  .prose img.small,.prose img.medium{width:min(240px,100%)}
+  .prose p.pair{flex-direction:column}
   .postnav{grid-template-columns:1fr}
   .postnav__cell{border-right:0;border-bottom:1px solid var(--red);padding:24px}
   .acc__head{padding:0 16px}
