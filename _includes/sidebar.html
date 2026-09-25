@@ -10,7 +10,7 @@
     <a href="{{ '/archives/' | relative_url }}">Archives</a>
     <a href="{{ '/about/' | relative_url }}">About Me</a>
     <div class="tree">
-      <a class="tree__root" href="{{ '/categories/' | relative_url }}"><svg class="arr" viewBox="0 0 28 28" aria-hidden="true"><path d="M1 1L27 27M27 5V27H5"/></svg>Categories</a>
+      <a class="tree__root" href="{{ '/categories/' | relative_url }}">Categories</a>
       {%- for cat in site.data.categories -%}
       {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
       {% include cat-subs.html cat=cat %}
