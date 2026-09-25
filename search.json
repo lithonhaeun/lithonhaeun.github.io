@@ -1,0 +1,14 @@
+---
+layout: null
+permalink: /search.json
+sitemap: false
+---
+[{%- for post in site.posts -%}
+{"title": {{ post.title | jsonify }},
+ "url": {{ post.url | relative_url | jsonify }},
+ "date": {{ post.date | date: "%Y. %m. %d." | jsonify }},
+ "cat": {{ post.categories[0] | default: "" | jsonify }},
+ "tag": {{ post.categories[1] | default: "" | jsonify }},
+ "body": {{ post.content | strip_html | normalize_whitespace | truncate: 1500 | jsonify }}}
+{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}]

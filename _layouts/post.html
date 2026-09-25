@@ -27,7 +27,12 @@ layout: default
     {% if cat %}<img class="pagehead__bear" src="{{ cat.small | relative_url }}" alt="">{% endif %}
   </header>
 
-    <nav class="toc" aria-label="목차" hidden></nav>
+    <div class="rail">
+      <nav class="toc" aria-label="목차" hidden></nav>
+      <button type="button" class="totop" aria-label="맨 위로" hidden>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg>
+      </button>
+    </div>
 
     <article class="prose">
       {{ content }}

@@ -204,3 +204,128 @@
   window.addEventListener('resize', update, { passive: true });
   update();
 })();
+
+// 맨 위로 버튼 — 조금 내려가면 나타나요
+(function () {
+  var btn = document.querySelector('.totop');
+  if (!btn) return;
+  btn.hidden = false;
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    btn.classList.toggle('is-in', window.scrollY > 400);
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+
+  btn.addEventListener('click', function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
+})();
+
+// 사이드바 검색
+(function () {
+  var box = document.querySelector('.search');
+  if (!box) return;
+  var input = box.querySelector('.search__input');
+  var panel = box.querySelector('.search__panel');
+  if (!input || !panel) return;
+
+  var posts = null, loading = false, timer = null, hits = [], cursor = -1;
+  var base = (document.querySelector('link[rel="stylesheet"][href*="style.css"]') || {}).href || '';
+  var root = base ? base.replace(/assets\/css\/style\.css.*$/, '') : '/';
+
+  function load(then) {
+    if (posts) { then(); return; }
+    if (loading) return;
+    loading = true;
+    fetch(root + 'search.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { posts = data; loading = false; then(); })
+      .catch(function () { loading = false; posts = []; then(); });
+  }
+
+  function esc(t) {
+    return String(t).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  // 찾은 단어 주변을 조금 잘라서 보여줘요
+  function snippet(body, q) {
+    var i = body.toLowerCase().indexOf(q);
+    if (i < 0) return '';
+    var from = Math.max(0, i - 30);
+    var cut = body.slice(from, from + 110);
+    var at = cut.toLowerCase().indexOf(q);
+    if (at < 0) return esc(cut);
+    return (from > 0 ? '…' : '') + esc(cut.slice(0, at)) +
+           '<mark>' + esc(cut.slice(at, at + q.length)) + '</mark>' +
+           esc(cut.slice(at + q.length)) + '…';
+  }
+
+  function close() {
+    panel.hidden = true;
+    hits = [];
+    cursor = -1;
+  }
+
+  function render(q) {
+    var query = q.trim().toLowerCase();
+    if (!query) { close(); return; }
+
+    hits = (posts || []).filter(function (p) {
+      return (p.title + ' ' + p.cat + ' ' + p.tag + ' ' + p.body).toLowerCase().indexOf(query) > -1;
+    }).slice(0, 8);
+    cursor = -1;
+
+    if (!hits.length) {
+      panel.innerHTML = '<p class="search__none">검색 결과가 없어요</p>';
+      panel.hidden = false;
+      return;
+    }
+
+    panel.innerHTML = hits.map(function (p) {
+      var snip = snippet(p.body, query);
+      return '<a class="search__hit" href="' + esc(p.url) + '">' +
+             '<span class="search__title">' + esc(p.title) + '</span>' +
+             '<span class="search__meta">' + esc(p.cat) + ' / ' + esc(p.tag) + ' · ' + esc(p.date) + '</span>' +
+             (snip ? '<span class="search__snip">' + snip + '</span>' : '') +
+             '</a>';
+    }).join('');
+    panel.hidden = false;
+  }
+
+  function move(step) {
+    var links = panel.querySelectorAll('.search__hit');
+    if (!links.length) return;
+    cursor = (cursor + step + links.length) % links.length;
+    for (var i = 0; i < links.length; i++) links[i].classList.toggle('is-on', i === cursor);
+    links[cursor].scrollIntoView({ block: 'nearest' });
+  }
+
+  input.addEventListener('input', function () {
+    var q = input.value;
+    clearTimeout(timer);
+    timer = setTimeout(function () { load(function () { render(q); }); }, 120);
+  });
+  input.addEventListener('focus', function () { load(function () {}); });
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { close(); input.blur(); }
+    else if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+    else if (e.key === 'Enter') {
+      var links = panel.querySelectorAll('.search__hit');
+      if (links.length) { e.preventDefault(); (links[cursor] || links[0]).click(); }
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!box.contains(e.target)) close();
+  });
+})();
