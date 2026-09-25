@@ -1,7 +1,7 @@
 #!/bin/bash
 # ─────────────────────────────────────────────
 #  사진넣기 — 블로그에 사진을 쉽게 넣는 도구
-#  더블클릭하면 사진 선택창이 열려요.
+#  더블클릭하면 복사해둔 사진을 붙여넣거나 파일을 고를 수 있어요.
 #  고른 사진은 assets/img 에 정리되고,
 #  글에 붙여넣을 마크다운이 자동으로 복사돼요.
 # ─────────────────────────────────────────────
@@ -12,14 +12,45 @@ if [ ! -d "assets/img" ]; then
   exit 1
 fi
 
-# 1) 사진 고르기 (인자로 넘겨도 되고, 없으면 선택창)
+# 1) 사진 가져오기 — 인자 > 복사한 사진 > 파일 선택창
 files=()
 if [ "$#" -gt 0 ]; then
   files=("$@")
 else
-  picked=$(osascript -e 'set theFiles to choose file with prompt "블로그에 넣을 사진을 고르세요 (여러 장 가능)" of type {"public.image"} with multiple selections allowed' -e 'set out to ""' -e 'repeat with f in theFiles' -e 'set out to out & POSIX path of f & linefeed' -e 'end repeat' -e 'return out' 2>/dev/null)
-  [ -z "$picked" ] && exit 0
-  while IFS= read -r line; do [ -n "$line" ] && files+=("$line"); done <<< "$picked"
+  # 복사(Cmd+C)해둔 사진이 있는지 확인해요
+  clipinfo=$(osascript -e 'clipboard info' 2>/dev/null)
+  mode="파일 고르기"
+  if echo "$clipinfo" | grep -qE 'PNGf|TIFF picture|JPEG'; then
+    mode=$(osascript -e 'display dialog "복사해둔 사진이 있어요.
+어떻게 넣을까요?" buttons {"파일 고르기", "붙여넣기"} default button "붙여넣기" with title "사진넣기"' 2>/dev/null)
+  fi
+
+  if [[ "$mode" == *"붙여넣기"* ]]; then
+    clip="/tmp/paste-$(date +%H%M%S).png"
+    osascript <<AS >/dev/null 2>&1
+set outFile to POSIX file "$clip"
+try
+    set imgData to (the clipboard as «class PNGf»)
+on error
+    set imgData to (the clipboard as «class TIFF»)
+end try
+set fh to open for access outFile with write permission
+set eof fh to 0
+write imgData to fh
+close access fh
+AS
+    if [ -s "$clip" ]; then
+      command -v sips >/dev/null 2>&1 && sips -s format png "$clip" --out "$clip" >/dev/null 2>&1
+      files=("$clip")
+    else
+      osascript -e 'display alert "붙여넣지 못했어요" message "사진이 아니라 파일이 복사된 걸 수도 있어요. 파일 고르기로 다시 해보세요."'
+      exit 1
+    fi
+  else
+    picked=$(osascript -e 'set theFiles to choose file with prompt "블로그에 넣을 사진을 고르세요 (여러 장 가능)" of type {"public.image"} with multiple selections allowed' -e 'set out to ""' -e 'repeat with f in theFiles' -e 'set out to out & POSIX path of f & linefeed' -e 'end repeat' -e 'return out' 2>/dev/null)
+    [ -z "$picked" ] && exit 0
+    while IFS= read -r line; do [ -n "$line" ] && files+=("$line"); done <<< "$picked"
+  fi
 fi
 
 markdown=""
@@ -29,6 +60,7 @@ for src in "${files[@]}"; do
   [ -f "$src" ] || continue
 
   base=$(basename "$src")
+  case "$base" in paste-*) base="capture.png" ;; esac
   ext="${base##*.}"
   name="${base%.*}"
 
