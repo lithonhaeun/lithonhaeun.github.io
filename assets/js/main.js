@@ -113,14 +113,14 @@
   });
 })();
 
-// 사이드바: 카테고리 이름을 눌러 접고 펴기 (페이지를 열면 항상 펼쳐진 상태)
+// 사이드바: 화살표를 눌러 접고 펴기 (이름을 누르면 카테고리 페이지로 가요)
 (function () {
   var cats = document.querySelectorAll('.tree__cat');
   if (!cats.length) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   cats.forEach(function (cat) {
-    var btn = cat.querySelector('.tree__label');
+    var btn = cat.querySelector('.tree__toggle');
     var panel = cat.querySelector('.tree__subs');
     if (!btn || !panel) return;
 

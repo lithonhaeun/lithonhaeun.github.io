@@ -15,7 +15,10 @@
       {%- assign cat_posts = site.posts | where_exp: "p", "p.categories[0] == cat.id" -%}
       {% include cat-subs.html cat=cat %}
       <div class="tree__cat" data-cat="{{ cat.id }}">
-        <button type="button" class="tree__label{% if cur_cat == cat.id %} is-on{% endif %}" aria-expanded="true" aria-controls="subs-{{ cat.id }}"><span class="chev" aria-hidden="true"></span>{{ cat.id }}</button>
+        <div class="tree__head">
+          <button type="button" class="tree__toggle" aria-expanded="true" aria-controls="subs-{{ cat.id }}" aria-label="{{ cat.id }} 태그 접기/펼치기"><span class="chev" aria-hidden="true"></span></button>
+          <a class="tree__label{% if cur_cat == cat.id %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}">{{ cat.id }}</a>
+        </div>
         <div class="tree__subs" id="subs-{{ cat.id }}">
           {%- for sub_name in sub_names -%}{%- assign sub_size = cat_posts | where_exp: "p", "p.categories[1] == sub_name" | size -%}
           <a class="tree__sub{% if cur_cat == cat.id and page.categories[1] == sub_name %} is-on{% endif %}" href="{{ '/category/' | append: cat.id | append: '/' | relative_url }}#{{ sub_name | slugify }}">{{ sub_name }} <span class="tree__n">({{ sub_size }})</span></a>
