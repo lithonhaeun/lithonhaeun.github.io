@@ -152,3 +152,55 @@
     });
   });
 })();
+
+// 글 페이지: 오른쪽 막대 목차 (마우스를 올리면 펼쳐져요)
+(function () {
+  var nav = document.querySelector('.toc');
+  var prose = document.querySelector('.prose');
+  if (!nav || !prose) return;
+
+  var heads = prose.querySelectorAll('h2, h3');
+  if (heads.length < 2) return;   // 소제목이 하나뿐이면 목차를 만들지 않아요
+
+  var items = [];
+  Array.prototype.forEach.call(heads, function (h, i) {
+    if (!h.id) h.id = 'section-' + (i + 1);
+
+    var a = document.createElement('a');
+    a.className = 'toc__item toc__item--' + h.tagName.toLowerCase();
+    a.href = '#' + h.id;
+
+    var bar = document.createElement('span');
+    bar.className = 'toc__bar';
+    var text = document.createElement('span');
+    text.className = 'toc__text';
+    text.textContent = h.textContent;
+
+    a.appendChild(bar);
+    a.appendChild(text);
+    nav.appendChild(a);
+    items.push({ link: a, head: h });
+  });
+
+  nav.hidden = false;
+
+  // 읽고 있는 위치를 표시해요
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var line = window.scrollY + 140;
+    var cur = 0;
+    for (var i = 0; i < items.length; i++) {
+      var top = items[i].head.getBoundingClientRect().top + window.scrollY;
+      if (top <= line) cur = i; else break;
+    }
+    for (var j = 0; j < items.length; j++) {
+      items[j].link.classList.toggle('is-on', j === cur);
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();

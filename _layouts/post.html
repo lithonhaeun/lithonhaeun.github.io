@@ -27,6 +27,8 @@ layout: default
     {% if cat %}<img class="pagehead__bear" src="{{ cat.small | relative_url }}" alt="">{% endif %}
   </header>
 
+    <nav class="toc" aria-label="목차" hidden></nav>
+
     <article class="prose">
       {{ content }}
     </article>
