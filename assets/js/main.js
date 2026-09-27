@@ -329,3 +329,40 @@
     if (!box.contains(e.target)) close();
   });
 })();
+
+// 좁은 화면: 메뉴 버튼으로 사이드바 열고 닫기
+(function () {
+  var btn = document.querySelector('.navbtn');
+  var side = document.querySelector('.sidebar');
+  if (!btn || !side) return;     // 홈 화면에는 사이드바가 없어요
+  btn.hidden = false;
+
+  var back = document.createElement('div');
+  back.className = 'backdrop';
+  document.body.appendChild(back);
+
+  function setOpen(open) {
+    side.classList.toggle('is-open', open);
+    back.classList.toggle('is-on', open);
+    btn.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  btn.addEventListener('click', function () {
+    setOpen(!side.classList.contains('is-open'));
+  });
+  back.addEventListener('click', function () { setOpen(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setOpen(false);
+  });
+  // 메뉴 안의 링크를 누르면 서랍이 닫혀요 (접기 버튼은 그대로)
+  side.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setOpen(false);
+  });
+  // 창을 다시 넓히면 원래대로
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 1000) setOpen(false);
+  }, { passive: true });
+})();

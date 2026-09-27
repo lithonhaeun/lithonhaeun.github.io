@@ -1,5 +1,5 @@
 {%- assign cur_cat = page.cat | default: page.categories[0] -%}
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
   <a class="profile" href="{{ '/about/' | relative_url }}">
     <img src="{{ site.author.image | relative_url }}" alt="{{ site.author.name }} 프로필 사진" width="118" height="118">
     <span>{{ site.author.name }}</span>
