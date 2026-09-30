@@ -148,7 +148,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .tree__label.is-on{font-weight:700}
 .chev{width:6px;height:6px;border-right:1.4px solid var(--red);border-bottom:1.4px solid var(--red);transform:rotate(45deg);transition:transform .25s;flex-shrink:0;margin-bottom:2px}
 .tree__cat.is-closed .chev{transform:rotate(-45deg);margin-bottom:0}
-.tree__subs{overflow:hidden;display:flex;flex-direction:column;gap:5px;padding-left:14px}
+.tree__subs{overflow:hidden;display:flex;flex-direction:column;gap:5px;padding-left:24px;padding-top:2px}
 .tree__cat.is-closed .tree__subs{display:none}
 .tree__sub{text-align:left;font-size:14px;color:#3f3f3f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tree__sub.is-on{color:var(--ink);font-weight:700}
