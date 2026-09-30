@@ -137,10 +137,13 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .tree{display:flex;flex-direction:column;gap:8px;margin-top:4px}
 .tree__root{display:block;font-size:15px;font-weight:700}
 .tree__cat{margin-left:6px;padding-left:10px;border-left:1px solid rgba(202,30,8,.54);display:flex;flex-direction:column;gap:6px}
+.tree__cat + .tree__cat{margin-top:8px}
 .tree__head{display:flex;align-items:center;gap:8px}
 .tree__toggle{display:flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0;margin-left:-4px;border-radius:3px}
 .tree__toggle:hover{background:rgba(202,30,8,.10)}
-.tree__label{font-size:15px;color:var(--ink)}
+.tree__label{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--ink)}
+.tree__thumb{width:52px;height:auto;flex-shrink:0;transition:transform .22s}
+.tree__label:hover .tree__thumb{transform:scale(1.05)}
 .tree__label:hover{opacity:.7}
 .tree__label.is-on{font-weight:700}
 .chev{width:6px;height:6px;border-right:1.4px solid var(--red);border-bottom:1.4px solid var(--red);transform:rotate(45deg);transition:transform .25s;flex-shrink:0;margin-bottom:2px}

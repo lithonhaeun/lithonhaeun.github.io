@@ -3,21 +3,25 @@
 # subs: 태그 (여기 적은 순서대로 보여요. 글이 없어도 영수증·목록에 나와요)
 #       글 머리의 categories 두 번째 값을 여기 이름과 '글자 하나까지' 똑같이 적어주세요.
 # tag_left: 상표가 아치 왼쪽에서 얼마나 떨어져 걸리는지(%), bear_width: 아치 안 곰돌이 크기(%)
+# thumb: 왼쪽 메뉴에 보이는 작은 곰돌이 그림
 - id: personal
   subs: [공예, profile, 일기, 여행]
   bear: /assets/img/bear-personal.png
   small: /assets/img/bear-personal-small.png
+  thumb: /assets/img/cat-personal.png
   bear_width: 64
   tag_left: 7.8
 - id: study
   subs: [토익, 탄소중립 프로젝트, Aiot 프로젝트]
   bear: /assets/img/bear-study.png
   small: /assets/img/bear-study-small.png
+  thumb: /assets/img/cat-study.png
   bear_width: 65
   tag_left: 19.3
 - id: major
   subs: [Computer network, Physical Ai]
   bear: /assets/img/bear-major.png
   small: /assets/img/bear-major-small.png
+  thumb: /assets/img/cat-major.png
   bear_width: 76
   tag_left: 9.5
