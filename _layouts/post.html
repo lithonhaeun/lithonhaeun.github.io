@@ -37,7 +37,7 @@ layout: default
     <article class="prose">
       {{ content }}
     </article>
-
+    {% include attachments.html %}
     <nav class="postnav" aria-label="이전 글, 다음 글">
       <div class="postnav__cell{% unless older %} is-empty{% endunless %}">
         <div class="postnav__top"><a href="{{ list_url }}">목록</a><span>{% if older %}{{ older.categories[1] }}<br>{{ older.title }}{% else %}처음 글이에요{% endif %}</span></div>
