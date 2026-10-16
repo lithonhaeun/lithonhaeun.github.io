@@ -5,7 +5,7 @@
 # tag_left: 상표가 아치 왼쪽에서 얼마나 떨어져 걸리는지(%), bear_width: 아치 안 곰돌이 크기(%)
 # thumb: 왼쪽 메뉴에 보이는 작은 곰돌이 그림
 - id: personal
-  subs: [공예, profile, 일기, 여행]
+  subs: [profile, portfolio]
   bear: /assets/img/bear-personal.png
   small: /assets/img/bear-personal-small.png
   thumb: /assets/img/cat-personal.png
@@ -19,7 +19,7 @@
   bear_width: 65
   tag_left: 19.3
 - id: major
-  subs: [Computer network, Physical Ai]
+  subs: [Computer network, Physical AI]
   bear: /assets/img/bear-major.png
   small: /assets/img/bear-major-small.png
   thumb: /assets/img/cat-major.png
