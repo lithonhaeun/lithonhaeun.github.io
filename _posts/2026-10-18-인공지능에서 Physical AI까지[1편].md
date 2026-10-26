@@ -1,5 +1,5 @@
 ---
-title :  인공지능에서 Physical AI까지
+title :  인공지능에서 Physical AI까지 [1편]
 categories: [major, Physical AI]
 description: 컴퓨터 네트워크 실습
 ---
