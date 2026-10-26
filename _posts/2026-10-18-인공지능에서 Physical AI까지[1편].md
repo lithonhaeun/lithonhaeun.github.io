@@ -57,7 +57,7 @@ description: 컴퓨터 네트워크 실습
 
 > Artificial Intelligence란?
 
-![img.png](img.png){:.left}
+![img.png](/assets/img/physical-ai1-1.png){:.left}
   
 ① AI (가장 바깥 원) <br>
 "사람처럼 똑똑하게 행동하는 컴퓨터 기술"이면 전부 다 AI. 방법은 안 따짐.
@@ -86,7 +86,7 @@ Face ID, Google Translate 같은 게 여기.
 <br> =  <mark class="pink">새로운 텍스트, 이미지, 오디오 등을 생성하는 ai</mark>
 
 ### 1-2. AI의 역사 
-![img_1.png](img_1.png)
+![img_1.png](/assets/img/physical-ai1-2.png)
 
 1. AI 역사의 큰 흐름 = 규칙 기반 → 데이터 학습 → 생성 
    1. 튜링테스트 : 기계가 생각할 수 있나? 라는 질문으로 튜링테스트 제안
@@ -131,7 +131,7 @@ Face ID, Google Translate 같은 게 여기.
 > <br>"전통적 프로그래밍은 사람이 작성한 규칙에 데이터를 넣어 답을 얻는 반면, 머신러닝은 데이터와 정답으로부터 규칙(모델)을 스스로 학습하고, 이 모델로 처음 보는 데이터에 대해서도 예측한다."
 
 ### 2-2. 학습 방식 3가지 (지도·비지도·강화) 
-![img_2.png](img_2.png)
+![img_2.png](/assets/img/physical-ai1-3.png)
 그림 보면 세 방식 차이가 "보라색이 어디에 있냐" 로 딱 갈림
 
 ① 지도학습 (왼쪽)
@@ -149,7 +149,7 @@ Face ID, Google Translate 같은 게 여기.
 ### 2-3. AI는 패턴을 학습한다 
 >A는 무엇을 배우는가?
 
-![img_3.png](img_3.png)
+![img_3.png](/assets/img/physical-ai1-4.png)
 AI는 정답을 외우는 것이 아니라 데이터 속 패턴(Pattern)을 학습한다
 
 ① 학습 단계: 고양이 1만 장 + 개 1만 장 <br>
@@ -168,7 +168,7 @@ AI는 정답을 외우는 것이 아니라 데이터 속 패턴(Pattern)을 학�
 - 패턴 학습: "이런 특징이 있으면 고양이" 를 익힘 → 새 사진도 맞힘
 
 ### 2-4. 데이터가 중요한 이유 (양·질·편향)
-![img_4.png](img_4.png)
+![img_4.png](/assets/img/physical-ai1-5.png)
 
 >Garbage In, Garbage Out : 데이터가 AI의 수준을 결정한다
 
@@ -194,7 +194,7 @@ AI는 정답을 외우는 것이 아니라 데이터 속 패턴(Pattern)을 학�
 요즘 AI 회사들이 데이터 확보에 목숨 거는 이유도 이거고
 
 ### 2-5. 신경망과 Weight 
-![img_5.png](img_5.png) {:.left}
+![img_5.png](/assets/img/physical-ai1-6.png) {:.left}
 - Weight (가중치): 뉴런 사이 연결의 세기
 - 학습 = Weight 조정 
   1. 처음에는 무작위 값 
@@ -234,7 +234,7 @@ AI는 정답을 외우는 것이 아니라 데이터 속 패턴(Pattern)을 학�
 아까 위에서 뉴럴 네트워크는 데이터를 학습하는데 weight를 조정한다 했는데 그럼 어떻게 조정하냐?
 >어떻게 학습하는가? : Training Loop
 
-![img_7.png](img_7.png)
+![img_7.png](/assets/img/physical-ai1-7.png)
 
 **① Training Loop 5단계 (위쪽 그림) 🔁**
 고양이 사진 한 장으로 예를 들면:
@@ -267,7 +267,7 @@ AI는 정답을 외우는 것이 아니라 데이터 속 패턴(Pattern)을 학�
  
 ### 2-7. Overfitting과 일반화
 
-![img_6.png](img_6.png)
+![img_6.png](/assets/img/physical-ai1-8.png)
 그림의 회색 점 = 학습 데이터, 선 = AI가 찾은 패턴. 세 칸 모두 점은 똑같은데, 선을 어떻게 긋느냐에 따라 결과가 갈림.
 
 **① Underfitting (과소적합)** — 공부 너무 대충 함 😪<br>
@@ -295,7 +295,7 @@ AI는 정답을 외우는 것이 아니라 데이터 속 패턴(Pattern)을 학�
 ## 3. Vision — AI는 어떻게 보는가
 
 ### 3-1. 컴퓨터가 보는 이미지 = 숫자의 행렬 
-![img_8.png](img_8.png)
+![img_8.png](/assets/img/physical-ai1-9.png)
 ① 컴퓨터 눈에 사과는 그냥 숫자 표임 🔢<br>
 우리는 사진 보면 바로 "사과네" 하는데, 컴퓨터한텐 "사과"도 "빨간색"도 없음. 오직 숫자만 있음.
 - 0 = 완전 어두움 (검정) ⚫
@@ -336,7 +336,7 @@ AI가 이미지 받을 때 많이 쓰는 크기가 가로 224 × 세로 224 픽�
   - Shape (모양) — 중간 Layer
   - Object (물체) — 깊은 Layer
 - 하단: 사람이 Feature를 직접 설계하지 않아도 Neural Network가 Feature를 스스로 학습한다
-  ![img_9.png](img_9.png)
+  ![img_9.png](/assets/img/physical-ai1-10.png)
 
 ① Seeing<br>
  Seeing(보기) = Perception 단계 담당. 
@@ -368,8 +368,8 @@ Feature(특징) = "이 사진에서 주목할 만한 단서". CNN은 층을 지�
 ### 3-3. Convolution (합성곱) 
 >CNN의 핵심 ① Convolution (합성곱)
 
-![img_10.png](img_10.png)![img_11.png](img_11.png) {:.pair}
-![img_12.png](img_12.png)![img_13.png](img_13.png) {:.pair}
+![img_10.png](/assets/img/physical-ai1-11.png)![img_11.png](/assets/img/physical-ai1-12.png) {:.pair}
+![img_12.png](/assets/img/physical-ai1-13.png)![img_13.png](/assets/img/physical-ai1-14.png) {:.pair}
 
 ① Filter (3×3) — 세로 경계선 탐지기 🔍<br>
 Filter(= Kernel = Weight)는 특정 패턴을 찾는 작은 돋보기. 각 줄이 -1 0 1인데:
@@ -401,7 +401,7 @@ Filter(= Kernel = Weight)는 특정 패턴을 찾는 작은 돋보기. 각 줄�
 ### 3-4. 여러 Filter · ReLU · Pooling 
 >CNN의 핵심 ② 여러 Filter와 Pooling
 
-![img_14.png](img_14.png)
+![img_14.png](/assets/img/physical-ai1-15.png)
 - 여러 Filter = 여러 특징
   - → Filter 수십~수백 개 → 특징 지도도 수십~수백 장
 - ReLU: 음수는 0으로 → "특징이 있다"는 신호만 통과
@@ -434,7 +434,7 @@ Pooling을 하는 이유 2가지
 >Convolution → ReLU → Pooling 과정은 계산량을 줄이고 위치 변화에도 강한 인식을 가능하게 한다
 
 ### 3-5. CNN 전체 구조 & 대표 모델 
-![img_15.png](img_15.png)
+![img_15.png](/assets/img/physical-ai1-16.png)
 CNN은 크게 앞부분(특징 추출) 이랑 뒷부분(최종 판단) 두 파트로 나뉨.
 
 ① 앞부분: Conv + ReLU + Pool 블록 반복 (특징 추출) 🔍<br>
@@ -461,7 +461,7 @@ CNN은 크게 앞부분(특징 추출) 이랑 뒷부분(최종 판단) 두 파�
 
 
 ### 3-6. CNN 이후의변화 : 컴퓨터 비전의 발전 
-![img_16.png](img_16.png)
+![img_16.png](/assets/img/physical-ai1-17.png)
 
 ① **Image Classification (분류)** — "무엇이 있나?" (2012~)<br>
 사진 전체를 보고 이름표 하나만 붙임: “Cat”. 끝.<br>
@@ -490,7 +490,7 @@ CNN은 크게 앞부분(특징 추출) 이랑 뒷부분(최종 판단) 두 파�
 
 ### 4-1. 언어 이해의 어려움 (문맥 문제)
 
-![img_17.png](img_17.png)
+![img_17.png](/assets/img/physical-ai1-18.png)
 **Q.** “it”은 무엇을 의미할까? → robot? cup?
 <br> 단어만 찾는 Keyword matching으로는 알 수 없다 → 문맥(Context)을 이해해야 한다
 
@@ -513,9 +513,9 @@ Keyword matching = 문장에서 단어만 찾아서 처리하는 방식. 전통 
 >💡 연결 포인트: CNN에서 "사과라는 의미는 픽셀 하나가 아니라 픽셀들 사이의 패턴에 숨어 있다" 했잖아? 언어도 똑같음. “it의 의미는 단어 하나가 아니라 단어들 사이의 관계(문맥)에 숨어 있다.” 이미지든 언어든 AI의 핵심은 결국 관계·패턴 찾기임.
 
 ### 4-2. Language Model = 다음 Token 예측
-![img_18.png](img_18.png)
-![img_19.png](img_19.png)
-![img_20.png](img_20.png)
+![img_18.png](/assets/img/physical-ai1-19.png)
+![img_19.png](/assets/img/physical-ai1-20.png)
+![img_20.png](/assets/img/physical-ai1-21.png)
 ① 언어 모델이 하는 일: 다음 단어 맞히기 🎯<br>
 Cat 95%, 18페이지 Apple 92%랑 완전 같은 방식임! 이미지 분류가 "이 사진은 어떤 클래스?"였다면, 언어 모델은 "다음 단어는 어떤 단어?" 를 분류하는 거.
 <br>어떻게 저 확률을 아냐면 → 인터넷 텍스트를 엄청나게 많이 읽으면서 “artificial 다음엔 intelligence가 자주 오더라” 같은 패턴을 학습했기 때문. 
@@ -530,7 +530,7 @@ Cat 95%, 18페이지 Apple 92%랑 완전 같은 방식임! 이미지 분류가 "
 >언어 모델(Language Model)은 주어진 문장 다음에 올 Token을 확률로 예측하는 모델로,  예측한 Token을 다시 입력에 붙여 다음 Token을 예측하는 과정을 반복하며 문장을 한 Token씩 생성한다.
 
 ### 4-3. Token 
-![img_21.png](img_21.png)
+![img_21.png](/assets/img/physical-ai1-22.png)
 ① **Token = AI가 읽는 텍스트 조각** 🧩<br>
 AI는 문장을 글자 그대로 읽는 게 아니라 조각(Token) 단위로 잘라서 읽음. 이 자르는 도구를 Tokenizer라고 부름.
 조각 크기는 상황에 따라 다름:
@@ -563,7 +563,7 @@ AI는 문장을 글자 그대로 읽는 게 아니라 조각(Token) 단위로 �
 
 >**Embedding** : 단어를 의미의 공간에 놓기위해 Token ID를 의미를 담은 숫자 벡터로 바꾼 것
 
-![img_22.png](img_22.png)
+![img_22.png](/assets/img/physical-ai1-23.png)
 
 ① Embedding = 단어에 "의미 좌표" 붙이기 📍<br>
 Embedding은 각 Token을 숫자 여러 개짜리 묶음(벡터) 으로 바꾸는 것.<br>
@@ -592,8 +592,8 @@ Embedding 숫자들도 결국 Weight처럼 Training Loop로 학습되는 값임.
 ### 4-5. Attention & Transformer 
 >Transformer의 핵심 : Attention (주의)
 
-![img_23.png](img_23.png)
-![img_24.png](img_24.png)
+![img_23.png](/assets/img/physical-ai1-24.png)
+![img_24.png](/assets/img/physical-ai1-25.png)
 Keyword matching으론 못 풀고 문맥을 봐야 한다고 했었음. 그 문맥을 AI가 보는 방법이 바로 Attention!
 
 ① Attention = "누구를 참고할지" 스스로 계산하기 <br>
@@ -638,7 +638,7 @@ The, up, was 같은 애들 → 거의 안 보임 (2~3%)
 >Transformer가 바꾼 것 : Large Language Model <br>
 >  <mark class="pink">하나의 모델이 "다음 Token 예측"만으로 여러 언어 작업을 수행</mark>
 
-![img_25.png](img_25.png)
+![img_25.png](/assets/img/physical-ai1-26.png)
 
 ① LLM : Transformer + 거대한 데이터 + 거대한 모델 🍳<br>
 LLM은 완전 새로운 발명이 아니라 지금까지 배운 재료를 엄청 크게 키운 거임.
@@ -671,7 +671,7 @@ LLM은 완전 새로운 발명이 아니라 지금까지 배운 재료를 엄청
 >LLM은 어떻게 만들어질까? 사전학습 → 지시학습 → RLHF <br>
 > 책 읽고 → 대화 연습하고 → 선생님 피드백 📚🗣️👩‍🏫
 
-![img_26.png](img_26.png)
+![img_26.png](/assets/img/physical-ai1-27.png)
 그림 줄 순서: 회색 = 무슨 학습인지 / 보라 = 결과물 / 흰색 = 사람 비유
 
 ①  <mark class="mint">Pre-training (사전학습)</mark> — 책 엄청 읽기 📚<br>
@@ -697,7 +697,7 @@ RLHF = Reinforcement Learning from Human Feedback.<br>
 이름에 Reinforcement Learning(강화학습) 들어가는 거 포인트!  <mark class="pink">강화학습</mark>이 "시행착오 + 보상"이었잖아? 여기선 사람이 고른 선호 = 보상 역할을 함. 강아지 훈련할 때 잘하면 간식 주듯이, 좋은 답변엔 보상 🦴
 
 ### 4-8. LLM의 한계
-![img_27.png](img_27.png)
+![img_27.png](/assets/img/physical-ai1-28.png)
 
 ①  <mark class="mint">Hallucination (환각)</mark> — 그럴듯하게 틀리기 🤥<br>
 없는 논문, 없는 사람, 틀린 날짜를 엄청 자신 있게 지어내는 현상.<br>
@@ -723,7 +723,7 @@ RLHF = Reinforcement Learning from Human Feedback.<br>
 ## 5. Vision + Language — VLM
 
 ### 5-1. 멀티모달 AI 
-![img_28.png](img_28.png)
+![img_28.png](/assets/img/physical-ai1-29.png)
 ① Before vs Now — 입력에 사진이 추가됨 📸
 - Before (LLM): 글 넣으면 → 글 나옴. 4장에서 배운 그 ChatGPT. 글자만 아는 상태
 - Now (Multimodal Model): 사진 + 글 같이 넣으면 → 글 나옴
@@ -754,7 +754,7 @@ RLHF = Reinforcement Learning from Human Feedback.<br>
 ### 5-2. 이미지와 언어를 같은 공간에 (CLIP) 
 >근데 문제가 하나 있음. 이미지는 픽셀 숫자고, 언어는 Token Embedding이라 서로 다른 형태잖아? 이 둘을 어떻게 같이 이해시키냐?
 
-![img_29.png](img_29.png)
+![img_29.png](/assets/img/physical-ai1-30.png)
 
 ① 문제: 사진이랑 글은 언어가 다름 🤷
 - 사진 → 픽셀 숫자 (14p)
@@ -789,7 +789,7 @@ Encoder = 입력을 의미를 담은 숫자 벡터**(Embedding)** 로 바꿔주�
 
 
 ### 5-3. VLM
-![img_30.png](img_30.png)
+![img_30.png](/assets/img/physical-ai1-31.png)
 ① VLM = 보고 + 말하는 AI 👀🗣️<br>
  <mark class="pink">VLM (Vision-Language Model)</mark> = 이미지(Vision)와 언어(Language)를 함께 이해하는 모델.
 - 입력: 테이블 위 사과 사진 + “What is on the table?” (테이블 위에 뭐가 있어?)
@@ -823,7 +823,7 @@ LLM 입장에선 "이미지 Token 4개 + 텍스트 Token 5개짜리 긴 문장"�
 
 
 ### 5-4. VLM 활용과 한계 → p.31
-![img_31.png](img_31.png)
+![img_31.png](/assets/img/physical-ai1-32.png)
 1. VLM 활용 4가지: <mark class="mint"> 이미지 설명
 </mark>(시각장애인 지원) · <mark class="mint"> 문서·차트 읽기
 </mark>(영수증·표·그래프) ·  <mark class="mint">검사·모니터
@@ -834,7 +834,7 @@ LLM 입장에선 "이미지 Token 4개 + 텍스트 Token 5개짜리 긴 문장"�
 
 ---
 ## 6. 마무리
-![img_32.png](img_32.png)
+![img_32.png](/assets/img/physical-ai1-33.png)
 
 ①  <mark class="pink">Machine Learning 
 </mark>—  <mark class="mint">데이터로 학습 📊</mark> <br>
