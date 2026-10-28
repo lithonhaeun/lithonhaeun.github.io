@@ -625,3 +625,4 @@ AI가 현실 세계에서 일하는 시대
 
 ③ Physical AI는 AI의 이해를 현실 세계의 행동으로 연결한다 — Vision + Language → Action
 
+---
