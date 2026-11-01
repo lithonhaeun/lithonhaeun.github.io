@@ -4,6 +4,7 @@ categories: [major, Physical AI]
 description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physical AI를 핵심 비전으로 삼는 배경, 그리고 그 첫 단계인 Wireless Caching을 정리합니다."
 ---
 
+
 ## 들어가며
 
 1편에서는 Physical AI로 가는 로드맵 3단계 중 첫 번째인 **Wireless Caching**을 봤음.
