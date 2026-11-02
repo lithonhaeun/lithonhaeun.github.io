@@ -4,12 +4,11 @@ categories: [major, Physical AI]
 description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physical AI를 핵심 비전으로 삼는 배경, 그리고 그 첫 단계인 Wireless Caching을 정리합니다."
 ---
 
-
 ## 들어가며
 
 1편에서는 Physical AI로 가는 로드맵 3단계 중 첫 번째인 **Wireless Caching**을 봤음.
 
-![img.png](/assets/img/8-32.png)
+![img.png](/assets/img/8-28.png)
 
 | 단계 | 기술 | 네트워크의 역할 |
 |---|---|---|
@@ -47,7 +46,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 1-2. 클라우드까지 가면 너무 멀다 (MCC의 한계)
 
-![img.png](/assets/img/8-33.png)
+![img.png](/assets/img/8-29.png)
 
 기존엔 이 오프로딩을 보통 **클라우드 서버**에서 했음. 이걸 **모바일 클라우드 컴퓨팅(MCC, Mobile Cloud Computing)**이라고 함.
 
@@ -72,7 +71,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 1-4. MEC의 장점 네 가지
 
-![img.png](/assets/img/8-34.png)
+![img.png](/assets/img/8-30.png)
 
 | 장점 | 이유 |
 |---|---|
@@ -97,7 +96,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 2-1. 얼굴 인식 (Face Recognition)
 
-![img.png](/assets/img/8-35.png)
+![img.png](/assets/img/8-31.png)
 
 폰으로 사진을 찍으면 이게 누구 얼굴인지 분석해 주는 서비스.
 
@@ -123,7 +122,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 2-3. 그래서 통신과 컴퓨팅은 같이 설계해야 한다
 
-![img.png](/assets/img/8-36.png)
+![img.png](/assets/img/8-32.png)
 
 두 예시 다 구조가 똑같음.
 
@@ -149,7 +148,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 3-1. 판단 기준은 에너지
 
-![img.png](/assets/img/8-37.png)
+![img.png](/assets/img/8-33.png)
 
 MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Energy consumption)</mark>임.
 단말이 복잡한 서비스를 돌리려면 연산 자원뿐 아니라 에너지도 필요한데, 단말은 **배터리가 한정**돼 있음.
@@ -176,7 +175,7 @@ MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Ene
 
 ### 3-2. 정리: 연산이 무거우면 넘기고, 데이터가 무거우면 직접
 
-![img.png](/assets/img/8-38.png)
+![img.png](/assets/img/8-34.png)
 
 | 상황 | 결론 |
 |---|---|
@@ -194,8 +193,6 @@ MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Ene
 
 ### 4-1. 작업(Task)의 세 가지 프로필
 
-![img.png](/assets/img/8-39.png)
-
 모바일 게임을 예로 들면, 오프로딩할 작업에서 봐야 할 건 세 가지임.
 
 1. **데이터 크기 (Data size)** – 오프로딩하려면 보내야 하는 데이터 양
@@ -203,6 +200,8 @@ MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Ene
 3. **지연 요구사항 (Latency requirement)** – 이 시간 안에는 끝나야 한다는 제한
 
 ### 4-2. 통째로 넘기기 vs 나눠서 넘기기
+
+![img.png](/assets/img/8-35.png)
 
 | 방식 | 설명 |
 |---|---|
@@ -220,8 +219,6 @@ MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Ene
 
 ### 4-4. 설계 챌린지: Where / Whether / What / How
 
-![img.png](/assets/img/8-40.png)
-
 | 질문 | 고민할 것 |
 |---|---|
 | **Where** – 어디로 오프로딩? | 엣지 서버? 중앙 클라우드? |
@@ -232,6 +229,8 @@ MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Ene
 이걸 따로따로가 아니라 **동시에** 풀어야 하는 최적화 문제임.
 
 ### 4-5. 결국 "무선 자원 + 연산 자원" 공동 할당 문제
+
+![img.png](/assets/img/8-36.png)
 
 결국 오프로딩 문제는 <mark class="mint">무선 채널 자원과 연산 자원을 어떻게 같이 효율적으로 관리하느냐</mark>의 문제임.
 
@@ -248,7 +247,7 @@ MEC에서 제일 중요하게 보는 건 <mark class="pink">에너지 소모(Ene
 
 ### 5-1. 연산 중에 기지국을 옮기면?
 
-![img.png](/assets/img/8-41.png)
+![img.png](/assets/img/8-37.png)
 
 MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임.
 
@@ -268,7 +267,7 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 
 ### 5-2. 미리 보내두기: 프리패칭 (Prefetching)
 
-![img.png](/assets/img/8-42.png)
+![img.png](/assets/img/8-38.png)
 
 좀 더 구체적으로 보면, 큰 프로그램 하나 안에는 여러 개의 작업(task)이 들어 있음.
 
@@ -294,8 +293,6 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 
 ### 6-1. 서비스 캐싱: 프로그램 자체를 엣지에 둔다
 
-![img.png](/assets/img/8-43.png)
-
 여기까지는 오프로딩을 하냐 마냐만 봤는데, 이제 **1편의 캐시 개념**을 가져올 수 있음.
 엣지 서버는 저장공간뿐 아니라 연산 능력도 있으니까, **연산 서비스 자체**를 엣지에 캐싱해 두자는 거.
 
@@ -310,6 +307,8 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 
 ### 6-2. 캐시 관리: 뭘 깔아두고 뭘 지울까
 
+![img.png](/assets/img/8-39.png)
+
 - **캐시 히트** (필요한 서비스가 MEC 서버에 있음) → 클라우드까지 안 가고 **훨씬 빠르게** 처리
 - **캐시 미스** (MEC 서버에 없음) → 중앙 클라우드에서 해당 서비스를 받아와야 해서 **시간이 훨씬 오래 걸림**
 
@@ -321,7 +320,7 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 
 ### 6-3. 공정성 문제: 가까운 유저만 좋아지면 안 된다
 
-![img.png](/assets/img/8-44.png)
+![img.png](/assets/img/8-40.png)
 
 두 유저를 생각해 봄.
 
@@ -344,7 +343,7 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 
 ### 7-1. 기지국이 여러 개면 간섭이 생긴다
 
-![img.png](/assets/img/8-45.png)
+![img.png](/assets/img/8-41.png)
 
 이번엔 MEC 서버 하나가 아니라, **여러 기지국마다 MEC 서버가 하나씩** 붙어 있는 큰 네트워크를 생각해 봄.
 
@@ -352,6 +351,8 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 그래서 간섭까지 고려해서 대규모 MEC 네트워크를 설계해야 함.
 
 ### 7-2. 유저가 느끼는 지연 = 통신 지연 + 연산 지연
+
+![img.png](/assets/img/8-42.png)
 
 전체 흐름은 이렇게 됨.
 
@@ -369,7 +370,7 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 
 ### 7-3. 가상 머신 다중화: 많이 띄운다고 빨라지지 않는다
 
-![img.png](/assets/img/8-46.png)
+![img.png](/assets/img/8-43.png)
 
 연산 서버의 지연을 분석하려면 **가상 머신 다중화(VM Multiplexing)**를 봐야 함.
 
@@ -382,6 +383,8 @@ MEC 설계에서 유저의 **이동성(mobility)**은 엄청 중요한 요소임
 > 💡 식당 주방에 요리사를 늘리는 거랑 같음. 처음엔 요리사 늘릴수록 음식이 빨리 나오는데, 주방(물리 서버)은 그대로니까 어느 순간부터 서로 부딪히고 화구 기다리느라 오히려 느려짐.
 
 ### 7-4. 병목은 유저 밀도에 따라 바뀐다
+
+![img.png](/assets/img/8-44.png)
 
 MEC 서버를 이렇게 설계했을 때 연산 지연과 통신 지연을 비교하면, **유저 밀도**에 따라 어느 쪽이 병목인지가 바뀜.
 
@@ -397,7 +400,7 @@ MEC 서버를 이렇게 설계했을 때 연산 지연과 통신 지연을 비�
 
 ## 8. 표준화: MEC는 누가 운영하나
 
-![img.png](/assets/img/8-47.png)
+![img.png](/assets/img/8-45.png)
 
 이런 MEC 구조는 통신 표준을 만드는 **3GPP**에서도 많이 고민하고 있음.
 연산을 **단말 · 엣지 서버(기지국) · 코어 네트워크 · 클라우드** 중 어디서 할지에 따라 다양한 인터페이스를 설계 중이고, 운영 방식에 따라 세 가지 모드가 있음.
