@@ -667,7 +667,7 @@ LLM은 완전 새로운 발명이 아니라 지금까지 배운 재료를 엄청
 
 → 결국 "이해"를 어떻게 정의하냐에 따라 답이 달라짐. 이 질문은 “LLM의 한계”랑 2편 "몸을 가진 AI"로 이어지는 떡밥이기도 함. 세상을 직접 보고 만져야 진짜 이해한다고 보면 → Physical AI가 필요하다는 결론으로 연결됨 🤖✋
 
-### 4-7. LLM 만드는 3단계 → p.26
+### 4-7. LLM 만드는 3단계 
 >LLM은 어떻게 만들어질까? 사전학습 → 지시학습 → RLHF <br>
 > 책 읽고 → 대화 연습하고 → 선생님 피드백 📚🗣️👩‍🏫
 
@@ -757,8 +757,8 @@ RLHF = Reinforcement Learning from Human Feedback.<br>
 ![img_29.png](/assets/img/physical-ai1-30.png)
 
 ① 문제: 사진이랑 글은 언어가 다름 🤷
-- 사진 → 픽셀 숫자 (14p)
-- 글 → Token Embedding (23p)
+- 사진 → 픽셀 숫자 
+- 글 → Token Embedding 
 
 둘 다 숫자긴 한데 완전 다른 체계의 숫자임. 한국어랑 아랍어처럼 서로 말이 안 통하는 상태. 그래서 "강아지 사진"이랑 “A dog”라는 글이 같은 걸 뜻한다는 걸 AI가 알 방법이 없음.
 
@@ -845,7 +845,7 @@ LLM 입장에선 "이미지 Token 4개 + 텍스트 Token 5개짜리 긴 문장"�
 ②  <mark class="pink">Deep Learning</mark> —  <mark class="mint">Feature 자동 학습 👀</mark><br>
 신경망을 깊게 쌓으면 뭘 봐야 하는지(특징)까지 알아서 학습함(15p). CNN이 Convolution → ReLU → Pooling 반복하면서 Edge → Shape → Object 로 추상화(16~18p). 대표 예제 ① Seeing: “This is an apple.”
 
-③  <mark class="pink">Transformer </mark>— <mark class="mint"> Attention 🔦<</mark>br>
+③  <mark class="pink">Transformer </mark>— <mark class="mint"> Attention 🔦</mark><br>
 언어는 문맥이 중요함. 문장을 Token → Embedding 으로 바꾸고
 , Attention으로 각 단어가 어떤 단어를 참고할지 계산 → it = cup
 
