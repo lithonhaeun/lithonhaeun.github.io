@@ -5,7 +5,9 @@ description: 컴퓨터 네트워크 실습
 ---
 
 > 2편 · AI가 로봇의 몸을 갖는다면?
+
 ---
+
 ### 사전 지식 정리
 ![img.png](/assets/img/physical-ai2-1.png)
 
@@ -173,7 +175,7 @@ Robot Learning이 굴러가는 3단계.
 
 ### 2-3. Imitation Learning (모방 학습) 
 ![img_7.png](/assets/img/physical-ai2-8.png)
-①  <mark class="pink">Imitation Learning (모방 학습) </mark>이 뭐냐면요~<br>
+①  <mark class="pink">Imitation Learning (모방 학습) </mark>이 뭐냐면요<br>
 이름 그대로 사람이 하는 걸 보고 따라 배우는 방법이에요. "로봇도 데이터로 배우게 하자" 했잖아요? 그럼 그 데이터를 어디서 얻겠어요… 짠! 사람의 시범에서 얻는 거죠 우히히
 
 - 우리도 어릴 때 엄마가 젓가락질하는 거 보고 따라 했잖아요? 그거랑 똑같아요 🥢
@@ -187,11 +189,10 @@ Robot Learning이 굴러가는 3단계.
 - 그러면 로봇 몸 기준으로 "이럴 땐 이렇게 움직였다" 는 정확한 기록이 남겠죠?
 - 마치 인형극 하듯 로봇을 조종하는 느낌이에요 🎎
 
-③ Mobile ALOHA (Stanford)**** 소개합니다~ 어머!<br>
+③ Mobile ALOHA (Stanford) 소개합니다<br>
  스탠퍼드에서 만든 바퀴 달린 양팔 로봇인데요,
 <br>사람이 뒤에서 조종하면서 집안일 시범을 보여주면
 <br>학습 후엔 혼자서 요리하고, 정리하고, 청소까지 해요 77ㅑ 🍳🧽
-<br>14페이지에서 다시 나오는데, 50번 정도 시범만으로 이런 작업을 배웠다고 해요. 
 
 ④ 학습 과정 5단계 따라가 볼게요~
 1. Human Demonstration: 사람이 로봇을 조종해서 컵 집기 시범! 🙋
@@ -336,7 +337,7 @@ Policy가 Action을 출력한다고 했잖음. 근데 "팔을 움직여" 라고 
 ![img_13.png](/assets/img/physical-ai2-14.png)
 
 ① 상황 설명<br>
-식탁 위에 빨간 블록, 파란 블록, 컵, 상자가 다 있는 장면. 지금까지 배운 Policy(9~15페이지)한테 이 카메라 이미지를 넣으면?
+식탁 위에 빨간 블록, 파란 블록, 컵, 상자가 다 있는 장면. 지금까지 배운 Policy 한테 이 카메라 이미지를 넣으면?
 → Policy: “...그래서 뭐 하라고요?” 🤔
 
 빨간 블록 집을 수도 있고, 파란 블록 집을 수도 있고, 컵을 상자에 넣을 수도 있음. 장면은 하나인데 할 수 있는 일이 여러 개라 뭘 해야 할지 모름.
@@ -406,7 +407,7 @@ Policy는 "빨간 블록 집어" 처럼 할 일을 대놓고 말해줘야 알아
 ### 4-1. VLA : Vision-Language-Action
 ![img_16.png](/assets/img/physical-ai2-17.png)
 
-①  <mark class="pink">**VLA = Vision + Language + Action**</mark><br>
+①  <mark class="pink"> **VLA = Vision + Language + Action** </mark><br>
 이름 자체가 정의임. 세 글자가 각각 질문 하나씩 담당 👇
 - **V (Vision)** — "무엇이 보이는가?": 카메라로 현재 장면 보기. "식탁 위에 빨간 사과, 그 옆에 컵" → 1편 CNN·VLM의 눈
 - **L (Language)** — "무엇을 해야 하는가?": 사람 명령 이해하기. “Pick up the red apple.” → 1편 LLM의 언어 이해
@@ -426,7 +427,7 @@ Policy는 "빨간 블록 집어" 처럼 할 일을 대놓고 말해줘야 알아
 
 ①Input (입력) : 똑같음 =<br>
 둘 다 Vision + Language. 카메라 이미지 보고, 사람 말 듣는 건 완전 동일함.
-→ 그래서 VLA는 VLM의 눈과 귀를 그대로 재활용할 수 있음 (21페이지 핵심 구조 떡밥)
+→ 그래서 VLA는 VLM의 눈과 귀를 그대로 재활용할 수 있음
 
 Output (출력) : 여기서 갈림 ≠ ⭐<br>
 
