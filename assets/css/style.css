@@ -448,4 +448,57 @@ img.postnav__thumb{transition:transform .3s}
   .sidebar::-webkit-scrollbar{width:6px}
   .sidebar::-webkit-scrollbar-thumb{background:rgba(202,30,8,.3);border-radius:3px}
   .sidebar::-webkit-scrollbar-track{background:transparent}
+
+}
+/* ───── 콜아웃 (블록인용에 {: .note } 처럼 붙여요) ───── */
+.prose blockquote.note,
+.prose blockquote.tip,
+.prose blockquote.warn,
+.prose blockquote.check{
+  margin:1.7em 0;
+  padding:34px 20px 14px;
+  border:1.5px solid;
+  border-radius:6px;
+  position:relative;
+}
+.prose blockquote.note > :first-child,
+.prose blockquote.tip > :first-child,
+.prose blockquote.warn > :first-child,
+.prose blockquote.check > :first-child{margin-top:0}
+.prose blockquote.note > :last-child,
+.prose blockquote.tip > :last-child,
+.prose blockquote.warn > :last-child,
+.prose blockquote.check > :last-child{margin-bottom:0}
+
+/* 왼쪽 위 라벨 */
+.prose blockquote.note::before,
+.prose blockquote.tip::before,
+.prose blockquote.warn::before,
+.prose blockquote.check::before{
+  position:absolute;
+  top:10px; left:20px;
+  font-family:var(--mono);
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+}
+
+/* 참고 라벨 없이, 갈색 */
+.prose blockquote.note{border-color:#a9846a;background:rgba(169,132,106,.10);padding-top:14px}
+.prose blockquote.note::before{content:none}
+
+.prose blockquote.tip{border-color:#c8862a;background:rgba(200,134,42,.09)}
+.prose blockquote.tip::before{content:"팁";color:#9a6512}
+
+.prose blockquote.warn{border-color:var(--red);background:rgba(202,30,8,.06)}
+.prose blockquote.warn::before{content:"주의";color:var(--ink)}
+
+.prose blockquote.check{border-color:#4f9e81;background:rgba(79,158,129,.08)}
+.prose blockquote.check::before{content:"정리";color:#2f7f63}
+
+@media (max-width:640px){
+  .prose blockquote.note,.prose blockquote.tip,
+  .prose blockquote.warn,.prose blockquote.check{padding:30px 14px 12px}
+  .prose blockquote.note::before,.prose blockquote.tip::before,
+  .prose blockquote.warn::before,.prose blockquote.check::before{left:14px}
 }
