@@ -317,7 +317,7 @@ ssthresh는 이렇게 이해하면 된다. 정확한 추정치는 아니지만, 
 
 ### Fairness goal: K개가 나눠 쓰면 R/K씩
 
-![TCP fairness: 같은 병목을 쓰면 R/K씩](f15_fairness_goal.png)
+![TCP fairness: 같은 병목을 쓰면 R/K씩](/assets/img/tcp-congestion-control-15.png)
 
 혼잡 제어의 원리에서처럼, 라우터에서 외부로 나가는 케이블의 capacity가 R로 제한되어 있다고 하자. 두 연결이 이 bottleneck link를 공유하는데 한쪽이 많이 쓰고 한쪽이 적게 쓴다면 불공평하다고 생각할 여지가 있다.
 
@@ -336,7 +336,7 @@ TCP는 혼잡 제어 알고리즘으로 보내는 속도를 동적으로 올렸�
 
 ### Q: TCP는 공평한가?
 
-![TCP는 공평한가: AIMD는 y = x로 수렴한다](f16_tcp_fairness.png)
+![TCP는 공평한가: AIMD는 y = x로 수렴한다](/assets/img/tcp-congestion-control-16.png)
 
 X축은 TCP connection 1의 throughput, Y축은 connection 2의 throughput이다. 둘이 bottleneck link를 공유하고 있으니 각 연결의 throughput은 아무리 커져도 R을 넘을 수 없다. connection 1의 throughput을 x, connection 2를 y라고 하면, 둘의 합도 bottleneck capacity를 넘을 수 없으니 **x + y ≤ R**이다.
 
@@ -356,7 +356,7 @@ x + y = R은 x절편과 y절편이 모두 R인 직선이다. 둘이 보내는 �
 
 ### 모든 애플리케이션이 공평해야 할까?
 
-![UDP와 parallel TCP connections](f17_udp_parallel.png)
+![UDP와 parallel TCP connections](/assets/img/tcp-congestion-control-17.png)
 
 **Fairness and UDP.** 네트워크에는 TCP만 있는 게 아니다. UDP에는 혼잡 제어도, 속도를 조절하는 기능 자체도 없다. 일정 속도로 보내는 프로그램을 만들어 두면 혼잡이 생겨도 UDP는 계속 이기적으로 보낼 수 있으니, 자기 이득을 최대화할 여지가 많다.
 
@@ -383,7 +383,7 @@ TCP Tahoe를 Reno라는 구현이 패치했다고 했다. 둘의 차이는 **fas
 
 ### TCP CUBIC
 
-![TCP CUBIC: Wmax 근처에서만 조심스럽게](f18_cubic.png)
+![TCP CUBIC: Wmax 근처에서만 조심스럽게](/assets/img/tcp-congestion-control-18.png)
 
 AIMD가 좋은 건 알겠지만 보수적이다. 그럼 AIMD보다 빠르게 bottleneck link를 꽉 채우면서도 로스는 안 나게 하려면 어떻게 설계할까? 그 결과 중 하나가 **TCP CUBIC**이다.
 
@@ -397,7 +397,7 @@ Wmax까지 갔는데도 로스가 안 났다면, 다른 사람이 레이트를 �
 
 ### Delay-based 혼잡 제어와 BBR
 
-![Delay-based 혼잡 제어: 파이프를 딱 찰 만큼만](f19_delay_based.png)
+![Delay-based 혼잡 제어: 파이프를 딱 찰 만큼만](/assets/img/tcp-congestion-control-19.png)
 
 지금까지는 혼잡 제어를 **loss 중심**으로 배웠다. 로스가 났느냐, 그리고 로스가 난 건 분명하지만 빠르게 복구할 수 있는 triple duplicate ACK 상황만 봤다.
 
@@ -413,7 +413,7 @@ Vegas 자체는 Tahoe나 Reno와 함께 돌 때 페널티를 받는 등의 문�
 
 ### Explicit congestion notification (ECN)
 
-![ECN: 라우터가 IP 헤더에 혼잡을 표시한다](f20_ecn.png)
+![ECN: 라우터가 IP 헤더에 혼잡을 표시한다](/assets/img/tcp-congestion-control-20.png)
 
 앞에서 TCP에도 network-assisted 혼잡 제어를 만들 수 있다고 했는데, 그 대표 예가 **ECN**이다.
 
@@ -426,7 +426,7 @@ Vegas 자체는 Tahoe나 Reno와 함께 돌 때 페널티를 받는 등의 문�
 
 ## TCP Timers
 
-![TCP Timers: 네 가지](f21_timers.png)
+![TCP Timers: 네 가지](/assets/img/tcp-congestion-control-21.png)
 
 TCP의 마지막 파트에 덤으로 들어간 내용이다. 디테일을 외울 필요는 없고 슬라이드 41 정도만 잘 이해해도 시험에는 문제없다고 하셨다. TCP에는 타이머가 여러 개 있다. **이 4개가 있다는 건 꼭 기억하자.** 객관식 문제로 만들기 좋다고 하셨다.
 
@@ -437,7 +437,7 @@ TCP의 마지막 파트에 덤으로 들어간 내용이다. 디테일을 외울
 
 ### Persistence timer와 deadlock
 
-![Persistence timer: rwnd = 0에서 생기는 deadlock 풀기](f22_persistence.png)
+![Persistence timer: rwnd = 0에서 생기는 deadlock 풀기](/assets/img/tcp-congestion-control-22.png)
 
 receiver가 advertised window(rwnd)를 0으로 알려 주면 sender는 데이터를 보낼 수 없다. 나중에 receiver가 "rwnd가 늘었으니 보내도 돼"라는 ACK를 보냈는데 이게 손실되면 어떻게 될까?
 
@@ -451,7 +451,7 @@ receiver가 advertised window(rwnd)를 0으로 알려 주면 sender는 데이터
 
 ## 전송 계층의 진화와 QUIC
 
-![전송 계층의 진화와 QUIC](f23_quic.png)
+![전송 계층의 진화와 QUIC](/assets/img/tcp-congestion-control-23.png)
 
 전송 계층을 아주 자세히 배웠는데, TCP는 40년 넘게 쓰이면서 여러 문제점이 알려졌다. 네트워크 상황에 맞춰 TCP를 최적화하려는 연구도 계속 나왔다.
 
