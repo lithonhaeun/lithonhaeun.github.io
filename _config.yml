@@ -62,3 +62,35 @@ defaults:
       type: posts
     values:
       layout: post
+
+  # ── 글 폴더 → 카테고리 자동 지정 ──
+  #  _posts/큰카테고리/태그/ 안에 글을 두면 categories 를 안 적어도 돼요.
+  #  태그를 새로 만들면 아래처럼 4줄을 추가하고 _data/categories.yml 의 subs 에도 적어주세요.
+  - scope:
+      path: "_posts/personal/profile"
+    values:
+      categories: [personal, "profile"]
+  - scope:
+      path: "_posts/personal/portfolio"
+    values:
+      categories: [personal, "portfolio"]
+  - scope:
+      path: "_posts/study/토익"
+    values:
+      categories: [study, "토익"]
+  - scope:
+      path: "_posts/study/탄소중립 프로젝트"
+    values:
+      categories: [study, "탄소중립 프로젝트"]
+  - scope:
+      path: "_posts/study/Aiot 프로젝트"
+    values:
+      categories: [study, "Aiot 프로젝트"]
+  - scope:
+      path: "_posts/major/Computer network"
+    values:
+      categories: [major, "Computer network"]
+  - scope:
+      path: "_posts/major/Physical AI"
+    values:
+      categories: [major, "Physical AI"]

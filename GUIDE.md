@@ -22,13 +22,19 @@
 
 ## 2. 새 글 쓰기
 
-`_posts` 폴더에 `날짜-영어제목.md` 파일을 만들어요. (예: `2026-09-23-dijkstra.md`)
-파일 이름은 영어로 해야 주소가 깔끔해요. 제목은 한글로 써도 돼요.
+`_posts/큰카테고리/태그/` 폴더에 `날짜-제목.md` 파일을 만들어요.
+(예: `_posts/major/Computer network/2026-11-23-컴퓨터 네트워크 [IP].md`)
+
+```
+_posts/
+├── personal/   profile · portfolio
+├── study/      토익 · 탄소중립 프로젝트 · Aiot 프로젝트
+└── major/      Computer network · Physical AI
+```
 
 ```markdown
 ---
-title: 다익스트라 알고리즘 정리
-categories: [major, 알고리즘]
+title: 컴퓨터 네트워크 [IP]
 description: 검색 결과에 보일 한 줄 요약 (검색 노출에 중요해요!)
 image: /assets/img/내이미지.png   # (선택) 카드 썸네일을 직접 정할 때만
 ---
@@ -38,8 +44,9 @@ image: /assets/img/내이미지.png   # (선택) 카드 썸네일을 직접 정�
 여기에 내용을 마크다운으로 써요.
 ```
 
-- `categories` 의 **첫 번째 값**은 큰 카테고리(`personal`, `study`, `major` 중 하나), **두 번째 값**은 태그예요.
-- 태그는 아무 이름이나 새로 써도 돼요. 영수증, Categories, Tags 화면에 **자동으로** 생겨요.
+- **폴더가 곧 카테고리예요.** `_posts/major/Physical AI/` 에 넣은 글은 자동으로 major › Physical AI 로 분류돼요. 그래서 `categories` 줄은 안 적어도 돼요. (규칙은 `_config.yml` 맨 아래 `defaults` 에 있어요.)
+- **새 태그를 만들 때**는 ① `_data/categories.yml` 의 `subs` 에 이름 추가 ② 같은 이름으로 폴더 만들기 ③ `_config.yml` 맨 아래 `defaults` 에 4줄 추가, 이렇게 세 군데를 맞춰요. 급하면 그 글에만 `categories: [major, 새태그]` 를 적어도 돼요.
+- **파일 이름이 글 주소가 돼요.** 이미 올린 글의 파일 이름을 바꿀 땐 `slug: "예전 이름"` 을 적어야 주소와 댓글이 그대로 유지돼요. (이미 `slug:` 가 있는 글은 지우지 마세요.)
 - `## 제목` 은 도트 폰트의 큰 소제목, `### 제목` 은 작은 소제목이 돼요.
 - 코드 블록은 ```` ```python ```` 처럼 언어를 적으면 색이 입혀져요.
 - **썸네일**: 본문의 첫 번째 사진이 자동으로 썸네일이 돼요. 사진이 없으면 글 앞부분이 연하게 보여요.

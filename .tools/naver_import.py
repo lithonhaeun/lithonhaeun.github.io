@@ -307,7 +307,9 @@ def import_post(url, category, tag):
             break
 
     fname = "%s-%s.md" % (date.strftime("%Y-%m-%d"), slugify(title))
-    path = os.path.join(ROOT, "_posts", fname)
+    folder = os.path.join(ROOT, "_posts", category, tag)   # _posts/카테고리/태그/
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, fname)
     front = (
         "---\n"
         'title: "%s"\n'
@@ -317,7 +319,7 @@ def import_post(url, category, tag):
     )
     with open(path, "w", encoding="utf-8") as f:
         f.write(front + body + "\n")
-    print("4) 다 됐어요 → _posts/%s" % fname)
+    print("4) 다 됐어요 → _posts/%s/%s/%s" % (category, tag, fname))
     return path
 
 
