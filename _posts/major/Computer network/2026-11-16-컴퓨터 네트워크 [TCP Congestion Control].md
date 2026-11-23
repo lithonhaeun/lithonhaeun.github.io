@@ -31,7 +31,7 @@ description: "혼잡의 원인과 비용, AIMD와 slow start, ssthresh로 이어
 
 ### 끝단(호스트)에서 혼잡을 어떻게 알아챌까
 
-![혼잡의 두 신호: 지연과 손실](f01_signals.png)
+![혼잡의 두 신호: 지연과 손실](/assets/img/tcp-congestion-control-24.png)
 
 문제는 우리 대부분이 네트워크를 운용하는 사람이 아니라, 양 끝 호스트 A나 B에서 프로그램을 실행하거나 개발하는 사람이라는 것이다. A와 B 입장에서는 중간에서 무슨 일이 벌어지는지 직접 관찰할 방법이 마땅치 않다. 차를 타고 가면 막히는 걸 체감하지만, 집에 있을 때는 누가 알려 주지 않는 이상 거기가 막히는지 알 수 없는 것과 같다.
 
@@ -46,7 +46,7 @@ description: "혼잡의 원인과 비용, AIMD와 slow start, ssthresh로 이어
 
 ### Flow control과는 다른 문제다
 
-![flow control과 congestion control 비교](f02_flow_vs_congestion.png)
+![flow control과 congestion control 비교](/assets/img/tcp-congestion-control-25.png)
 
 수신 버퍼가 넘치지 않게 하는 flow control과 헷갈리기 쉽지만, 혼잡 제어가 다루는 대상은 **중간에 있는 네트워크**에서 벌어지는 문제다.
 
@@ -63,7 +63,7 @@ Flow control은 TCP 표준에 반영된 뒤 수십 년 동안 사실상 변한 �
 
 ### 시나리오 1: 버퍼가 무한한 라우터 하나
 
-![시나리오 1: 구성, throughput, delay](f03_scenario1.png)
+![시나리오 1: 구성, throughput, delay](/assets/img/tcp-congestion-control-26.png)
 
 여러 사용자가 데이터를 빠르게 보내는 상황을 모델링하기 위해, 두 호스트 A와 B가 데이터를 보내는 그림을 생각해 보자.
 
@@ -89,7 +89,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 - **λin:** 애플리케이션이 보내는 원래 데이터의 속도. 애플리케이션 계층의 입력과 출력은 같다 (λin = λout).
 - **λ'in:** 재전송까지 포함해 전송 계층이 실제로 내보내는 속도. 재전송이 더해지니 **λ'in ≥ λin**이다.
 
-![시나리오 2: λin과 λ'in, 세 가지 경우의 throughput](f04_scenario2.png)
+![시나리오 2: λin과 λ'in, 세 가지 경우의 throughput](/assets/img/tcp-congestion-control-27.png)
 
 **이상화 1 — perfect knowledge.** sender가 라우터 버퍼에 빈자리가 있을 때만 보낸다고 해 보자. 당연히 비현실적인 가정이다. 재전송을 대비해 카피는 두지만, free buffer space를 노려 보내니 손실이 없다. 그러면 시나리오 1과 달라질 이유가 없어서, 입력을 늘린 만큼 출력도 R/2까지 그대로 늘어난다.
 
@@ -106,7 +106,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 ### 시나리오 3: 멀티홉과 congestion collapse
 
-![시나리오 3: 멀티홉과 congestion collapse](f05_scenario3.png)
+![시나리오 3: 멀티홉과 congestion collapse](/assets/img/tcp-congestion-control-28.png)
 
 이번에는 호스트가 4개(four senders)이고, 라우터 4개가 네트워크에 대칭적으로 놓여 있다(multi-hop paths). 각 호스트의 flow는 라우터 두 개를 거치고, 서로 엇갈려서 라우터를 공유한다. 라우터 하나를 flow 두 개가 쓰니 각자 R/2씩 나눠 쓸 수 있는 상황이고, 버퍼는 유한하며 타임아웃과 재전송이 일어난다.
 
@@ -123,7 +123,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 ### Insights: 지금까지의 정리
 
-![혼잡의 원인과 비용: 다섯 가지 insight](f06_insights.png)
+![혼잡의 원인과 비용: 다섯 가지 insight](/assets/img/tcp-congestion-control-29.png)
 
 - throughput은 capacity를 절대 넘을 수 없다.
 - capacity에 가까워질수록 delay가 커진다.
@@ -147,7 +147,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 이제 혼잡이 무엇이고, 네트워크 참여자들의 어떤 동작 때문에 생기는지 파악했다. 그럼 이걸 제어하는 기술이 필요한데, 크게 두 가지 접근이 있다.
 
-![end-end와 network-assisted 혼잡 제어](f07_approaches.png)
+![end-end와 network-assisted 혼잡 제어](/assets/img/tcp-congestion-control-30.png)
 
 ### End-end congestion control (종단간 혼잡 제어)
 
@@ -171,7 +171,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 ### TCP sliding window 다시 보기
 
-![sender sequence number space와 cwnd](f08_window.png)
+![sender sequence number space와 cwnd](/assets/img/tcp-congestion-control-31.png)
 
 TCP sliding window에서 배운 내용을 다시 가져온다. TCP가 데이터를 보내는 양은 send window로 제한된다. sender는 보냈지만 아직 ACK를 못 받은(in-flight) 데이터가 cwnd를 넘지 않도록 한다.
 
@@ -206,7 +206,7 @@ sender는 패킷 로스(혼잡)가 나기 전까지 보내는 속도를 올리�
 
 ### Sawtooth behavior
 
-![AIMD와 sawtooth behavior](f09_aimd.png)
+![AIMD와 sawtooth behavior](/assets/img/tcp-congestion-control-32.png)
 
 이 알고리즘을 시간에 따라 관찰하면, 일정한 값을 더하니 기울기가 일정한 직선으로 올라간다. 그러다 갑자기 곱하기로 크게 떨어지고, 다시 성공하면 올랐다가, 또 낮추기를 반복한다. 톱날처럼 보여서 **sawtooth behavior**라고 부르고, 강의자료는 이를 "bandwidth를 탐색하는(probing for bandwidth)" 동작이라고 표현한다.
 
@@ -214,7 +214,7 @@ sender는 패킷 로스(혼잡)가 나기 전까지 보내는 속도를 올리�
 
 ### Additive increase를 그림으로 보면
 
-![additive increase: cwnd 4, 5, 6](f10_additive_increase.png)
+![additive increase: cwnd 4, 5, 6](/assets/img/tcp-congestion-control-33.png)
 
 cwnd가 4라고 하자. 그림의 정수는 byte가 아니라 **MSS 기준 세그먼트 개수**다. 이론 분석에서는 보통 MSS 단위를 쓰니, 세그먼트 개수로 생각하는 편이 훨씬 편하다.
 
@@ -222,7 +222,7 @@ cwnd = 4면 세그먼트 4개가 가고, delayed ACK가 없다고 보면 ACK가 
 
 ### Multiplicative decrease: Tahoe와 Reno
 
-![TCP Tahoe와 TCP Reno의 multiplicative decrease](f11_tahoe_reno.png)
+![TCP Tahoe와 TCP Reno의 multiplicative decrease](/assets/img/tcp-congestion-control-34.png)
 
 곱해서 줄이는 방법은 두 가지다.
 
@@ -255,7 +255,7 @@ cwnd = 4면 세그먼트 4개가 가고, delayed ACK가 없다고 보면 ACK가 
 - 처음에는 cwnd = 1 MSS에서 시작한다 (initially cwnd = 1 MSS).
 - ACK를 하나 받으면 cwnd가 2, 두 개에 대한 ACK를 받으면 4, 한 라운드가 더 지나면 8이 된다.
 
-![slow start: 1, 2, 4, 8과 AIMD 비교](f12_slow_start.png)
+![slow start: 1, 2, 4, 8과 AIMD 비교](/assets/img/tcp-congestion-control-35.png)
 
 실제 구현은 **ACK가 확인해 준, 이번에 새로 전송이 완료된 데이터 크기만큼 cwnd를 늘리는 것**이다(done by incrementing cwnd for every ACK received). 그 결과 1 → 2 → 4 → 8처럼 라운드(RTT)마다 2배씩 늘어난다(double cwnd every RTT). 원래 동작은 "ACK마다 더하기"이고, 그 결과가 "RTT마다 2배"라는 것을 정확히 구분해서 기억하자.
 
@@ -283,7 +283,7 @@ ssthresh는 이렇게 이해하면 된다. 정확한 추정치는 아니지만, 
 
 ### 그림 예시: ssthresh = 16에서 시작
 
-![ssthresh = 16에서 시작한 cwnd의 변화](f13_cwnd_trace.png)
+![ssthresh = 16에서 시작한 cwnd의 변화](/assets/img/tcp-congestion-control-36.png)
 
 1. **Slow start.** 1 → 2 → 4 → 8 → 16까지 올라간다.
 2. **AIMD(additive increase).** 16에 도달한 뒤부터는 16 → 17 → 18 → 19 → 20. 각 라운드(RTT) 동안 로스 없이 ACK가 잘 도착했다는 뜻이다.
@@ -302,7 +302,7 @@ ssthresh는 이렇게 이해하면 된다. 정확한 추정치는 아니지만, 
 
 ### 정리: "Simplified" TCP congestion control
 
-![Simplified TCP congestion control 상태도](f14_fsm.png)
+![Simplified TCP congestion control 상태도](/assets/img/tcp-congestion-control-37.png)
 
 이 동작들을 보면 이렇게 정리할 수 있다.
 
