@@ -2,7 +2,7 @@
 # ─────────────────────────────────────────────
 #  사진넣기 — 블로그에 사진을 쉽게 넣는 도구
 #  더블클릭하면 복사해둔 사진을 붙여넣거나 파일을 고를 수 있어요.
-#  고른 사진은 assets/img 에 정리되고,
+#  고른 사진은 그 글의 사진 폴더(assets/img/카테고리/태그/글이름/)에 정리되고,
 #  글에 붙여넣을 마크다운이 자동으로 복사돼요.
 # ─────────────────────────────────────────────
 cd "$(dirname "$0")" || exit 1
@@ -53,6 +53,26 @@ AS
   fi
 fi
 
+# 1-2) 어느 글의 사진인지 고르기 → assets/img/카테고리/태그/글이름/ 에 넣어요
+imgdir="assets/img"
+if command -v python3 >/dev/null 2>&1 && [ -f ".tools/imgdir.py" ]; then
+  post_list=()
+  while IFS= read -r line; do [ -n "$line" ] && post_list+=("$line"); done < <(python3 -I .tools/imgdir.py recent 15)
+  if [ "${#post_list[@]}" -gt 0 ]; then
+    choice=$(osascript - "${post_list[@]}" <<'AS' 2>/dev/null
+on run argv
+  set picked to choose from list argv with title "사진넣기" with prompt "어느 글에 넣을 사진인가요? (최근에 고친 글부터)" default items {item 1 of argv}
+  if picked is false then return ""
+  return item 1 of picked
+end run
+AS
+)
+    [ -z "$choice" ] && exit 0
+    imgdir="assets/img/$(python3 -I .tools/imgdir.py dir "_posts/$choice.md")"
+  fi
+fi
+mkdir -p "$imgdir" || exit 1
+
 markdown=""
 count=0
 
@@ -71,10 +91,10 @@ for src in "${files[@]}"; do
   name="$(date +%Y%m%d)-$name"
 
   # 같은 이름이 있으면 뒤에 숫자를 붙여요
-  target="assets/img/$name.$ext"
+  target="$imgdir/$name.$ext"
   n=2
   while [ -e "$target" ]; do
-    target="assets/img/$name-$n.$ext"
+    target="$imgdir/$name-$n.$ext"
     n=$((n + 1))
   done
 

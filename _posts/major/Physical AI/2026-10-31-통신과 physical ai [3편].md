@@ -9,7 +9,7 @@ description: "AI와 통신이 만나는 두 방향, 엣지 인텔리전스와 �
 
 로드맵 마지막 단계까지 왔음.
 
-![img.png](/assets/img/8-46.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-46.png)
 
 | 단계 | 기술 | 네트워크의 역할 |
 |---|---|---|
@@ -32,7 +32,7 @@ description: "AI와 통신이 만나는 두 방향, 엣지 인텔리전스와 �
 
 ### 1-1. 머신러닝 포 커뮤니케이션 vs 커뮤니케이션 포 머신러닝
 
-![img.png](/assets/img/8-47.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-47.png)
 
 AI · 머신러닝을 통신에 들여오는 방향은 크게 두 가지임.
 
@@ -55,7 +55,7 @@ AI · 머신러닝을 통신에 들여오는 방향은 크게 두 가지임.
 
 ### 1-2. 6G는 거대한 AI를 받치는 인프라가 된다
 
-![img.png](/assets/img/8-48.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-48.png)
 
 이 관점에서 보면 <mark class="mint">6G 네트워크 인프라는 엄청나게 큰 머신러닝 · AI 모델을 서포트하는 기반</mark>이 됨.
 
@@ -78,7 +78,7 @@ AI · 머신러닝을 통신에 들여오는 방향은 크게 두 가지임.
 
 ### 2-1. 세 개의 층: 클라우드 · 엣지 · 온디바이스
 
-![img.png](/assets/img/8-49.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-49.png)
 
 교수님이 그린 6G 네트워크의 엣지 인텔리전스 개념은 세 층으로 되어 있음.
 
@@ -103,7 +103,7 @@ AI · 머신러닝을 통신에 들여오는 방향은 크게 두 가지임.
 
 ### 2-2. 예시: 자율주행
 
-![img.png](/assets/img/8-50.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-50.png)
 
 가장 직관적인 예가 자율주행임. 요즘은 테슬라 같은 회사에서 **차 안에서(온디바이스)** 하는 자율주행이 워낙 잘 되고 있지만, 좀 더 **글로벌한 뷰**가 있으면 더 잘할 수 있음.
 
@@ -131,7 +131,7 @@ AI · 머신러닝을 잘하려면 결국 뭐가 제일 중요하냐? **데이�
 
 ### 3-1. 중앙집중형 엣지 러닝과 업로드 병목
 
-![img.png](/assets/img/8-51.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-51.png)
 
 사람들이 일반적으로 먼저 떠올리는 건 <mark class="pink">중앙집중형 엣지 러닝(Centralized Edge Learning)</mark>임. 기지국 하나에 여러 단말이 접속해서 **자기가 가진 데이터를 업로드하는** 구조.
 
@@ -144,7 +144,7 @@ AI · 머신러닝을 잘하려면 결국 뭐가 제일 중요하냐? **데이�
 
 ### 3-2. 모든 데이터가 똑같이 중요할까?
 
-![img.png](/assets/img/8-52.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-52.png)
 
 이 문제를 바라볼 때 무선통신 하는 사람과 컴퓨터 사이언스 하는 사람의 시각이 좀 다름.
 
@@ -157,7 +157,7 @@ AI · 머신러닝을 잘하려면 결국 뭐가 제일 중요하냐? **데이�
 
 ### 3-3. 데이터 중요도 예시: SVM
 
-![img.png](/assets/img/8-53.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-53.png)
 
 AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <mark class="pink">서포트 벡터 머신(SVM)</mark>임. 동그라미(○)와 십자가(+)를 구분하는 분류기라고 보면 됨.
 
@@ -186,7 +186,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 3-5. 데이터 중요도를 반영한 자원 관리
 
-![img.png](/assets/img/8-54.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-54.png)
 
 이걸 실제로 하려면 <mark class="pink">데이터 중요도 인지 자원 관리(Data Importance Aware Resource Management)</mark>가 중요한 이슈임.
 
@@ -196,7 +196,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 3-6. 중요한 데이터일까, 이상치일까?
 
-![img.png](/assets/img/8-55.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-55.png)
 
 근데 SVM 예시처럼 데이터 중요도를 단순하게 정의할 수 있는 경우는 드묾. 실제로는 **데이터 중요도를 정하는 것 자체가 쉽지 않음**.
 
@@ -208,7 +208,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 3-7. 데이터 임베딩: 차원을 줄여서 보자
 
-![img.png](/assets/img/8-56.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-56.png)
 
 여기에 **고차원 문제**까지 겹침. 실제 데이터는 차원이 128, 256처럼 워낙 커서 눈으로 그려볼 수도 없음. 그리고 고차원 공간으로 가면 **모든 데이터가 다 이상치처럼, 다 중요해 보임**.
 
@@ -221,7 +221,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 3-8. 데이터 디프닝
 
-![img.png](/assets/img/8-57.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-57.png)
 
 이것에 대한 하나의 기술이 교수님 연구팀이 개발한 <mark class="pink">데이터 디프닝(Data Deepening)</mark>임.
 
@@ -239,7 +239,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 4-1. Federated Edge Learning
 
-![img.png](/assets/img/8-58.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-58.png)
 
 지금까지 본 중앙집중형 엣지 러닝은 기본적으로 **단말 데이터를 기지국으로 다 올려야** 하는 구조임. 효율적일 수는 있지만, 단말의 **사생활이 담긴 데이터**를 엣지 서버로 올려야 해서 <mark class="pink">프라이버시 보호가 안 됨</mark>.
 
@@ -258,7 +258,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 4-2. Federated Personalized Learning
 
-![img.png](/assets/img/8-59.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-59.png)
 
 연합학습이 좀 더 진화한 게 <mark class="pink">연합 개인화 학습(Federated Personalized Learning)</mark>임.
 
@@ -282,7 +282,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 5-1. 클래식 통신 vs 시멘틱 통신
 
-![img.png](/assets/img/8-60.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-60.png)
 
 고양이 사진을 수신기 쪽으로 보내서, 수신기의 AI 분류기가 고양이인지 개인지 판단하는 작업이 있다고 해 봄.
 
@@ -303,7 +303,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 5-2. 시멘틱 통신의 기원: 섀넌과 위버
 
-![img.png](/assets/img/8-61.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-61.png)
 
 시멘틱(semantic)은 "의미"라는 뜻이라, **의미론적 통신**이라고 보면 됨. 근데 이게 생각보다 역사가 깊음.
 
@@ -323,7 +323,7 @@ AI · 머신러닝 공부하면 가장 먼저 배우는 기술 중 하나가 <ma
 
 ### 5-3. 6G 시멘틱 네이티브 라디오
 
-![img.png](/assets/img/8-62.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-62.png)
 
 교수님 연구팀이 그리는 6G 시스템은 기존 엣지 인텔리전스를 좀 더 진화시킨 <mark class="pink">6G 시멘틱 네이티브 라디오(Semantic Native Radio)</mark>임.
 
@@ -349,7 +349,7 @@ ChatGPT, LLaMA, Gemini처럼 **이미 잘 학습된 모델**이 있으니까, �
 
 ### 5-5. 예시 ①: 시멘틱 지식으로 빠른 엣지 추론
 
-![img.png](/assets/img/8-63.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-63.png)
 
 1. 기지국이 작은 트랜스포머 모델 **DeiT-Tiny**(시멘틱 지식)를 단말에 미리 내려줌
 2. 단말은 자기 사진에 트랜스포머를 돌려서 **어텐션 맵**을 뽑음. 어떤 데이터 패치(조각)가 중요한지 색깔로 표현해 줌
@@ -396,7 +396,7 @@ ChatGPT, Claude, Llama, Gemini 같은 LLM은 이미 챗봇을 넘어 논문 문�
 
 ### 6-2. LLM은 왜 이렇게 강할까: 창발 능력
 
-![img.png](/assets/img/8-64.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-64.png)
 
 LLM이 왜 이렇게 파워풀한지 보면, 2020년대 초반부터 <mark class="pink">창발 능력(Emergent Ability)</mark>이라는 표현이 많이 쓰였음.
 
@@ -410,7 +410,7 @@ LLM이 왜 이렇게 파워풀한지 보면, 2020년대 초반부터 <mark class
 
 ### 6-3. 작은 언어 모델(SLM)과 그 한계
 
-![img.png](/assets/img/8-65.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-65.png)
 
 그래서 단말이나 노트북에서는 LLM을 다 돌리는 게 아니라 <mark class="pink">SLM(Small Language Model)</mark>을 돌리는 컨셉이 등장함.
 
@@ -426,7 +426,7 @@ LLM이 왜 이렇게 파워풀한지 보면, 2020년대 초반부터 <mark class
 
 ### 6-4. 하이브리드 언어 모델(HLM)
 
-![img.png](/assets/img/8-66.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-66.png)
 
 이 트레이드오프를 어떻게 잘 처리할까 고민하다 나온 게 <mark class="pink">하이브리드 언어 모델(HLM, Hybrid Language Model)</mark>임.
 
@@ -440,7 +440,7 @@ LLM이 왜 이렇게 파워풀한지 보면, 2020년대 초반부터 <mark class
 
 ### 6-5. 단어만 말고 "분포"를 보낸다: 추측 디코딩
 
-![img.png](/assets/img/8-67.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-67.png)
 
 HLM은 기본적으로 <mark class="pink">추측 디코딩(Speculative Decoding)</mark>이라는 컨셉을 바탕으로 설계됨. 핵심만 보면
 
@@ -467,7 +467,7 @@ HLM은 기본적으로 <mark class="pink">추측 디코딩(Speculative Decoding)
 
 ### 6-7. 예시: The quick brown fox jumps over
 
-![img.png](/assets/img/8-68.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-68.png)
 
 불확실성은 **온도 섭동(Temperature Perturbation)**으로 잼. 출력에 변화(perturbation)를 줘서 여러 번 뽑아 보고, SLM이 낸 답이랑 얼마나 다른지 보는 것.
 
@@ -494,7 +494,7 @@ HLM은 기본적으로 <mark class="pink">추측 디코딩(Speculative Decoding)
 
 ### 7-1. NeuRoRAN: 로봇 + 통신 + AI
 
-![img.png](/assets/img/8-69.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-69.png)
 
 Physical AI 개론 수업인데 AI · 머신러닝과 통신 얘기만 주로 했으니, 마지막으로 교수님이 지금 하고 있는 Physical AI 관련 연구를 앞 내용과 연결해서 소개함.
 
@@ -511,7 +511,7 @@ Physical AI 개론 수업인데 AI · 머신러닝과 통신 얘기만 주로 �
 
 ### 7-2. SUTD 파견: 휴머노이드 + AI-RAN
 
-![img.png](/assets/img/8-70.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-70.png)
 
 교수님은 SUTD에 1년 정도 파견을 가 있었음. 거기서 한 일은, SUTD가 가진 **AI 기반 통신 시스템(AI-RAN)**을 **휴머노이드 같은 로봇 시스템**과 결합해서 실제로 실험하고 연구한 것.
 
@@ -519,7 +519,7 @@ Physical AI 개론 수업인데 AI · 머신러닝과 통신 얘기만 주로 �
 
 ### 7-3. 인하대: 멀티 로봇 SLAM
 
-![img.png](/assets/img/8-71.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-3편/8-71.png)
 
 인하대에서는 **멀티 로봇 SLAM**을 통신 시스템과 엮어서 연구 중임. SLAM은 로봇이 돌아다니면서 **지도를 그리는 동시에 자기 위치를 추정**하는 기술.
 

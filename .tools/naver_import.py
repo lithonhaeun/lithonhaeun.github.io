@@ -6,6 +6,9 @@ import os, re, sys, html, unicodedata, urllib.request, urllib.parse
 from html.parser import HTMLParser
 from datetime import datetime
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from imgdir import post_img_rel  # noqa: E402
+
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/125.0 Safari/537.36")
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -188,9 +191,9 @@ class Naver2Md(HTMLParser):
 
 # ───────────────────────── 사진 받기 ─────────────────────────
 
-def save_images(blocks, log_no, referer):
-    """본문 사진을 assets/img 에 내려받고 주소를 바꿔요."""
-    out = os.path.join(ROOT, "assets", "img")
+def save_images(blocks, log_no, referer, img_rel=""):
+    """본문 사진을 그 글의 사진 폴더(assets/img/카테고리/태그/글이름/)에 내려받고 주소를 바꿔요."""
+    out = os.path.join(ROOT, "assets", "img", img_rel)
     os.makedirs(out, exist_ok=True)
     n = 0
     result = []
@@ -213,7 +216,7 @@ def save_images(blocks, log_no, referer):
                     with open(path, "wb") as f:
                         f.write(data)
                     print("   사진 %d장째 받음: %s (%d KB)" % (n, name, len(data) // 1024))
-                    result.append("![](/assets/img/%s)" % name)
+                    result.append("![](/assets/img/%s)" % (img_rel + "/" + name if img_rel else name))
                     break
             except Exception as e:
                 last = e
@@ -276,8 +279,12 @@ def import_post(url, category, tag):
     if not blocks:
         raise RuntimeError("본문을 찾지 못했어요. 글이 비공개이거나 네이버 구조가 바뀌었을 수 있어요.")
 
+    fname = "%s-%s.md" % (date.strftime("%Y-%m-%d"), slugify(title))
+    folder = os.path.join(ROOT, "_posts", category, tag)   # _posts/카테고리/태그/
+    path = os.path.join(folder, fname)
+
     print("3) 사진 %d장 받는 중…" % len(p.images))
-    blocks = save_images(blocks, log_no, referer)
+    blocks = save_images(blocks, log_no, referer, post_img_rel(path))
 
     def kind(t):
         t = (t or "").lstrip()
@@ -306,10 +313,7 @@ def import_post(url, category, tag):
             desc = re.sub(r"[*`]", "", desc).strip()[:110]
             break
 
-    fname = "%s-%s.md" % (date.strftime("%Y-%m-%d"), slugify(title))
-    folder = os.path.join(ROOT, "_posts", category, tag)   # _posts/카테고리/태그/
     os.makedirs(folder, exist_ok=True)
-    path = os.path.join(folder, fname)
     front = (
         "---\n"
         'title: "%s"\n'

@@ -650,35 +650,35 @@ $$
 
 ### 15-1. Pick-and-place: 상자에 물건 넣기
 
-![img.png](/assets/img/w1-1.png)
+![img.png](/assets/img/major/physical-ai/2026-10-13-visual-servoing/w1-1.png)
 <!-- 슬라이드: Application example (1/5) pick-and-place. Task: place an object in a box -->
 
 오른쪽 위 작은 창이 영상 처리 화면임. **파란 점**이 지금 보이는 상자의 네 모서리($$ \mathbf{s} $$), **빨간 동그라미**가 목표 위치($$ \mathbf{s}^* $$)임. 파란 점이 빨간 동그라미에 겹치도록 팔을 움직이면 물건을 상자에 넣을 수 있음.
 
 ### 15-2. Robotic manipulation: 서랍 열고 닫기
 
-![img.png](/assets/img/w1-2.png)
+![img.png](/assets/img/major/physical-ai/2026-10-13-visual-servoing/w1-2.png)
 <!-- 슬라이드: Application example (2/5) robotic manipulation. Task: open/close a drawer -->
 
 휴머노이드가 프린터 서랍을 여닫는 작업임. 왼쪽 위 영상을 보면 프린터와 서랍의 모서리를 파란 **직선**으로 잡고 있음. 2장에서 말한 대로 특징이 꼭 점일 필요는 없다는 예시임. 왼쪽 아래 그래프는 서랍 위치 $$ q $$가 명령(command)을 계단처럼 따라가는 모습임.
 
 ### 15-3. Corridor navigation: 복도 가운데로 걷기
 
-![img.png](/assets/img/w1-3.png)
+![img.png](/assets/img/major/physical-ai/2026-10-13-visual-servoing/w1-3.png)
 <!-- 슬라이드: Application example (3/5) corridor navigation. Task: navigate at the center of a corridor -->
 
 휴머노이드가 미로의 복도 가운데를 따라 걷는 장면을 위에서 내려다본 것임. 오른쪽 아래 작은 창이 카메라 화면인데, 복도 양쪽 경계선을 잡고 있음.
 
 ### 15-4. Pedestrian tracking: pan/tilt 카메라로 보행자 추적
 
-![img.png](/assets/img/w1-4.png)
+![img.png](/assets/img/major/physical-ai/2026-10-13-visual-servoing/w1-4.png)
 <!-- 슬라이드: Pedestrian tracking using a pan/tilt camera -->
 
 카메라가 사람을 따라 고개를 돌려서 계속 화면에 담음.
 
 ### 15-5. Grasping: 6자유도 로봇 팔로 물체 잡기
 
-![img.png](/assets/img/w1-5.png)
+![img.png](/assets/img/major/physical-ai/2026-10-13-visual-servoing/w1-5.png)
 <!-- 슬라이드: Positioning/grasping task using a 6 dof robot arm -->
 
 초록 사각형이 추적 중인 물체임. 다른 부품이 잔뜩 깔려 있어도 물체를 놓치지 않아야 함.

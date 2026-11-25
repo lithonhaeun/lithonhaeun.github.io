@@ -23,7 +23,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 1-1. 통신은 "음성"에서 "모든 것"으로 진화했다
 
-![img.png](/assets/img/8-1.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-1.png)
 
 지금 우리가 쓰는 건 **5G** 시스템임. 이름 그대로 1세대(1G)부터 5세대(5G)까지 점점 진화해 왔음.
 
@@ -35,7 +35,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 1-2. 5G는 세 가지 목표로 설계됐다
 
-![img.png](/assets/img/8-2.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-2.png)
 
 5G는 크게 세 가지 기준(criteria)을 놓고 설계됐음.
 
@@ -50,7 +50,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 1-3. 5G의 "Big Three" 기술
 
-![img.png](/assets/img/8-3.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-3.png)
 
 이 세 목표를 달성하려고 꺼낸 핵심 기술이 세 개 있음.
 
@@ -69,7 +69,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 1-4. 현실: 5G는 생각보다 성공하지 못했다
 
-![img.png](/assets/img/8-4.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-4.png)
 
 근데 5G는 그렇게 성공적인 시스템으로 평가받지 못하고 있음. 원인은 핵심 기술이었던 **mmWave**.
 
@@ -88,7 +88,7 @@ description: "5G가 기대만큼 성공하지 못한 이유, 6G가 AI와 Physica
 
 ### 2-1. 6G가 노리는 것
 
-![img.png](/assets/img/8-5.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-5.png)
 
 5G의 실패를 극복하려고 6G를 많이들 고민하고 있음.
 6G는 5G보다 훨씬 높은 요구사항을 목표로 함. **에너지 효율, 주파수 효율, 무선 지연시간, 기기 밀도, 신뢰도, 데이터 속도**를 5G 대비 <mark class="pink">10배~100배 이상</mark> 끌어올리려고 노력하는 중.
@@ -101,7 +101,7 @@ MIT 테크놀로지 리뷰(MIT Technology Review)에 2022년쯤 실린 기사인
 
 ### 2-3. 6G Vision: Native AI
 
-![img.png](/assets/img/8-6.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-6.png)
 
 이를 기반으로 화웨이, 삼성, 에릭슨, 노키아 같은 회사들이 <mark class="pink">Native AI</mark>를 6G의 새로운 비전으로 제시하고 있음.
 
@@ -111,7 +111,7 @@ MIT 테크놀로지 리뷰(MIT Technology Review)에 2022년쯤 실린 기사인
 
 ### 2-4. 왜 AI냐? 통신-컴퓨팅 융합
 
-![img.png](/assets/img/8-7.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-7.png)
 
 AI가 6G 핵심 기술이 된 기본 배경에는 <mark class="mint">통신과 컴퓨팅의 융합(Communications and Computing Convergence)</mark>이 있음.
 6G를 통신 기술이라고만 생각할 수 있지만, 사실은 **통신뿐 아니라 AI 기반 연산을 잘하기 위한 시스템**이라고 이해하면 됨.
@@ -124,7 +124,7 @@ AI가 6G 핵심 기술이 된 기본 배경에는 <mark class="mint">통신과 �
 
 ### 2-5. 6G Vision: Physical AI
 
-![img.png](/assets/img/8-8.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-8.png)
 
 통신-컴퓨팅 융합으로 얻을 수 있는 또 다른 비전이 바로 **Physical AI**임.
 6G 시대에 Physical AI가 핵심 애플리케이션이 될 거고, 이를 현실화하는 핵심 기술로 이런 것들을 꼽음.
@@ -141,7 +141,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 2-6. Physical AI로 가는 로드맵
 
-![img.png](/assets/img/8-9.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-9.png)
 
 이런 연구는 2010년대 초반부터 쭉 이어져 왔음. 여기는 이 연구들이 어떻게 진행돼 왔고, Physical AI로 어떻게 진화하고 있는지를 세 단계로 설명함.
 
@@ -163,7 +163,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-1. 모바일 데이터 트래픽 수요
 
-![img.png](/assets/img/8-10.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-10.png)
 
 캐싱 얘기 전에 모바일 데이터가 얼마나 쓰이고 있는지부터 봄.
 시스코(Cisco)가 2017년부터 2022년까지 모바일 데이터 트래픽을 예측한 표임.
@@ -181,7 +181,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-3. 기존 해법: 용량 늘리기
 
-![img.png](/assets/img/8-11.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-11.png)
 
 트래픽을 감당하려면 결국 통신 용량(capacity)을 확보해야 함. 이를 위한 기존 최신 기술은 크게 세 가지였음.
 
@@ -191,7 +191,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-4. 근본적인 문제 ①: 인프라는 무한히 늘릴 수 없다
 
-![img.png](/assets/img/8-12.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-12.png)
 
 근데 이 세 가지 다 그렇게 성공적이지 못했음. 전부 **인프라를 많이 깔아야** 하는 방식이라 비용이 너무 많이 듦.
 
@@ -203,7 +203,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-5. 근본적인 문제 ②: 피크 타임의 혼잡
 
-![img.png](/assets/img/8-13.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-13.png)
 
 또 다른 이슈는, 아무리 통신 네트워크를 잘 만들어도 **데이터 패턴**에 따라 효율이 크게 달라진다는 것.
 
@@ -219,7 +219,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-6. 인터넷도 같은 문제를 겪었다
 
-![img.png](/assets/img/8-14.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-14.png)
 
 사실 이런 문제는 인터넷에도 똑같이 있었음.
 
@@ -232,7 +232,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-7. 인터넷의 해법: CDN
 
-![img.png](/assets/img/8-15.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-15.png)
 
 이 고민에 대한 기본적인 대답이 <mark class="pink">CDN (Content Delivery Network)</mark>임.
 
@@ -248,7 +248,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-8. 콘텐츠의 특징: 다들 비슷한 걸 본다
 
-![img.png](/assets/img/8-16.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-16.png)
 
 무선에 CDN 아이디어를 가져올 수 있는 근거는 데이터 트래픽 자체의 특징에 있음.
 
@@ -261,7 +261,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-9. Connection-Centric에서 Content-Centric으로
 
-![img.png](/assets/img/8-17.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-17.png)
 
 여기서 네트워크 설계 철학이 바뀜.
 
@@ -286,7 +286,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-11. Where to cache? ① 코어에 저장 (EPC 캐싱)
 
-![img.png](/assets/img/8-18.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-18.png)
 
 - **캐싱이 없을 때**: 모든 데이터를 인터넷에서 바로 받아옴 → 데이터 트래픽이 너무 많이 필요함
 - **EPC 캐싱**: 몇 가지 데이터를 통신사 코어(MNO 코어)에 옮겨 놓으면 더 효율적
@@ -295,7 +295,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-12. Where to cache? ② 기지국에도 저장
 
-![img.png](/assets/img/8-19.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-19.png)
 
 이걸 조금 더 진화시켜서, **각 기지국이 저장공간을 갖고 있다면** 중요한 데이터를 **기지국까지** 끌어다 놓을 수 있음.
 
@@ -303,7 +303,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-13. Where to cache? ③ 단말에도 저장
 
-![img.png](/assets/img/8-20.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-20.png)
 
 세 번째로, **단말도 저장공간이 있으니까** 이걸 잘 활용하면 좋지 않을까 해서 **단말 캐싱**도 고려하고 있음.
 
@@ -316,7 +316,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-14. What to cache? ① 캐싱 가능한 트래픽
 
-![img.png](/assets/img/8-21.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-21.png)
 
 모든 트래픽을 캐싱할 수 있는 건 아님.
 
@@ -331,7 +331,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-15. What to cache? ② 통째로 말고 앞부분만
 
-![img.png](/assets/img/8-22.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-22.png)
 
 캐싱할 때도 인기 콘텐츠를 **통째로** 저장하는 게 아니라, **파일 단위나 청크(chunk) 단위**로 나눠서 일부만 캐싱하는 게 훨씬 효율적일 수 있음.
 
@@ -340,7 +340,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-16. What to cache? ③ 요청은 소수 콘텐츠에 몰린다
 
-![img.png](/assets/img/8-23.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-23.png)
 
 유저의 요청 패턴을 보면 모든 데이터를 골고루 요청하는 게 아니라 **인기 콘텐츠로 몰려 있음**.
 
@@ -350,7 +350,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-17. How to cache? 어떤 파일을 어느 헬퍼에?
 
-![img.png](/assets/img/8-24.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-24.png)
 
 여기서 **헬퍼(helper)**는 캐시 메모리를 가진 장치를 말함. 코어든 기지국이든 저장공간 있으면 다 헬퍼.
 
@@ -361,13 +361,13 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-18. 협력 캐싱 ① 헬퍼 네트워크
 
-![img.png](/assets/img/8-25.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-25.png)
 
 그래서 기존 기지국뿐 아니라 **헬퍼 네트워크를 따로 설치해서** 캐싱하는 방법을 사람들이 많이 고민하고 있음.
 
 ### 3-19. 협력 캐싱 ② 단말의 메모리 활용
 
-![img.png](/assets/img/8-26.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-26.png)
 
 헬퍼를 통한 방법뿐 아니라, **모바일 단말이 가진 메모리**를 효율적으로 활용하는 것도 많이 고민하고 있음.
 
@@ -375,7 +375,7 @@ Physical AI까지 진화할 것**이라는 게 포인트!.
 
 ### 3-20. 정리: 모두가 함께 진화한다
 
-![img.png](/assets/img/8-27.png)
+![img.png](/assets/img/major/physical-ai/2026-10-31-통신과-physical-ai-1편/8-27.png)
 
 정리하면, 캐싱은 기존의 **연결 기반 접근이라기보다 콘텐츠 인기도 기반 접근**이라서 **유저, 통신사, 콘텐츠 제공자**가 다 같이 연관돼서 진화하고 있음.
 

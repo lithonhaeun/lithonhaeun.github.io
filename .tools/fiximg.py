@@ -5,7 +5,8 @@
 
 하는 일
   1) _posts 안의 .md 를 훑어서 상대경로 이미지를 찾습니다
-  2) assets/img 바깥에 있으면 assets/img 로 옮깁니다 (이름은 글 이름 기준으로 정리)
+  2) assets/img 바깥에 있으면 그 글의 사진 폴더로 옮깁니다
+     (assets/img/카테고리/태그/글이름/ — 규칙은 imgdir.py)
   3) 링크를 /assets/img/... 로 바꿔 씁니다
 
 이미 /assets/... 이거나 http 로 시작하는 링크는 건드리지 않습니다.
@@ -18,6 +19,9 @@ import sys
 import shutil
 import unicodedata
 from urllib.parse import unquote, quote
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from imgdir import post_img_rel  # noqa: E402
 
 IMG_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".bmp", ".avif"}
 
@@ -68,6 +72,7 @@ def process(root: str):
             text = original = f.read()
 
         slug = slugify(os.path.splitext(os.path.basename(md_path))[0])
+        post_dir = post_img_rel(md_path)          # 이 글의 사진 폴더
         counter = {'n': 0}
 
         def handle(raw_path: str) -> str:
@@ -84,23 +89,25 @@ def process(root: str):
                 missing.append((os.path.basename(md_path), raw_path))
                 return raw_path
 
-            # 이미 assets/img 안에 있으면 옮기지 않고 링크만 고칩니다
-            if os.path.dirname(os.path.abspath(src)) == os.path.abspath(img_dir):
-                rel = os.path.basename(src)
+            # 이미 assets/img 안(하위 폴더 포함)에 있으면 옮기지 않고 링크만 고칩니다
+            if os.path.abspath(src).startswith(os.path.abspath(img_dir) + os.sep):
+                rel = os.path.relpath(os.path.abspath(src), os.path.abspath(img_dir)).replace(os.sep, '/')
             else:
                 counter['n'] += 1
                 ext = os.path.splitext(src)[1].lower()
-                rel = f"{slug}-{counter['n']}{ext}"
+                rel = f"{post_dir}/{slug}-{counter['n']}{ext}"
                 dest = os.path.join(img_dir, rel)
                 while os.path.exists(dest):          # 이름이 겹치면 번호를 올립니다
                     counter['n'] += 1
-                    rel = f"{slug}-{counter['n']}{ext}"
+                    rel = f"{post_dir}/{slug}-{counter['n']}{ext}"
                     dest = os.path.join(img_dir, rel)
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
                 shutil.move(src, dest)
                 moved.append((os.path.relpath(src, root), f"assets/img/{rel}"))
 
             relinked.append((os.path.basename(md_path), raw_path, f"/assets/img/{rel}"))
-            return '/assets/img/' + quote(rel)
+            # 한글은 그대로 두고, 마크다운을 깨뜨리는 공백·괄호 같은 기호만 %xx 로 바꿔요
+            return '/assets/img/' + re.sub(r'[\s()<>"\']', lambda c: quote(c.group()), rel)
 
         text = MD_IMG.sub(lambda m: m.group(1) + handle(m.group(2)) + m.group(3), text)
         text = HTML_IMG.sub(lambda m: m.group(1) + handle(m.group(2)) + m.group(3), text)

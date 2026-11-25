@@ -9,7 +9,7 @@ description: "로봇이 어려운 이유와 Robot Learning, 언어를 로봇에�
 ---
 
 ### 사전 지식 정리
-![img.png](/assets/img/physical-ai2-1.png)
+![img.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-1.png)
 
 |구분	| Digital AI	               | Physical AI       |
 |---|---------------------------|-------------------|
@@ -30,7 +30,7 @@ description: "로봇이 어려운 이유와 Robot Learning, 언어를 로봇에�
 
 ### 1-1. 로봇의 기본 구조 (Sense → Think → Act) 
 
-![img_1.png](/assets/img/physical-ai2-2.png)
+![img_1.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-2.png)
 ① Sense (감지) = 눈 👀<br>
 센서로 세상 상태를 숫자로 측정하는 단계.
 - Camera: 사진(이미지) 찍기. 1편에서 배웠듯이 컴퓨터한텐 결국 픽셀 숫자 덩어리. 색·모양 파악에 강함
@@ -56,7 +56,7 @@ Sense → Think → Act가 한 번 하고 끝이 아님. 행동하면 세상이 
 
 ### 1-2. Moravec의 역설 
 >왜 로봇은 어려울까? Moravec 역설
-![img_2.png](/assets/img/physical-ai2-3.png)
+![img_2.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-3.png)
 
 ①  <mark class="pink">Moravec의 역설이 뭐임?</mark><br>
 로봇공학자 한스 모라벡(Hans Moravec) 이 1980년대에 정리한 관찰. 요약하면 “AI는 천재인데 몸은 갓난아기” 라는 거
@@ -84,7 +84,7 @@ Sense → Think → Act가 한 번 하고 끝이 아님. 행동하면 세상이 
    - 로봇 데이터는 실제로 로봇 움직여서 하나하나 모아야 해서 느리고 비쌈
 
 ### 1-3. 로봇 지능의 시대 변천
-![img_3.png](/assets/img/physical-ai2-4.png)
+![img_3.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-4.png)
 
 흐름 정리 : 사람의 역할이 점점 줄어듦<br>
 
@@ -96,7 +96,7 @@ Sense → Think → Act가 한 번 하고 끝이 아님. 행동하면 세상이 
 |Foundation Model|	말로 명령하기|	보고·이해하고·행동 다 함|
 
 ### 1-4. 기존 Robot Programming (Module Pipeline)
-![img_4.png](/assets/img/physical-ai2-5.png)
+![img_4.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-5.png)
 ① 파이프라인 6단계 (사과 집기로 따라가 보기 🍎)
 
 |단계|	하는 일	|사과 예시|	구조|
@@ -137,13 +137,13 @@ Sense → Think → Act가 한 번 하고 끝이 아님. 행동하면 세상이 
 ## 2. Robot Learning — 로봇은 어떻게 배우는가
 
 ### 2-1. 모든 행동을 직접 Programming해야 할까? 
-![img_5.png](/assets/img/physical-ai2-6.png)
+![img_5.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-6.png)
 Robot에게 행동 100개를 하나하나 Programming한다면 시간 비용 폭발하고, 예외 상황은 무한이고,
 유지 보수 지옥에 새 환경이면 다시 처음부터 코딩해야겠죠?
 
 ### 2-2. Robot Learning과 Policy 
 >해결 방향 = 프로그래밍 대신 데이터로 배우게 하자 → Robot Learning
-![img_6.png](/assets/img/physical-ai2-7.png)
+![img_6.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-7.png)
 
 ① "로봇도 데이터로 배우게 하자"<br>
 - 기존: 사람이 pick_cup.py 에 if…else 수백 줄 작성
@@ -174,7 +174,7 @@ Robot Learning이 굴러가는 3단계.
 그리고 이게 한 번 하고 끝이 아니라 루프처럼 매 순간 반복됨.
 
 ### 2-3. Imitation Learning (모방 학습) 
-![img_7.png](/assets/img/physical-ai2-8.png)
+![img_7.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-8.png)
 ①  <mark class="pink">Imitation Learning (모방 학습) </mark>이 뭐냐면요<br>
 이름 그대로 사람이 하는 걸 보고 따라 배우는 방법이에요. "로봇도 데이터로 배우게 하자" 했잖아요? 그럼 그 데이터를 어디서 얻겠어요… 짠! 사람의 시범에서 얻는 거죠 우히히
 
@@ -210,7 +210,7 @@ Robot Learning이 굴러가는 3단계.
 ### 2-4. 로봇 데이터 수집 방법 4가지
 >Moravec 기억나시죠? 로봇이 어려운 이유 3번이 "학습할 데이터가 부족하다" 였어요. LLM은 인터넷 글 긁어오면 끝인데, 로봇 데이터는 인터넷에 없으니까… 직접 모아야 하겠죠?
 
-![img_8.png](/assets/img/physical-ai2-9.png)
+![img_8.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-9.png)
 
 - Teleoperation: 정확 ↔ 느리고 비쌈
 - VR·모션 캡처: 직관적 ↔ 장비 필요
@@ -221,8 +221,8 @@ Robot Learning이 굴러가는 3단계.
 
 ### 2-5. Behavior Cloning (행동 복제)
 Behavior Cloning 구조
-![img_9.png](/assets/img/physical-ai2-10.png)
-![img_10.png](/assets/img/physical-ai2-11.png)
+![img_9.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-10.png)
+![img_10.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-11.png)
 
 Classification (분류) = 객관식 📝<br>
 - 고양이 사진 넣으면 “Cat 95%, Dog 4%, Fox 1%” 처럼 미리 정해진 보기 중에서 고름
@@ -235,7 +235,7 @@ Classification (분류) = 객관식 📝<br>
 - 이렇게 숫자를 직접 맞히는 문제를 Regression (회귀) 라고 함
 
 ### 2-6. Behavior Cloning의 한계 (Compounding Error) 
-![img_11.png](/assets/img/physical-ai2-12.png)
+![img_11.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-12.png)
 - 점선 = 사람이 시범 보여준 길 (출발 → 사과까지 깔끔하게 직진)
 - 초록 띠 = 시범 데이터가 있는 영역 = 로봇이 "이런 장면은 본 적 있음" 하는 구간
 - 실선 = 학습된 로봇이 실제로 간 길. 처음엔 살짝 어긋나다가 점점 미친 듯이 벌어짐 
@@ -297,7 +297,7 @@ Classification (분류) = 객관식 📝<br>
 
 
 ### 2-8. Robot Action이란? (End-effector vs Joint) 
-![img_12.png](/assets/img/physical-ai2-13.png)
+![img_12.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-13.png)
 
 ① Robot Action = 로봇한테 보내는 "움직임 숫자"<br>
 Policy가 Action을 출력한다고 했잖음. 근데 "팔을 움직여" 라고 말로 할 순 없으니까 결국 숫자 묶음으로 줘야 함. 그 숫자를 어떤 기준으로 쓰느냐에 따라 방법이 2개로 나뉨.
@@ -334,7 +334,7 @@ Policy가 Action을 출력한다고 했잖음. 근데 "팔을 움직여" 라고 
 
 ### 3-1. Camera만 보는 Policy의 문제 (Task information)
 그런데 문제가 있다!
-![img_13.png](/assets/img/physical-ai2-14.png)
+![img_13.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-14.png)
 
 ① 상황 설명<br>
 식탁 위에 빨간 블록, 파란 블록, 컵, 상자가 다 있는 장면. 지금까지 배운 Policy 한테 이 카메라 이미지를 넣으면?
@@ -360,7 +360,7 @@ Policy가 Action을 출력한다고 했잖음. 근데 "팔을 움직여" 라고 
 ### 3-2. Language Instruction 추가
 >Language를 Robot에게 주자
 
-![img_14.png](/assets/img/physical-ai2-15.png)
+![img_14.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-15.png)
 - 입력에 Language Instruction (언어 명령) 을 추가
 - 예: 카메라 이미지 + “Pick up the red block.” → 로봇이 빨간 블록을 집음 (Robot picks the red block)
 - Action = Policy(이미지) → Action = Policy(이미지 + 언어)
@@ -369,7 +369,7 @@ Policy가 Action을 출력한다고 했잖음. 근데 "팔을 움직여" 라고 
 
 ### 3-3. VLA 직전: LLM이 계획을 세우다 (SayCan · PaLM-E) 
 
-![img_15.png](/assets/img/physical-ai2-16.png)
+![img_15.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-16.png)
 
 ① **"음료를 쏟았어. 도와줄래?" 가 왜 어려움?**<br>
 Policy는 "빨간 블록 집어" 처럼 할 일을 대놓고 말해줘야 알아들음. 근데 이 문장엔 "스펀지" 도, "집어" 도 없음 ㅋㅋ
@@ -405,7 +405,7 @@ Policy는 "빨간 블록 집어" 처럼 할 일을 대놓고 말해줘야 알아
 
 
 ### 4-1. VLA : Vision-Language-Action
-![img_16.png](/assets/img/physical-ai2-17.png)
+![img_16.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-17.png)
 
 ①  <mark class="pink"> **VLA = Vision + Language + Action** </mark><br>
 이름 자체가 정의임. 세 글자가 각각 질문 하나씩 담당 👇
@@ -423,7 +423,7 @@ Policy는 "빨간 블록 집어" 처럼 할 일을 대놓고 말해줘야 알아
 >VLM vs VLA 가장 큰 차이 = 출력: VLM은 언어, VLA는 행동
 
 ### 4-2. VLM vs VLA 
-![img_17.png](/assets/img/physical-ai2-18.png)
+![img_17.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-18.png)
 
 ①Input (입력) : 똑같음 =<br>
 둘 다 Vision + Language. 카메라 이미지 보고, 사람 말 듣는 건 완전 동일함.
@@ -436,7 +436,7 @@ Output (출력) : 여기서 갈림 ≠ ⭐<br>
 
 
 ### 4-3. VLA의 핵심 구조
-![img_18.png](/assets/img/physical-ai2-19.png)
+![img_18.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-19.png)
 
 1. VLA 구조: Camera → Vision Encoder / Instruction → Language Model → Multimodal Representation → Action Head → Robot Action 📢 흐름 그대로 외우기
 2. 사전학습된 VLM의 "눈과 뇌"를 재사용 (Vision Encoder, Language Model, Multimodal Representation)
@@ -450,7 +450,7 @@ Action Head → Robot Action 🦾
 ### 4-4. Action 표현 방법 4가지 
 >Action을 어떻게 표현할까?
 
-![img_19.png](/assets/img/physical-ai2-20.png)
+![img_19.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-20.png)
 
 ①  <mark class="pink">Continuous Action — 숫자를 직접 예측 (왼쪽 위)</mark><br>
 제일 기본. Behavior Cloning에서 본 그 방식 그대로임.
@@ -488,7 +488,7 @@ Action Head → Robot Action 🦾
 >핵심: 글과 그림처럼 로봇의 움직임도 AI가 생성할 수 있다
 
 ### 4-5. VLA가 사과를 집는 과정
-![img_20.png](/assets/img/physical-ai2-21.png)
+![img_20.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-21.png)
 
 ① 명령 하나 → 행동 여러 개<br>
 사람은 “Pick up the red apple.” 딱 한 번 말함. 근데 로봇은 그걸 한 방에 처리하는 게 아니라 작은 동작 여러 개로 쪼개서 차근차근 실행함.
@@ -498,20 +498,20 @@ Action Head → Robot Action 🦾
 
 ### 4-6. VLA의 계보도
 
-![img_21.png](/assets/img/physical-ai2-22.png)
+![img_21.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-22.png)
 
 1. VLA 계보는 데이터·기반 / Token 방식 / 생성 방식 / 휴머노이드·범용 4계열로 발전 중
 2. RT-2 (2023) = 첫 VLA 하나는 기억해 두면 좋음 (VLM + 행동 Token)
 3. 표현 방법이 실제 모델로: Action Token → RT-2·OpenVLA / Generative Action → Octo·π0
 4. 방향: 더 많은 로봇 · 데이터 · 작업을 하나의 Foundation Model로 📢 (이름보다 이 문장이 중요!)
-    ![img_22.png](/assets/img/physical-ai2-23.png)
+    ![img_22.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-23.png)
 
 ---
 
 ## 5. 확장 — 더 크고 범용적인 로봇 지능
 
 ### 5-1. Robot Foundation Model 
-![img_23.png](/assets/img/physical-ai2-24.png)
+![img_23.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-24.png)
 
 ① Foundation Model이 뭐였더라? (1편 복습)<br>
 Foundation(기반) = 건물 기초공사 같은 모델 🏗️
@@ -534,7 +534,7 @@ Foundation(기반) = 건물 기초공사 같은 모델 🏗️
 -  → Many Robot Tasks: 말만 바꾸면 여러 로봇 작업을 다 하는 것이 목표
 
 ### 5-2. Cross-Embodiment (다른 몸 사이의 지식 공유)
-![img_24.png](/assets/img/physical-ai2-25.png)
+![img_24.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-25.png)
 
 ① 아이디어 : 여러 몸의 데이터를 모아서 공유 모델 하나로<br>
 그림처럼 4종 로봇 데이터를 <mark class="pink"> Shared Robot Model (공유 로봇 모델) 
@@ -545,7 +545,7 @@ Foundation(기반) = 건물 기초공사 같은 모델 🏗️
 목표: 처음 보는 로봇(New Robot)도 적은 데이터로 빠르게 적응 → Robot Foundation Model의 핵심 조건
 
 ### 5-3. 강화학습 (Imitation vs Reinforcement) 
-![img_25.png](/assets/img/physical-ai2-26.png)
+![img_25.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-26.png)
 
 ① 강화학습 (Reinforcement Learning) 이 뭐임?<br>
 1편 학습 방식 3가지(지도·비지도·강화) 기억나지? 그 강화학습을 로봇에 쓰는 것.
@@ -561,7 +561,7 @@ Foundation(기반) = 건물 기초공사 같은 모델 🏗️
 2. 강화학습으로 개선: 그 상태에서 스스로 시도하며 점수 올려서 시범보다 더 잘하게 됨
 
 ### 5-4. Simulation과 Sim-to-Real
-![img_26.png](/assets/img/physical-ai2-27.png)
+![img_26.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-27.png)
 
 ① <mark class="mint"> Simulation</mark> = 가상 세계에서 로봇 학습 → 무한 · 안전 · 빠름 (수천 개 환경 병렬, 데이터 자동 생성, 넘어져도 안 망가짐)
 - 장점
@@ -597,21 +597,21 @@ AI가 현실 세계에서 일하는 시대
 
 ### 6-2. 아직 해결해야 할 문제 
 
-![img_27.png](/assets/img/physical-ai2-28.png)
+![img_27.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-28.png)
 
 
 ### 6-3. Physical AI 공부 로드맵
-![img_28.png](/assets/img/physical-ai2-29.png)
+![img_28.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-29.png)
 
 ---
 
 ## 7. 마무리
 
 ### 7-1. 전체 강의 정리 
-![img_29.png](/assets/img/physical-ai2-30.png)
+![img_29.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-30.png)
 
 ### 7-2. 꼭 기억해야 할 3가지 
-![img_30.png](/assets/img/physical-ai2-31.png)
+![img_30.png](/assets/img/major/physical-ai/2026-10-27-인공지능에서-physical-ai까지-2편/physical-ai2-31.png)
 
 ① AI는 데이터에서 패턴을 학습한다 — Data → Learning → Model → Prediction
 - AI의 가장 기본 원리. 사람이 규칙을 짜는 게 아니라  <mark class="mint">데이터를 보고 스스로 패턴을 찾음</mark>

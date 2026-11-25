@@ -687,12 +687,12 @@ TCP에는 NAK가 없으므로, 체크섬에서 걸러져 버려진 세그먼트�
 규칙 4에서 "빈틈의 시작 부분부터" 채워야 하는 이유는, 빈틈의 중간을 채운 세그먼트는 여전히 앞이 비어 있어 RCV.NXT가 움직이지 않기 때문이다.
 이때는 규칙 3처럼 중복 ACK가 나간다.
 
-![](/assets/img/20261018-capture.png)
-![](/assets/img/20261018-capture-2.png)
-![](/assets/img/20261018-capture-3.png)
-![](/assets/img/20261018-capture-4.png)
-![](/assets/img/20261018-capture-5.png)
-![](/assets/img/20261018-capture-6.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-2.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-3.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-4.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-5.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-6.png)
 
 ### TCP 수신 측의 ACK 생성 규칙 6가지 (ACK Generation Rules)
 
@@ -743,16 +743,16 @@ TCP에는 NAK가 없으므로, 체크섬에서 걸러져 버려진 세그먼트�
 
 ### 예시문제(클로드)
 
-![](/assets/img/20261018-capture-7.png)
-![](/assets/img/20261018-capture-8.png)
-![](/assets/img/20261018-capture-9.png)
-![](/assets/img/20261018-capture-10.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-7.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-8.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-9.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-10.png)
 정리하면 송신 측이 재전송하는 경우는 두 가지이다.
 
 타임아웃: RTO 타이머가 만료됨 → 느리지만 확실
 빠른 재전송 (fast Retransmission): 중복 ACK 3번 → 타이머 만료 전에 빠르게
-![](/assets/img/20261018-capture-11.png)
-![](/assets/img/20261018-capture-12.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-11.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-12.png)
 #### 정리: ACK가 사라져도 재전송하지 않는 경우
 
 TCP의 기본 ACK는 누적 ACK다. ACK n은 "방금 받은 세그먼트"가 아니라 "n번 앞까지 전부 받았다"는 뜻이다.
@@ -845,7 +845,7 @@ RTO를 잘못 정하면 다음과 같은 문제가 생긴다.
     - RTTVAR = (1 − β) × RTTVAR + β × |MeasuredRTT − SmoothedRTT|
     - 첫 측정 때는 RTTVAR = MeasuredRTT ÷ 2
 
-![](/assets/img/20261018-capture-13.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-13.png)
 
 세 변수의 의미는 다음과 같다.
 
@@ -911,7 +911,7 @@ RTO가 정해지는 순서는 다음과 같다.
 | 첫 측정 (100ms) | 100 | 50 | 100 + 200 = 300ms |
 | 두 번째 (140ms) | 105 | 46.25 | 105 + 185 = 290ms |
 
-![](/assets/img/20261018-capture-14.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-14.png)
 
 그래프에서 파란 점(측정한 RTT)은 190ms에서 330ms 사이를 크게 오르내리지만, 분홍 점(SmoothedRTT)은 천천히 부드럽게 움직인다.
 측정값 하나가 튀어도 평균 추정이 크게 흔들리지 않고, 전체 경향은 따라가는 EWMA의 특징이 드러난다.
@@ -923,7 +923,7 @@ RTO는 이 분홍 선 위에 흔들림만큼의 여유를 얹은 값이므로, �
 > 
 > 재전송한 세그먼트는 ACK가 원래 전송에 대한 것인지 재전송에 대한 것인지 구분할 수 없으므로, RTT 측정에 쓰지 않는다(Karn 알고리즘). 대신 재전송할 때마다 RTO를 두 배로 늘리고(지수 백오프), 재전송하지 않은 세그먼트의 ACK를 받은 뒤에야 RTT 측정을 다시 시작한다.
 
-![](/assets/img/20261018-capture-15.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-15.png)
 
 - Karn 알고리즘
   - 재전송한 세그먼트로는 RTT를 갱신하지 않는다.
@@ -961,8 +961,8 @@ ACK에는 "몇 번 바이트까지 받았다"는 번호만 있고, 원래 전송
 | 2. 재전송한 세그먼트의 ACK 도착 | RTT를 재지 않는다. 두 배로 늘린 RTO를 그대로 유지한다 (Karn 알고리즘) |
 | 3. 재전송하지 않은 새 세그먼트의 ACK 도착 | 정상적으로 RTT를 재고, 식으로 RTTs, RTTd, RTO를 다시 계산한다 |
 
-![](/assets/img/20261018-capture-16.png)
-![](/assets/img/20261018-capture-17.png)
-![](/assets/img/20261018-capture-18.png)
-![](/assets/img/20261018-capture-19.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-16.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-17.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-18.png)
+![](/assets/img/major/computer-network/2026-10-16-컴퓨터-네트워크-tcp-sliding-window/20261018-capture-19.png)
 

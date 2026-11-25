@@ -55,6 +55,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - assets/img/_unused     # 글에서 안 쓰는 사진 모음 (사이트에는 안 올라가요)
 
 defaults:
   - scope:
