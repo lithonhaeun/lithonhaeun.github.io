@@ -3,7 +3,7 @@ title : 컴퓨터 네트워크 [TCP Congestion Control]
 description: "혼잡의 원인과 비용, AIMD와 slow start, ssthresh로 이어지는 TCP 혼잡 제어, TCP fairness, CUBIC·ECN·QUIC까지 정리."
 ---
 
-# 컴퓨터네트워크 7주차 — TCP 혼잡 제어: 혼잡의 원리부터 fairness, QUIC까지
+# TCP 혼잡 제어: 혼잡의 원리부터 fairness, QUIC까지
 
 ## 들어가며
 
@@ -31,7 +31,7 @@ description: "혼잡의 원인과 비용, AIMD와 slow start, ssthresh로 이어
 
 ### 끝단(호스트)에서 혼잡을 어떻게 알아챌까
 
-![혼잡의 두 신호: 지연과 손실](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-24.png)
+![혼잡의 두 신호: 지연과 손실](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-1.png)
 
 문제는 우리 대부분이 네트워크를 운용하는 사람이 아니라, 양 끝 호스트 A나 B에서 프로그램을 실행하거나 개발하는 사람이라는 것이다. A와 B 입장에서는 중간에서 무슨 일이 벌어지는지 직접 관찰할 방법이 마땅치 않다. 차를 타고 가면 막히는 걸 체감하지만, 집에 있을 때는 누가 알려 주지 않는 이상 거기가 막히는지 알 수 없는 것과 같다.
 
@@ -46,7 +46,7 @@ description: "혼잡의 원인과 비용, AIMD와 slow start, ssthresh로 이어
 
 ### Flow control과는 다른 문제다
 
-![flow control과 congestion control 비교](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-25.png)
+![flow control과 congestion control 비교](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-2.png)
 
 수신 버퍼가 넘치지 않게 하는 flow control과 헷갈리기 쉽지만, 혼잡 제어가 다루는 대상은 **중간에 있는 네트워크**에서 벌어지는 문제다.
 
@@ -63,7 +63,7 @@ Flow control은 TCP 표준에 반영된 뒤 수십 년 동안 사실상 변한 �
 
 ### 시나리오 1: 버퍼가 무한한 라우터 하나
 
-![시나리오 1: 구성, throughput, delay](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-26.png)
+![시나리오 1: 구성, throughput, delay](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-3.png)
 
 여러 사용자가 데이터를 빠르게 보내는 상황을 모델링하기 위해, 두 호스트 A와 B가 데이터를 보내는 그림을 생각해 보자.
 
@@ -89,7 +89,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 - **λin:** 애플리케이션이 보내는 원래 데이터의 속도. 애플리케이션 계층의 입력과 출력은 같다 (λin = λout).
 - **λ'in:** 재전송까지 포함해 전송 계층이 실제로 내보내는 속도. 재전송이 더해지니 **λ'in ≥ λin**이다.
 
-![시나리오 2: λin과 λ'in, 세 가지 경우의 throughput](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-27.png)
+![시나리오 2: λin과 λ'in, 세 가지 경우의 throughput](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-4.png)
 
 **이상화 1 — perfect knowledge.** sender가 라우터 버퍼에 빈자리가 있을 때만 보낸다고 해 보자. 당연히 비현실적인 가정이다. 재전송을 대비해 카피는 두지만, free buffer space를 노려 보내니 손실이 없다. 그러면 시나리오 1과 달라질 이유가 없어서, 입력을 늘린 만큼 출력도 R/2까지 그대로 늘어난다.
 
@@ -106,7 +106,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 ### 시나리오 3: 멀티홉과 congestion collapse
 
-![시나리오 3: 멀티홉과 congestion collapse](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-28.png)
+![시나리오 3: 멀티홉과 congestion collapse](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-5.png)
 
 이번에는 호스트가 4개(four senders)이고, 라우터 4개가 네트워크에 대칭적으로 놓여 있다(multi-hop paths). 각 호스트의 flow는 라우터 두 개를 거치고, 서로 엇갈려서 라우터를 공유한다. 라우터 하나를 flow 두 개가 쓰니 각자 R/2씩 나눠 쓸 수 있는 상황이고, 버퍼는 유한하며 타임아웃과 재전송이 일어난다.
 
@@ -122,8 +122,6 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 이렇게 혼잡 때문에 성능이 조금 떨어지는 정도가 아니라 서로가 데이터를 못 보내는 상황을 **congestion collapse**라고 한다. 혼잡으로 멸망했다는, 아주 극단적인 표현이다. 여기서 강의자료가 짚는 또 하나의 비용은 이것이다. **패킷이 버려지면, 그 패킷을 나르느라 upstream에서 쓴 전송 capacity와 버퍼링도 전부 낭비된 것이다.**
 
 ### Insights: 지금까지의 정리
-
-![혼잡의 원인과 비용: 다섯 가지 insight](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-29.png)
 
 - throughput은 capacity를 절대 넘을 수 없다.
 - capacity에 가까워질수록 delay가 커진다.
@@ -147,7 +145,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 이제 혼잡이 무엇이고, 네트워크 참여자들의 어떤 동작 때문에 생기는지 파악했다. 그럼 이걸 제어하는 기술이 필요한데, 크게 두 가지 접근이 있다.
 
-![end-end와 network-assisted 혼잡 제어](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-30.png)
+![end-end와 network-assisted 혼잡 제어](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-6.png)
 
 ### End-end congestion control (종단간 혼잡 제어)
 
@@ -171,7 +169,7 @@ ARQ에서 배웠듯 재전송은 전송 계층이 한다. 여기서 속도를 �
 
 ### TCP sliding window 다시 보기
 
-![sender sequence number space와 cwnd](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-31.png)
+![sender sequence number space와 cwnd](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-7.png)
 
 TCP sliding window에서 배운 내용을 다시 가져온다. TCP가 데이터를 보내는 양은 send window로 제한된다. sender는 보냈지만 아직 ACK를 못 받은(in-flight) 데이터가 cwnd를 넘지 않도록 한다.
 
@@ -206,7 +204,7 @@ sender는 패킷 로스(혼잡)가 나기 전까지 보내는 속도를 올리�
 
 ### Sawtooth behavior
 
-![AIMD와 sawtooth behavior](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-32.png)
+![AIMD와 sawtooth behavior](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-8.png)
 
 이 알고리즘을 시간에 따라 관찰하면, 일정한 값을 더하니 기울기가 일정한 직선으로 올라간다. 그러다 갑자기 곱하기로 크게 떨어지고, 다시 성공하면 올랐다가, 또 낮추기를 반복한다. 톱날처럼 보여서 **sawtooth behavior**라고 부르고, 강의자료는 이를 "bandwidth를 탐색하는(probing for bandwidth)" 동작이라고 표현한다.
 
@@ -214,7 +212,7 @@ sender는 패킷 로스(혼잡)가 나기 전까지 보내는 속도를 올리�
 
 ### Additive increase를 그림으로 보면
 
-![additive increase: cwnd 4, 5, 6](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-33.png)
+![additive increase: cwnd 4, 5, 6](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-9.png)
 
 cwnd가 4라고 하자. 그림의 정수는 byte가 아니라 **MSS 기준 세그먼트 개수**다. 이론 분석에서는 보통 MSS 단위를 쓰니, 세그먼트 개수로 생각하는 편이 훨씬 편하다.
 
@@ -222,7 +220,7 @@ cwnd = 4면 세그먼트 4개가 가고, delayed ACK가 없다고 보면 ACK가 
 
 ### Multiplicative decrease: Tahoe와 Reno
 
-![TCP Tahoe와 TCP Reno의 multiplicative decrease](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-34.png)
+![TCP Tahoe와 TCP Reno의 multiplicative decrease](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-10.png)
 
 곱해서 줄이는 방법은 두 가지다.
 
@@ -255,7 +253,7 @@ cwnd = 4면 세그먼트 4개가 가고, delayed ACK가 없다고 보면 ACK가 
 - 처음에는 cwnd = 1 MSS에서 시작한다 (initially cwnd = 1 MSS).
 - ACK를 하나 받으면 cwnd가 2, 두 개에 대한 ACK를 받으면 4, 한 라운드가 더 지나면 8이 된다.
 
-![slow start: 1, 2, 4, 8과 AIMD 비교](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-35.png)
+![slow start: 1, 2, 4, 8과 AIMD 비교](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-11.png)
 
 실제 구현은 **ACK가 확인해 준, 이번에 새로 전송이 완료된 데이터 크기만큼 cwnd를 늘리는 것**이다(done by incrementing cwnd for every ACK received). 그 결과 1 → 2 → 4 → 8처럼 라운드(RTT)마다 2배씩 늘어난다(double cwnd every RTT). 원래 동작은 "ACK마다 더하기"이고, 그 결과가 "RTT마다 2배"라는 것을 정확히 구분해서 기억하자.
 
@@ -283,7 +281,7 @@ ssthresh는 이렇게 이해하면 된다. 정확한 추정치는 아니지만, 
 
 ### 그림 예시: ssthresh = 16에서 시작
 
-![ssthresh = 16에서 시작한 cwnd의 변화](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-36.png)
+![ssthresh = 16에서 시작한 cwnd의 변화](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-12.png)
 
 1. **Slow start.** 1 → 2 → 4 → 8 → 16까지 올라간다.
 2. **AIMD(additive increase).** 16에 도달한 뒤부터는 16 → 17 → 18 → 19 → 20. 각 라운드(RTT) 동안 로스 없이 ACK가 잘 도착했다는 뜻이다.
@@ -302,7 +300,7 @@ ssthresh는 이렇게 이해하면 된다. 정확한 추정치는 아니지만, 
 
 ### 정리: "Simplified" TCP congestion control
 
-![Simplified TCP congestion control 상태도](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-37.png)
+![Simplified TCP congestion control 상태도](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-13.png)
 
 이 동작들을 보면 이렇게 정리할 수 있다.
 
@@ -322,7 +320,7 @@ ssthresh는 이렇게 이해하면 된다. 정확한 추정치는 아니지만, 
 
 ### Fairness goal: K개가 나눠 쓰면 R/K씩
 
-![TCP fairness: 같은 병목을 쓰면 R/K씩](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-15.png)
+![TCP fairness: 같은 병목을 쓰면 R/K씩](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-14.png)
 
 혼잡 제어의 원리에서처럼, 라우터에서 외부로 나가는 케이블의 capacity가 R로 제한되어 있다고 하자. 두 연결이 이 bottleneck link를 공유하는데 한쪽이 많이 쓰고 한쪽이 적게 쓴다면 불공평하다고 생각할 여지가 있다.
 
@@ -341,7 +339,7 @@ TCP는 혼잡 제어 알고리즘으로 보내는 속도를 동적으로 올렸�
 
 ### Q: TCP는 공평한가?
 
-![TCP는 공평한가: AIMD는 y = x로 수렴한다](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-16.png)
+![TCP는 공평한가: AIMD는 y = x로 수렴한다](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-15.png)
 
 X축은 TCP connection 1의 throughput, Y축은 connection 2의 throughput이다. 둘이 bottleneck link를 공유하고 있으니 각 연결의 throughput은 아무리 커져도 R을 넘을 수 없다. connection 1의 throughput을 x, connection 2를 y라고 하면, 둘의 합도 bottleneck capacity를 넘을 수 없으니 **x + y ≤ R**이다.
 
@@ -361,7 +359,7 @@ x + y = R은 x절편과 y절편이 모두 R인 직선이다. 둘이 보내는 �
 
 ### 모든 애플리케이션이 공평해야 할까?
 
-![UDP와 parallel TCP connections](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-17.png)
+![UDP와 parallel TCP connections](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-16.png)
 
 **Fairness and UDP.** 네트워크에는 TCP만 있는 게 아니다. UDP에는 혼잡 제어도, 속도를 조절하는 기능 자체도 없다. 일정 속도로 보내는 프로그램을 만들어 두면 혼잡이 생겨도 UDP는 계속 이기적으로 보낼 수 있으니, 자기 이득을 최대화할 여지가 많다.
 
@@ -388,7 +386,7 @@ TCP Tahoe를 Reno라는 구현이 패치했다고 했다. 둘의 차이는 **fas
 
 ### TCP CUBIC
 
-![TCP CUBIC: Wmax 근처에서만 조심스럽게](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-18.png)
+![TCP CUBIC: Wmax 근처에서만 조심스럽게](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-17.png)
 
 AIMD가 좋은 건 알겠지만 보수적이다. 그럼 AIMD보다 빠르게 bottleneck link를 꽉 채우면서도 로스는 안 나게 하려면 어떻게 설계할까? 그 결과 중 하나가 **TCP CUBIC**이다.
 
@@ -402,7 +400,7 @@ Wmax까지 갔는데도 로스가 안 났다면, 다른 사람이 레이트를 �
 
 ### Delay-based 혼잡 제어와 BBR
 
-![Delay-based 혼잡 제어: 파이프를 딱 찰 만큼만](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-19.png)
+![Delay-based 혼잡 제어: 파이프를 딱 찰 만큼만](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-18.png)
 
 지금까지는 혼잡 제어를 **loss 중심**으로 배웠다. 로스가 났느냐, 그리고 로스가 난 건 분명하지만 빠르게 복구할 수 있는 triple duplicate ACK 상황만 봤다.
 
@@ -418,7 +416,7 @@ Vegas 자체는 Tahoe나 Reno와 함께 돌 때 페널티를 받는 등의 문�
 
 ### Explicit congestion notification (ECN)
 
-![ECN: 라우터가 IP 헤더에 혼잡을 표시한다](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-20.png)
+![ECN: 라우터가 IP 헤더에 혼잡을 표시한다](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-19.png)
 
 앞에서 TCP에도 network-assisted 혼잡 제어를 만들 수 있다고 했는데, 그 대표 예가 **ECN**이다.
 
@@ -431,7 +429,7 @@ Vegas 자체는 Tahoe나 Reno와 함께 돌 때 페널티를 받는 등의 문�
 
 ## TCP Timers
 
-![TCP Timers: 네 가지](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-21.png)
+![TCP Timers: 네 가지](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-20.png)
 
 TCP의 마지막 파트에 덤으로 들어간 내용이다. 디테일을 외울 필요는 없고 슬라이드 41 정도만 잘 이해해도 시험에는 문제없다고 하셨다. TCP에는 타이머가 여러 개 있다. **이 4개가 있다는 건 꼭 기억하자.** 객관식 문제로 만들기 좋다고 하셨다.
 
@@ -442,7 +440,7 @@ TCP의 마지막 파트에 덤으로 들어간 내용이다. 디테일을 외울
 
 ### Persistence timer와 deadlock
 
-![Persistence timer: rwnd = 0에서 생기는 deadlock 풀기](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-22.png)
+![Persistence timer: rwnd = 0에서 생기는 deadlock 풀기](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-21.png)
 
 receiver가 advertised window(rwnd)를 0으로 알려 주면 sender는 데이터를 보낼 수 없다. 나중에 receiver가 "rwnd가 늘었으니 보내도 돼"라는 ACK를 보냈는데 이게 손실되면 어떻게 될까?
 
@@ -456,7 +454,7 @@ receiver가 advertised window(rwnd)를 0으로 알려 주면 sender는 데이터
 
 ## 전송 계층의 진화와 QUIC
 
-![전송 계층의 진화와 QUIC](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-23.png)
+![전송 계층의 진화와 QUIC](/assets/img/major/computer-network/2026-11-16-컴퓨터-네트워크-tcp-congestion-control/tcp-congestion-control-22.png)
 
 전송 계층을 아주 자세히 배웠는데, TCP는 40년 넘게 쓰이면서 여러 문제점이 알려졌다. 네트워크 상황에 맞춰 TCP를 최적화하려는 연구도 계속 나왔다.
 
