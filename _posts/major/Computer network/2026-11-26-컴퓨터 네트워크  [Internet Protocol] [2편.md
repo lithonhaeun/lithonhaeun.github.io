@@ -1,7 +1,8 @@
 ---
-title : 컴퓨터 네트워크 실습 [2편]
+title : 컴퓨터 네트워크 [Internet Protocol][2편]
 description: "네트워크 계층 개론부터 subnetting까지"
 ---
+
 
 # 컴퓨터네트워크 Internet Protocol (2): IP Forwarding과 NAT
 
