@@ -23,7 +23,7 @@ description: "네트워크 계층 개론부터 subnetting까지"
 
 ### 주소 배정 방식의 흐름: classful → subnet → VLSM → CIDR
 
-![주소 배정 방식의 흐름](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-1.png)
+![주소 배정 방식의 흐름](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-1.png)
 
 addressing 파트에서는 주소가 어떤 개념이고 어떻게 표기하는지부터 시작해서, **classful addressing**, **subnet addressing**, **VLSM(Variable-Length Subnet Mask)**, **CIDR(Classless Inter-Domain Routing)** 를 하나씩 살펴봤다.
 
@@ -45,7 +45,7 @@ addressing 파트에서는 주소가 어떤 개념이고 어떻게 표기하는�
 
 ### Route aggregation (supernetting)
 
-![Route aggregation: 붙어 있는 prefix를 하나로 요약](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-2.png)
+![Route aggregation: 붙어 있는 prefix를 하나로 요약](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-2.png)
 
 라우터마다 맡고 있는 주소 블록이 있는데, 이 블록들을 합쳐 보니 **하나의 주소 블록처럼 볼 수 있는** 상황이 있다. 그러면 상위 라우터가 이걸 요약해서 인터넷에 뿌린다. 강의자료의 표현으로는 숫자상 인접한 여러 prefix를 더 짧은 prefix 하나(aggregate, summary)로 합치는 것이다. 덕분에 라우팅 정보를 **더 적은 엔트리**로 주고받고 관리할 수 있다. (그림의 192.168.x.x 주소는 이해를 돕기 위한 예시다.)
 
@@ -67,11 +67,11 @@ addressing을 엄청 다양하게 다뤘는데, 아직 끝나지 않은 부분�
 
 호스트의 IP가 패킷을 만들어 어딘가로 보낼 때, 크게 두 가지로 나눠 본다.
 
-![Direct delivery: 같은 네트워크면 라우터가 필요 없다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-3.png)
+![Direct delivery: 같은 네트워크면 라우터가 필요 없다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-3.png)
 
 **Direct delivery.** destination이 **같은 네트워크**에 있으면 라우터를 거칠 필요가 없다. 데이터 링크 계층에서 배운 것처럼, A가 스위치에 패킷을 넘기면 스위치가 broadcast를 하거나, address learning으로 알고 있다면 바로 unicast해서 도착지에 전달한다. 이때 IP는 존재하지만 **패킷을 만드는 것 외에는 별 역할을 하지 않는다.** 라우터는 관여하지 않는다.
 
-![Indirect delivery: 가장 가까운 라우터에 맡긴다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-4.png)
+![Indirect delivery: 가장 가까운 라우터에 맡긴다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-4.png)
 
 **Indirect delivery.** A가 여러 홉을 거쳐야만 B에게 갈 수 있다면, A는 뒤쪽 네트워크가 어떻게 생겼는지 모른다. 그러니 B로 보내려면 반드시 거쳐야 하는, **나와 가장 가까운 라우터**를 골라 거기에 보내야 한다. 라우터를 거친다는 건 A가 직접 배송할 수 없다는 뜻이다.
 
@@ -80,7 +80,7 @@ addressing을 엄청 다양하게 다뤘는데, 아직 끝나지 않은 부분�
 
 ### Next-hop router, gateway, default router
 
-![Default router: 모르는 곳은 전부 기본 라우터로](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-5.png)
+![Default router: 모르는 곳은 전부 기본 라우터로](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-5.png)
 
 indirect delivery를 하려면 destination마다 **그걸 전달해 줄 다음 라우터**를 알아야 한다. B나 C로 가려면 R1을 거치고, 다른 쪽에 있는 D로 가려면 R2로 보내야 한다는 식이다.
 
@@ -98,7 +98,7 @@ direct·indirect delivery, gateway, default router 같은 개념은 라우팅이
 
 ### Route method vs next-hop method
 
-![Route method vs Next-hop method](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-6.png)
+![Route method vs Next-hop method](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-6.png)
 
 A에서 B로 보낼 때 테이블에 적는 방법은 두 가지가 있을 수 있다.
 
@@ -109,7 +109,7 @@ next-hop method는 테이블 정보가 적다 보니, R1에 도착했을 때 R1�
 
 ### Network-specific method
 
-![Host-specific vs Network-specific](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-7.png)
+![Host-specific vs Network-specific](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-7.png)
 
 destination을 호스트 하나하나로 적으면 테이블이 너무 커진다. 그래서 **같은 네트워크에 있는 기기들은 퉁 쳐서 네트워크 주소 하나로** 적는다. "인천에 갈 때는 이 라우터가 next hop이다" 같은 식이다. 엔트리 개수가 훨씬 줄어든다.
 
@@ -123,7 +123,7 @@ destination에 **호스트 주소를 직접** 적는 방식이다. 효율은 떨
 
 구체적으로 적혀 있지 않은 나머지를 처리할 **기본 라우터**를 두는 방식이다. 그러면 인터넷을 통해 누군가 전달해 주겠지, 하고 넘길 수 있다.
 
-![Default = 0.0.0.0/0 엔트리](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-8.png)
+![Default = 0.0.0.0/0 엔트리](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-8.png)
 
 longest prefix matching과 연결하면, default는 **네트워크 주소를 0.0.0.0(/0)으로 둔 엔트리 하나**와 같다. 예를 들어 테이블에 이런 엔트리가 있다고 하자.
 
@@ -147,7 +147,7 @@ longest prefix matching과 연결하면, default는 **네트워크 주소를 0.0
 
 ## 호스트가 datagram을 받으면
 
-![호스트가 datagram을 받으면](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-9.png)
+![호스트가 datagram을 받으면](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-9.png)
 
 이제 호스트에서 IP datagram을 받았을 때 IP가 어떻게 처리하는지 본다. datagram은 **외부(데이터 링크)에서 올라올 수도** 있고, TCP나 UDP를 거쳐 **프로그램에서 내려올 수도** 있다.
 
@@ -196,7 +196,7 @@ longest prefix matching과 연결하면, default는 **네트워크 주소를 0.0
 
 ## 예제 1: 그림만 보고 R1의 forwarding table 만들기
 
-![그림만 보고 R1의 forwarding table 만들기](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-10.png)
+![그림만 보고 R1의 forwarding table 만들기](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-10.png)
 
 교수님이 **시험에 자주 내는 문제**라고 강조한 유형이다. 왼쪽 그림만 보고 R1의 테이블을 만들 수 있어야 한다.
 
@@ -228,7 +228,7 @@ longest prefix matching과 연결하면, default는 **네트워크 주소를 0.0
 
 ### 목적지 180.70.65.140
 
-![180.70.65.140: 네 번째 옥텟 비교](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-11.png)
+![180.70.65.140: 네 번째 옥텟 비교](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-11.png)
 
 - **180.70.65.192/26:** 앞의 세 옥텟은 맞다. /26이니 네 번째 옥텟의 **상위 2비트**를 봐야 한다. 192 = 128 + 64 = **11**000000이다. (클래스 C의 시작 주소가 192라서 외워 두면 좋다.) 140은 **10**001100이다. 11과 10이 달라서 **불일치**.
 - **180.70.65.128/25:** /25이니 상위 1비트만 본다. 128 = **1**0000000, 140 = **1**0001100. **일치, 25비트.**
@@ -244,7 +244,7 @@ longest prefix matching과 연결하면, default는 **네트워크 주소를 0.0
 
 ### 목적지 201.4.22.35
 
-![201.4.22.35: 세 번째 옥텟 비교](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-12.png)
+![201.4.22.35: 세 번째 옥텟 비교](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-12.png)
 
 - **180.70.x 두 엔트리:** 딱 봐도 첫 옥텟이 달라 불일치.
 - **201.4.22.0/24:** 세 옥텟만 맞으면 된다. **일치, 24비트.**
@@ -257,7 +257,7 @@ longest prefix matching과 연결하면, default는 **네트워크 주소를 0.0
 
 ## 예제 4: forwarding table만 보고 토폴로지 그리기
 
-![테이블만 보고 토폴로지 그리기](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-13.png)
+![테이블만 보고 토폴로지 그리기](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-13.png)
 
 이번에는 반대로, R1의 테이블(교재 Table 6.2)만 보고 그림을 그려 보는 문제다.
 
@@ -300,7 +300,7 @@ NAT는 대부분의 유무선 공유기에 들어가 있고, 인터넷 발전 �
 
 ### 사설(private) IP 주소
 
-![사설 IP는 여러 곳에서 똑같이 쓰인다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-14.png)
+![사설 IP는 여러 곳에서 똑같이 쓰인다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-14.png)
 
 예외가 있다. **10/8, 172.16/12, 192.168/16** 같은 주소는 프라이빗 네트워크용이라 여러 곳에서 **재사용**할 수 있다. 하지만 이 주소로 외부와 직접 소통하는 건 불가능하다. 같은 주소를 쓰는 네트워크가 전 세계에 엄청나게 많으니, 찾아갈 방법이 없다.
 
@@ -312,11 +312,11 @@ NAT는 대부분의 유무선 공유기에 들어가 있고, 인터넷 발전 �
 
 물리적으로 가면을 옮길 수는 없으니, 10.0.0.1이 패킷을 밖으로 보낼 때 **source IP를 내부 주소에서 공인 주소로 바꿔 주면** 된다. 응답은 공인 IP로 돌아올 테니, 공유기가 받아서 다시 10.0.0.1로 바꿔 주면 된다.
 
-![IP만으로는 구분할 수 없다 → 포트 번호를 쓴다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-15.png)
+![IP만으로는 구분할 수 없다 → 포트 번호를 쓴다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-15.png)
 
 그런데 **IP 주소만으로는 부족하다.** 거의 같은 시기에 10.0.0.2도 밖과 소통하고 있다면, 밖에서 돌아온 두 패킷의 destination IP가 똑같아서 누구 것인지 구분할 방법이 없다. 그래서 NAT를 만든 사람들은 **포트 번호까지 사용해서** 구분하기로 했다. (포트 번호는 전송 계층 헤더에 있지만 편의상 같이 그린다.)
 
-![NAT 변환: 나갈 때 바꾸고, 들어올 때 되돌린다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-16.png)
+![NAT 변환: 나갈 때 바꾸고, 들어올 때 되돌린다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-16.png)
 
 1. **10.0.0.1:3345**가 HTTP 서버 **128.119.40.186:80**으로 패킷을 보낸다.
 2. 공유기는 destination을 보고 밖으로 나가는 패킷임을 안다. 그대로 내보내면 안 되니, NAT 프로그램이 source를 **138.76.29.7:5001**로 바꾸고, 이 짝을 **NAT translation table**에 기록한다.
@@ -339,7 +339,7 @@ NAT는 대부분의 유무선 공유기에 들어가 있고, 인터넷 발전 �
 
 반대로 NAT는 좀 이상한 부분이 있어서 논란이 많았다.
 
-![NAT 논란: 라우터가 4계층을 건드린다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-17.png)
+![NAT 논란: 라우터가 4계층을 건드린다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-17.png)
 
 - **계층 위반:** 라우터는 3계층(네트워크 계층)까지만 처리하는 장비라고 배웠다. 그런데 NAT는 **4계층 정보인 포트 번호**를 쓴다. 계층을 넘어 처리하면 protocol layering을 만든 장점이 사라진다.
 - **IPv6 보급 방해:** IPv6는 43억 개밖에 넣을 수 없는 주소 문제를 큰 주소 공간으로 해결하려고 만든 것이다. 그런데 NAT로 공인 IP를 덜 쓰면 더 많은 기기를 인터넷에 넣을 수 있다. 싼 공유기만 설치하면 바로 해결되는데, IPv6를 쓰려면 전 세계 라우터를 다 바꿔야 한다. 그러니 **IPv6를 굳이 쓸 이유가 없어진다.**
@@ -356,7 +356,7 @@ NAT는 대부분의 유무선 공유기에 들어가 있고, 인터넷 발전 �
 
 IPv4가 전 세계에 깔린 상황에서 IPv6를 쓰는 사람들이 있다고 하자. IPv6와 IPv4는 직접 통신이 안 된다. 그래도 IPv6 컴퓨터끼리는 통신할 수 있어야 한다. 문제는 경로 중간에 **IPv4만 있는 구간**이 있을 수 있다는 것이다.
 
-![IPv6 tunneling: IPv4 datagram 안에 IPv6 datagram을 넣는다](/assets/img/major/computer-network/2026-11-26-컴퓨터-네트워크-실습-2편/2-18.png)
+![IPv6 tunneling: IPv4 datagram 안에 IPv6 datagram을 넣는다](/assets/img/major/computer-network/2026-11-26-컴퓨터%20네트워크%20%20%5BInternet%20Protocol%5D%20%5B2편%5D/2-18.png)
 
 이를 극복하는 기술이 **tunneling**이다. IPv6 datagram을 **IPv4 datagram의 payload로 encapsulation**해서 IPv4인 것처럼 위장해 보내고(packet within a packet), IPv6와 IPv4를 모두 지원하는 라우터 사이를 지나가게 한다. 슬라이드 그림에서는 B와 E 사이에 터널이 만들어져서 A가 F까지 갈 수 있다.
 
