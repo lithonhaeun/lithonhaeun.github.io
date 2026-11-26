@@ -3,7 +3,7 @@ title : 컴퓨터 네트워크 [Internet Protocol][1편]
 description: "네트워크 계층 개론부터 subnetting까지"
 ---
 
-#  Internet Protocol (1): 네트워크 계층 개론부터 subnetting까지
+# 컴퓨터네트워크 — Internet Protocol (1): 네트워크 계층 개론부터 subnetting까지
 
 ## 들어가며
 
@@ -27,7 +27,7 @@ TCP를 몇 주에 걸쳐 공부했으니, 이번 주부터는 한 계층 내려�
 
 ### 네트워크 계층이 하는 일
 
-![네트워크 계층: 호스트에서 호스트까지 배달하는 물류 서비스](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-1.png)
+![모든 호스트와 라우터에 네트워크 계층이 있다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-1.png)
 
 네트워크 계층은 상위 계층에 일종의 **물류 배송 서비스**를 제공한다. 데이터를 보내는 sending host에서 받는 receiving host까지 데이터를 잘 전달하는 것이 목표다. 전송 계층의 데이터를 segment라고 불렀으니, 강의자료는 이를 "segment를 transport한다"고 표현한다.
 
@@ -41,11 +41,11 @@ TCP를 몇 주에 걸쳐 공부했으니, 이번 주부터는 한 계층 내려�
 - 라우터에 IP datagram이 도착하면 **헤더 필드를 체크**해서 어디로 보낼지 판단한다.
 - 라우터 중심으로 보면, input port에 도착한 datagram을 **output port로 옮기는** 작업이다.
 
-그림처럼 랩탑 하나가 서버로 데이터를 보낼 때, 여러 라우터를 거쳐 경로를 따라 데이터를 흘려보낸다.
+강의자료 그림에서는 랩탑 하나가 서버로 데이터를 보낼 때, 여러 라우터를 거쳐 경로를 따라 데이터를 흘려보낸다.
 
 ### 두 가지 핵심 기능: forwarding과 routing
 
-![네트워크 계층의 두 가지 핵심 기능](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-2.png)
+![Forwarding과 routing](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-2.png)
 
 앞으로 네트워크 계층의 대표 기능을 말하라고 하면, **forwarding과 routing으로 구분해서 설명**하는 게 꼭 필요하다.
 
@@ -74,7 +74,7 @@ TCP를 몇 주에 걸쳐 공부했으니, 이번 주부터는 한 계층 내려�
 
 ### Control plane을 구현하는 두 가지 방법
 
-![Control plane을 구현하는 두 가지 방법](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-4.png)
+![Per-router control plane과 SDN](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-4.png)
 
 현대에는 두 가지 접근이 쓰인다.
 
@@ -118,7 +118,7 @@ SDN의 또 다른 장점도 있다. destination address 하나로만 판정하�
 
 ### 개별 datagram 서비스와 flow 서비스
 
-![네트워크 서비스 모델: 무엇을 보장해 줄 수 있을까](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-5.png)
+![개별 datagram 서비스와 flow 서비스](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-5.png)
 
 서비스는 individual datagram 단위로도, flow 단위로도 제공할 수 있다.
 
@@ -166,7 +166,7 @@ ATM이 승리하지 못했어도, 이런 서비스 모델로 돈을 벌 기회�
 
 ### Best effort는 왜 이렇게까지 성공했을까
 
-![Best effort는 왜 이렇게까지 성공했을까](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-6.png)
+![대역폭 공급과 CDN 복제](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-6.png)
 
 네트워크 하는 사람들 입장에서는 ATM 같은 기술이 성공했다면 더 많은 석박사들을 회사에 취직시켜 돈을 벌 수 있었을 텐데 그러지 못했다. 그래서 강의자료에는 반성에 대한 얘기도 있다. 인터넷은 왜 이렇게 성공해 버렸을까?
 
@@ -196,7 +196,7 @@ IP는 **버전 4와 버전 6** 두 가지가 있다. 다른 버전들도 있었�
 
 ### IP가 제공하는 서비스
 
-![IP가 제공하는 서비스: TCP와 정반대](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-7.png)
+![IP와 TCP의 서비스 비교](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-7.png)
 
 IP가 제공하는 서비스가 무엇이냐고 누가 물으면 세 단어로 답하면 된다. IPv4(RFC 791)는 **unreliable, connectionless, datagram delivery** 서비스를 제공한다. TCP가 **reliable, connection-oriented, byte stream delivery** 서비스였던 것과 매우 대비된다.
 
@@ -215,7 +215,7 @@ IP가 주고받는 PDU인 datagram은 헤더와 payload로 이루어진다.
 - **헤더:** 최소 20바이트, 최대 60바이트
 - **datagram 전체:** 최대 65,535바이트 (2^16 − 1)
 
-![IPv4 헤더: 필드 위치까지 기억하기](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-8.png)
+![IPv4 헤더](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-8.png)
 
 헤더는 **각 필드의 위치까지 다 외우는 것을 추천**한다. 단, 강의자료에서 노란색으로 표시된 원래 ToS 비트 구성은 외우지 않아도 된다. 그림은 32비트(4바이트) 기준으로 잘라 2차원으로 표현한 것이다.
 
@@ -233,7 +233,7 @@ IP가 주고받는 PDU인 datagram은 헤더와 payload로 이루어진다.
 
 ### 두 번째 줄: Identification, Flags, Fragment Offset
 
-![두 번째 줄: fragmentation을 위한 세 필드](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-9.png)
+![fragmentation용 세 필드](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-9.png)
 
 이 줄이 **매우 중요하다.** IP fragmentation에 관련된 필드가 여기 모여 있다. 자세한 계산은 뒤의 Part 3에서 보는데, 간단히 말하면 datagram이 라우터를 거쳐 가는 도중에 **잘리는(fragment) 경우**가 있고, 이를 처리하기 위한 필드들이다.
 
@@ -248,7 +248,7 @@ IP가 주고받는 PDU인 datagram은 헤더와 payload로 이루어진다.
 
 ### 세 번째 줄: TTL, Protocol, Header Checksum
 
-![Time-to-Live: 라우터를 지날 때마다 1씩 줄고, 0이 되면 버려진다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-10.png)
+![TTL은 홉마다 1씩 줄고 0이 되면 버려진다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-10.png)
 
 **Time-to-Live, TTL (8 bits).** IP datagram이 **몇 홉까지 살아남을 수 있는지**를 적는 필드다. 라우터를 거쳐 다른 네트워크로 한 번 넘어가는 것을 홉이라고 했다.
 
@@ -284,7 +284,7 @@ IP가 주고받는 PDU인 datagram은 헤더와 payload로 이루어진다.
 
 ### IP의 역다중화
 
-![IP의 역다중화: protocol 필드가 다음 주인을 정한다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-11.png)
+![protocol 필드로 다음 주인을 정한다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-11.png)
 
 이 부분은 체크해 두자. 앞의 설명만 들으면 protocol 필드에는 TCP, UDP 같은 **전송 계층** 프로토콜 값만 적힌다고 착각할 수 있다. 그런데 여기 올 수 있는 것 중 일부는 **네트워크 계층**으로 분류되는 것들이다. 뒤에서 배울 **ICMP**도 IP의 protocol 필드에 올 수 있다는 걸 염두에 두자. 그림처럼 IGMP, OSPF도 마찬가지다.
 
@@ -296,13 +296,11 @@ IP가 주고받는 PDU인 datagram은 헤더와 payload로 이루어진다.
 
 ### 단순함을 위해 다시 만든 헤더
 
-![IPv6 헤더: 고정 40바이트, 필드는 확 줄였다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-12.png)
+![IPv4 헤더와 IPv6 헤더 비교](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-12.png)
 
 **IPv6**는 차세대 인터넷 프로토콜(IPng)이라는 이름으로 처음 개발됐다가 버전 6으로 최종 결정됐다. IPv4가 실제로 전 세계에 deploy된 뒤에 개발된 기술이라, 앞에서 만든 것 중 불필요했던 걸 제거하고 **단순하게** 하는 데 맞춰져 있다.
 
 앞에서 인터넷 속도가 엄청나게 빨라졌다고 했다. 그 말은 라우터가 처리해야 할 패킷의 양이 급격하게 늘었다는 뜻이다. 그런데 IP에 필드가 많다는 건 필요에 따라 그걸 일일이 체크해야 한다는 뜻이고, 라우터의 계산 비용을 높인다. 그래서 IPv6를 만든 사람들은 **필드 수를 엄청 줄였다.**
-
-![IPv4에서 IPv6로: 무엇이 바뀌었나](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-13.png)
 
 **Version.** 첫 4비트는 바꾸면 안 된다. IPv4와 IPv6가 같은 네트워크에 흐르니, 이 값이 6인지 보고 IPv6인지 확인한다.
 
@@ -324,7 +322,7 @@ IP가 주고받는 PDU인 datagram은 헤더와 payload로 이루어진다.
 
 ### Next Header 체인: 옵션을 대신하는 확장 헤더
 
-![Next Header 체인: 옵션이 필요하면 헤더를 하나 더 붙인다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-14.png)
+![Next Header 체인](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-13.png)
 
 IPv6 헤더 다음에 바로 TCP 데이터가 들어간다면, next header는 protocol 필드와 같은 값인 **6**을 쓴다.
 
@@ -351,7 +349,7 @@ IPv4 포맷을 살펴보며 fragmentation이 개념적으로 중요하다고 했
 
 ### MTU와 fragmentation
 
-![IP fragmentation: 작은 MTU 링크를 만나면 라우터가 쪼갠다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-15.png)
+![작은 MTU 링크를 만나면 라우터가 쪼갠다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-14.png)
 
 인터넷에서 데이터는 호스트와 라우터를 거쳐 최종 목적지로 가는데, 각 네트워크, 각 링크에는 **MTU**가 있다. 그 링크에 한 번에 흘려보낼 수 있는 IP datagram의 크기가 정해져 있다는 뜻이다. 강의자료의 말로는 가장 큰 link-level frame의 크기이고, 링크 종류마다 MTU가 다르다.
 
@@ -367,7 +365,7 @@ IPv4 포맷을 살펴보며 fragmentation이 개념적으로 중요하다고 했
 
 하지만 인터넷에서는 **중간 라우터가 합치지 않는다.** 쪼개진 것을 합치는 작업을 **reassembly**라고 하는데, reassembly는 **destination에서만** 한다. 꼭 기억하자.
 
-쪼개야 하는 상황은 네트워크의 라우터 때문에 생겼지만, 원래대로 복원하는 작업은 중간 라우터가 굳이 할 필요가 없고 받는 쪽에서 잘 받아 처리하면 되니 그쪽에 떠넘기는 것이다. 사실 이게 더 합리적이다. 그림처럼 한 홉이라면 조각들이 같은 링크를 탈 가능성이 높지만, 합쳐야 할 위치가 다르고 조각마다 **다른 경로**를 타고 온다면 어디서 합칠지 모호해진다.
+쪼개야 하는 상황은 네트워크의 라우터 때문에 생겼지만, 원래대로 복원하는 작업은 중간 라우터가 굳이 할 필요가 없고 받는 쪽에서 잘 받아 처리하면 되니 그쪽에 떠넘기는 것이다. 사실 이게 더 합리적이다. 강의자료 그림처럼 한 홉이라면 조각들이 같은 링크를 탈 가능성이 높지만, 합쳐야 할 위치가 다르고 조각마다 **다른 경로**를 타고 온다면 어디서 합칠지 모호해진다.
 
 fragment가 생긴 datagram은 IP 헤더의 비트로 확인할 수 있다. 앞에서 본 두 번째 줄의 **Identification, Flags, Fragment Offset** 세 필드다.
 
@@ -377,7 +375,7 @@ fragment가 생긴 datagram은 IP 헤더의 비트로 확인할 수 있다. 앞�
 
 ### 예시: 4000바이트 datagram, MTU 1500바이트
 
-![Fragmentation 예시: 4000 B datagram이 MTU 1500 B 링크를 지나면](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-16.png)
+![4000 B datagram의 fragmentation 예시](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-15.png)
 
 호스트가 **4000바이트**짜리 IP datagram을 보냈다고 하자. 그림의 length는 total length다.
 
@@ -417,7 +415,7 @@ fragment가 생긴 datagram은 IP 헤더의 비트로 확인할 수 있다. 앞�
 
 ### 한 번 더 쪼개지는 경우
 
-![한 번 더 쪼개지는 경우: 조각이 다시 조각나도 같은 방법](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-17.png)
+![조각이 다시 쪼개지는 경우](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-16.png)
 
 문제를 더 어렵게 만들면, 어떤 링크에서 datagram을 세 조각으로 쪼갠 뒤 그중 하나가 또 쪼개지는 상황도 생각할 수 있다. 이때도 같은 방법으로 처리하면 된다. 강의자료 예시에서는 4020바이트 datagram(데이터 0000–3999)이 1420, 1420, 1220바이트 세 조각(offset 000, 175, 350)으로 나뉘고, 두 번째 조각이 다시 820바이트짜리 2.1(데이터 1400–2199, offset 175)과 2.2로 나뉜다. 다시 쪼개도 offset은 **원본 데이터 기준**이라는 점이 포인트다. 그림의 2.2(620바이트, MF 1, offset 275)는 슬라이드에 값이 없어서 같은 규칙으로 직접 계산한 것이다.
 
@@ -427,7 +425,7 @@ fragment가 생긴 datagram은 IP 헤더의 비트로 확인할 수 있다. 앞�
 
 ## Part 4. IPv4 Options
 
-![IPv4 옵션: 개념만 알고 넘어가기](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-18.png)
+![Strict·loose source route와 timestamp](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-17.png)
 
 TCP처럼 IP도 헤더에 옵션을 붙일 수 있고, 최대 40바이트까지 추가할 수 있다. TCP처럼 처리 측면에서 32비트 배수로 늘어나도록 패딩을 넣는 부분도 있다. 하지만 TCP에서도 이런 부분을 강조하지 않았듯, 이런 디테일까지 외울 필요는 없고 **시험에 내지 않는다.**
 
@@ -462,7 +460,7 @@ TCP 옵션은 실제 현업에서 쓰인다. window scaling, MSS, timestamp 옵�
 
 ### IPv4 주소와 dotted-decimal notation
 
-![IPv4 주소: 32비트를 8비트씩 끊어 십진수로](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-19.png)
+![dotted-decimal notation과 2진수 변환](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-18.png)
 
 소켓 프로그래밍 때도 얘기했듯, IPv4 주소는 헤더에 기재할 수 있는 **32비트 non-negative integer**다. 사람이 비트로 외우기는 너무 힘드니 **8비트씩 끊어 점을 찍고 십진수로** 바꿔 쓴다. 점을 찍은 네 개의 수라서 dotted-quad라고도 하지만, 더 많이 쓰는 표현은 **dotted-decimal notation**이다. 컴퓨터 분야에서 dotted decimal notation이라는 말을 들으면 바로 IP 주소를 떠올려야 한다.
 
@@ -477,8 +475,6 @@ TCP 옵션은 실제 현업에서 쓰인다. window scaling, MSS, timestamp 옵�
 
 ### 잘못된 주소 찾기, 16진수 표기
 
-![잘못된 주소 표기 찾기, 그리고 16진수 표기](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-20.png)
-
 더 실용적인 건 **잘못 입력된 dotted decimal 주소를 찾는 것**이다. 웹사이트에 "IP 주소를 입력하세요" 폼을 만든다면, 입력값의 오류를 검증하는 로직을 짜야 할 일이 생긴다.
 
 - **111.56.045.78:** 045처럼 **leading zero**를 불필요하게 붙이면 안 된다. 사용자 입력에서는 허용해 줘야 할 수도 있지만, dotted decimal에 맞는 표기는 아니다.
@@ -490,7 +486,7 @@ TCP 옵션은 실제 현업에서 쓰인다. window scaling, MSS, timestamp 옵�
 
 ### IPv6 주소 표기
 
-![IPv6 주소 표기: 16진수 4자리 block 8개를 colon으로](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-21.png)
+![IPv6 주소 줄여 쓰기](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-19.png)
 
 IPv6 주소는 **128비트 non-negative integer**로, 공간이 IPv4의 4배다. 그러다 보니 표기법도 복잡해졌다.
 
@@ -519,7 +515,7 @@ IPv4와 다른 표기라는 걸 알리기 위해 **block**이라는 단위로 �
 
 가장 처음 쓰인 방식이 **classful addressing**이다. 32비트 주소를 **5개의 클래스**로 나눠 할당한다.
 
-![Classful addressing: 첫 바이트의 앞 비트로 클래스를 안다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-22.png)
+![Classful addressing](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-20.png)
 
 **클래스 구분법.** 네트워크에서는 8비트를 octet이라고도 한다고 했다. big-endian 순서로 앞에서부터 적었을 때, **첫 번째 바이트만 보고** 클래스를 알 수 있게 되어 있다.
 
@@ -556,7 +552,7 @@ host ID를 많이 배정받아야 하는 기관은 별로 없을 거라는 생�
 
 ### Classful 라우팅과 network mask
 
-![Classful 라우팅: network mask와 AND해서 netid를 뽑는다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-23.png)
+![Network mask와 AND](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-21.png)
 
 classful addressing을 쓰는 인터넷에서 라우터는 주소의 **네트워크 주소 부분**을 확인해야 한다. 개별 호스트가 어디 있는지 찾아가려면 인터넷의 모든 호스트 주소를 표로 저장해야 하니 메모리가 터진다.
 
@@ -575,7 +571,7 @@ classful addressing을 쓰는 인터넷에서 라우터는 주소의 **네트워
 
 ### Classful addressing의 문제
 
-![Classful addressing의 문제: 낭비와 불공평한 배분](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-24.png)
+![Classful addressing의 낭비](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-22.png)
 
 기관마다 호스트 수가 다르니 세 단계로 나눠 자원을 배분하자는 건 방법적으로 훌륭하다. 문제는 **너무 과하다**는 것이다. 이 기술이 70, 80년대에 만들어졌다는 걸 생각하면 더 그렇다. 전 세계 128개 정도의 네트워크가 각각 1,600만 대 이상을 처리하게 설계된 반면, 200만 개 정도의 네트워크는 고작 250여 개 주소만 쓸 수 있다. 강의자료의 말로는 클래스 A와 B 블록은 상당수가 낭비되고, 클래스 C 블록이 딱 맞을 만큼 작은 기관은 그렇게 많지 않다.
 
@@ -589,7 +585,7 @@ MIT는 학생이 많기는 하겠지만 클래스 A 주소 하나를 갖고 있�
 
 ### Subnet addressing (Subnetting)
 
-![Subnetting: host ID 부분을 다시 subnet ID와 host ID로 나눈다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-25.png)
+![Subnetting](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-23.png)
 
 classful addressing에서 끝나지 않고 다음 스텝이 있다. **subnet addressing**, 줄여서 **subnetting**이다(RFC 950). 네트워크를 직접 설정해 본 사람이라면 subnet mask를 설정해 본 적이 있을 텐데, 그것과 연결해서 이해하면 좋다.
 
@@ -603,7 +599,7 @@ subnet addressing은 **그 기관의 라우터만 조금 수정**해서 동작�
 
 ### Subnet mask
 
-![Subnet mask: 몇 비트까지가 (sub)network인지 직접 적어 준다](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-26.png)
+![Subnet mask와 prefix 표기](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-24.png)
 
 subnet mask를 지원하는 라우터 장비에는 네트워크를 설정할 때마다 **반드시 subnet mask를 기재**해야 한다. classful addressing에서는 network mask를 설정할 필요가 없었다. 주소를 보면 클래스를 알고, 클래스를 알면 mask를 바로 알았으니까. 하지만 subnet mask는 몇 비트를 subnet에 쓸지 알려 줘야 하니 반드시 적어야 한다.
 
@@ -613,7 +609,7 @@ subnet mask를 지원하는 라우터 장비에는 네트워크를 설정할 때
 
 ### Subnet addressing에서의 라우팅
 
-![Subnet addressing 예: 바깥은 128.32.x.x 하나, 안은 subnet별로](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-27.png)
+![기관 하나, subnet 둘](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-25.png)
 
 subnet 주소도 **AND 연산**으로 파악한다. 그래서 subnet addressing을 지원하는 라우터는 네트워크 주소뿐 아니라 **subnet 주소를 뽑아내는 기능**을 지원해야 실제로 찾아갈 다음 홉을 계산할 수 있다. 강의자료에 따르면 라우팅 과정은 classful addressing과 거의 같고, network mask 대신 subnetwork mask를 쓸 뿐이다.
 
@@ -621,7 +617,7 @@ subnet 주소도 **AND 연산**으로 파악한다. 그래서 subnet addressing�
 
 ### Subnet 그림으로 보기
 
-![Subnet이란? 라우터를 거치지 않고 서로 닿는 인터페이스들의 섬](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-28.png)
+![Subnet 그림으로 보기](/assets/img/major/computer-network/2026-11-24-컴퓨터-네트워크-internet-protocol/internet-protocol-26.png)
 
 실제로 한 기관에서 네트워크를 구축하면 subnet이 어떻게 나뉠까? 기관이 라우터 하나로 인터넷에 접속하는데 건물이 3개 있다고 하자. 케이블을 장거리로 뽑은 다음 건물 안에서는 Ethernet switch 같은 걸로 연결한다. 케이블이 길고 별도로 구축되니 보통은 layer 2 기술로 독립적으로 구성한다. 똑같은 Ethernet을 쓸 수도 있지만, 구축하는 사람 입장에서는 **별도인 것처럼** 다루고 싶어진다.
 
