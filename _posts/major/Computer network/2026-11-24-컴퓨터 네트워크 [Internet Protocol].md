@@ -1,5 +1,5 @@
 ---
-title : 컴퓨터 네트워크 [Internet Protocol]
+title : 컴퓨터 네트워크 [Internet Protocol][1편]
 description: "네트워크 계층 개론부터 subnetting까지"
 ---
 
